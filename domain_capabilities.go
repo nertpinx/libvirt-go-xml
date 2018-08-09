@@ -76,12 +76,12 @@ type DomainCapsCPUMode struct {
 
 type DomainCapsCPUModel struct {
 	Name     string `xml:",attr" json:"" yaml:""`
-	Usable   string `xml:"usable,attr,omitempty" json:"usable,omitempty,omitempty" yaml:"usable,omitempty,omitempty"`
-	Fallback string `xml:"fallback,attr,omitempty" json:"fallback,omitempty,omitempty" yaml:"fallback,omitempty,omitempty"`
+	Usable   string `xml:"usable,attr,omitempty" json:"usable,omitempty" yaml:"usable,omitempty"`
+	Fallback string `xml:"fallback,attr,omitempty" json:"fallback,omitempty" yaml:"fallback,omitempty"`
 }
 
 type DomainCapsCPUFeature struct {
-	Policy string `xml:"policy,attr,omitempty" json:"policy,omitempty,omitempty" yaml:"policy,omitempty,omitempty"`
+	Policy string `xml:"policy,attr,omitempty" json:"policy,omitempty" yaml:"policy,omitempty"`
 	Name   string `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 }
 

@@ -38,8 +38,8 @@ type SecretUsage struct {
 
 type Secret struct {
 	XMLName     xml.Name     `xml:"secret" json:"secret" yaml:"secret"`
-	Ephemeral   string       `xml:"ephemeral,attr,omitempty" json:"ephemeral,omitempty,omitempty" yaml:"ephemeral,omitempty,omitempty"`
-	Private     string       `xml:"private,attr,omitempty" json:"private,omitempty,omitempty" yaml:"private,omitempty,omitempty"`
+	Ephemeral   string       `xml:"ephemeral,attr,omitempty" json:"ephemeral,omitempty" yaml:"ephemeral,omitempty"`
+	Private     string       `xml:"private,attr,omitempty" json:"private,omitempty" yaml:"private,omitempty"`
 	Description string       `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
 	UUID        string       `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
 	Usage       *SecretUsage `xml:"usage" json:"usage" yaml:"usage"`

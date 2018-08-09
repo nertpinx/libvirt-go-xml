@@ -30,10 +30,10 @@ import (
 )
 
 type NetworkBridge struct {
-	Name            string `xml:"name,attr,omitempty" json:"name,omitempty,omitempty" yaml:"name,omitempty,omitempty"`
-	STP             string `xml:"stp,attr,omitempty" json:"stp,omitempty,omitempty" yaml:"stp,omitempty,omitempty"`
-	Delay           string `xml:"delay,attr,omitempty" json:"delay,omitempty,omitempty" yaml:"delay,omitempty,omitempty"`
-	MACTableManager string `xml:"macTableManager,attr,omitempty" json:"macTableManager,omitempty,omitempty" yaml:"macTableManager,omitempty,omitempty"`
+	Name            string `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	STP             string `xml:"stp,attr,omitempty" json:"stp,omitempty" yaml:"stp,omitempty"`
+	Delay           string `xml:"delay,attr,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
+	MACTableManager string `xml:"macTableManager,attr,omitempty" json:"macTableManager,omitempty" yaml:"macTableManager,omitempty"`
 }
 
 type NetworkVirtualPort struct {
@@ -52,34 +52,34 @@ type NetworkVirtualPortParamsAny struct {
 	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty" yaml:"managerid,omitempty"`
 	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty" yaml:"typeid,omitempty"`
 	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty" yaml:"typeidversion,omitempty"`
-	InstanceID    string `xml:"instanceid,attr,omitempty" json:"instanceid,omitempty,omitempty" yaml:"instanceid,omitempty,omitempty"`
-	ProfileID     string `xml:"profileid,attr,omitempty" json:"profileid,omitempty,omitempty" yaml:"profileid,omitempty,omitempty"`
-	InterfaceID   string `xml:"interfaceid,attr,omitempty" json:"interfaceid,omitempty,omitempty" yaml:"interfaceid,omitempty,omitempty"`
+	InstanceID    string `xml:"instanceid,attr,omitempty" json:"instanceid,omitempty" yaml:"instanceid,omitempty"`
+	ProfileID     string `xml:"profileid,attr,omitempty" json:"profileid,omitempty" yaml:"profileid,omitempty"`
+	InterfaceID   string `xml:"interfaceid,attr,omitempty" json:"interfaceid,omitempty" yaml:"interfaceid,omitempty"`
 }
 
 type NetworkVirtualPortParamsVEPA8021QBG struct {
 	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty" yaml:"managerid,omitempty"`
 	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty" yaml:"typeid,omitempty"`
 	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty" yaml:"typeidversion,omitempty"`
-	InstanceID    string `xml:"instanceid,attr,omitempty" json:"instanceid,omitempty,omitempty" yaml:"instanceid,omitempty,omitempty"`
+	InstanceID    string `xml:"instanceid,attr,omitempty" json:"instanceid,omitempty" yaml:"instanceid,omitempty"`
 }
 
 type NetworkVirtualPortParamsVNTag8021QBH struct {
-	ProfileID string `xml:"profileid,attr,omitempty" json:"profileid,omitempty,omitempty" yaml:"profileid,omitempty,omitempty"`
+	ProfileID string `xml:"profileid,attr,omitempty" json:"profileid,omitempty" yaml:"profileid,omitempty"`
 }
 
 type NetworkVirtualPortParamsOpenVSwitch struct {
-	InterfaceID string `xml:"interfaceid,attr,omitempty" json:"interfaceid,omitempty,omitempty" yaml:"interfaceid,omitempty,omitempty"`
-	ProfileID   string `xml:"profileid,attr,omitempty" json:"profileid,omitempty,omitempty" yaml:"profileid,omitempty,omitempty"`
+	InterfaceID string `xml:"interfaceid,attr,omitempty" json:"interfaceid,omitempty" yaml:"interfaceid,omitempty"`
+	ProfileID   string `xml:"profileid,attr,omitempty" json:"profileid,omitempty" yaml:"profileid,omitempty"`
 }
 
 type NetworkVirtualPortParamsMidoNet struct {
-	InterfaceID string `xml:"interfaceid,attr,omitempty" json:"interfaceid,omitempty,omitempty" yaml:"interfaceid,omitempty,omitempty"`
+	InterfaceID string `xml:"interfaceid,attr,omitempty" json:"interfaceid,omitempty" yaml:"interfaceid,omitempty"`
 }
 
 type NetworkDomain struct {
-	Name      string `xml:"name,attr,omitempty" json:"name,omitempty,omitempty" yaml:"name,omitempty,omitempty"`
-	LocalOnly string `xml:"localOnly,attr,omitempty" json:"localOnly,omitempty,omitempty" yaml:"localOnly,omitempty,omitempty"`
+	Name      string `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	LocalOnly string `xml:"localOnly,attr,omitempty" json:"localOnly,omitempty" yaml:"localOnly,omitempty"`
 }
 
 type NetworkForwardNATAddress struct {
@@ -98,9 +98,9 @@ type NetworkForwardNAT struct {
 }
 
 type NetworkForward struct {
-	Mode       string                    `xml:"mode,attr,omitempty" json:"mode,omitempty,omitempty" yaml:"mode,omitempty,omitempty"`
-	Dev        string                    `xml:"dev,attr,omitempty" json:"dev,omitempty,omitempty" yaml:"dev,omitempty,omitempty"`
-	Managed    string                    `xml:"managed,attr,omitempty" json:"managed,omitempty,omitempty" yaml:"managed,omitempty,omitempty"`
+	Mode       string                    `xml:"mode,attr,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
+	Dev        string                    `xml:"dev,attr,omitempty" json:"dev,omitempty" yaml:"dev,omitempty"`
+	Managed    string                    `xml:"managed,attr,omitempty" json:"managed,omitempty" yaml:"managed,omitempty"`
 	Driver     *NetworkForwardDriver     `xml:"driver" json:"driver" yaml:"driver"`
 	PFs        []NetworkForwardPF        `xml:"pf" json:"pf" yaml:"pf"`
 	NAT        *NetworkForwardNAT        `xml:"nat" json:"nat" yaml:"nat"`
@@ -129,30 +129,30 @@ type NetworkForwardAddressPCI struct {
 
 type NetworkForwardInterface struct {
 	XMLName xml.Name `xml:"interface" json:"interface" yaml:"interface"`
-	Dev     string   `xml:"dev,attr,omitempty" json:"dev,omitempty,omitempty" yaml:"dev,omitempty,omitempty"`
+	Dev     string   `xml:"dev,attr,omitempty" json:"dev,omitempty" yaml:"dev,omitempty"`
 }
 
 type NetworkMAC struct {
-	Address string `xml:"address,attr,omitempty" json:"address,omitempty,omitempty" yaml:"address,omitempty,omitempty"`
+	Address string `xml:"address,attr,omitempty" json:"address,omitempty" yaml:"address,omitempty"`
 }
 
 type NetworkDHCPRange struct {
 	XMLName xml.Name `xml:"range" json:"range" yaml:"range"`
-	Start   string   `xml:"start,attr,omitempty" json:"start,omitempty,omitempty" yaml:"start,omitempty,omitempty"`
-	End     string   `xml:"end,attr,omitempty" json:"end,omitempty,omitempty" yaml:"end,omitempty,omitempty"`
+	Start   string   `xml:"start,attr,omitempty" json:"start,omitempty" yaml:"start,omitempty"`
+	End     string   `xml:"end,attr,omitempty" json:"end,omitempty" yaml:"end,omitempty"`
 }
 
 type NetworkDHCPHost struct {
 	XMLName xml.Name `xml:"host" json:"host" yaml:"host"`
-	ID      string   `xml:"id,attr,omitempty" json:"id,omitempty,omitempty" yaml:"id,omitempty,omitempty"`
-	MAC     string   `xml:"mac,attr,omitempty" json:"mac,omitempty,omitempty" yaml:"mac,omitempty,omitempty"`
-	Name    string   `xml:"name,attr,omitempty" json:"name,omitempty,omitempty" yaml:"name,omitempty,omitempty"`
-	IP      string   `xml:"ip,attr,omitempty" json:"ip,omitempty,omitempty" yaml:"ip,omitempty,omitempty"`
+	ID      string   `xml:"id,attr,omitempty" json:"id,omitempty" yaml:"id,omitempty"`
+	MAC     string   `xml:"mac,attr,omitempty" json:"mac,omitempty" yaml:"mac,omitempty"`
+	Name    string   `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	IP      string   `xml:"ip,attr,omitempty" json:"ip,omitempty" yaml:"ip,omitempty"`
 }
 
 type NetworkBootp struct {
-	File   string `xml:"file,attr,omitempty" json:"file,omitempty,omitempty" yaml:"file,omitempty,omitempty"`
-	Server string `xml:"server,attr,omitempty" json:"server,omitempty,omitempty" yaml:"server,omitempty,omitempty"`
+	File   string `xml:"file,attr,omitempty" json:"file,omitempty" yaml:"file,omitempty"`
+	Server string `xml:"server,attr,omitempty" json:"server,omitempty" yaml:"server,omitempty"`
 }
 
 type NetworkDHCP struct {
@@ -162,31 +162,31 @@ type NetworkDHCP struct {
 }
 
 type NetworkIP struct {
-	Address  string       `xml:"address,attr,omitempty" json:"address,omitempty,omitempty" yaml:"address,omitempty,omitempty"`
-	Family   string       `xml:"family,attr,omitempty" json:"family,omitempty,omitempty" yaml:"family,omitempty,omitempty"`
-	Netmask  string       `xml:"netmask,attr,omitempty" json:"netmask,omitempty,omitempty" yaml:"netmask,omitempty,omitempty"`
-	Prefix   uint         `xml:"prefix,attr,omitempty" json:"prefix,omitempty,omitempty" yaml:"prefix,omitempty,omitempty"`
-	LocalPtr string       `xml:"localPtr,attr,omitempty" json:"localPtr,omitempty,omitempty" yaml:"localPtr,omitempty,omitempty"`
+	Address  string       `xml:"address,attr,omitempty" json:"address,omitempty" yaml:"address,omitempty"`
+	Family   string       `xml:"family,attr,omitempty" json:"family,omitempty" yaml:"family,omitempty"`
+	Netmask  string       `xml:"netmask,attr,omitempty" json:"netmask,omitempty" yaml:"netmask,omitempty"`
+	Prefix   uint         `xml:"prefix,attr,omitempty" json:"prefix,omitempty" yaml:"prefix,omitempty"`
+	LocalPtr string       `xml:"localPtr,attr,omitempty" json:"localPtr,omitempty" yaml:"localPtr,omitempty"`
 	DHCP     *NetworkDHCP `xml:"dhcp" json:"dhcp" yaml:"dhcp"`
 	TFTP     *NetworkTFTP `xml:"tftp" json:"tftp" yaml:"tftp"`
 }
 
 type NetworkTFTP struct {
-	Root string `xml:"root,attr,omitempty" json:"root,omitempty,omitempty" yaml:"root,omitempty,omitempty"`
+	Root string `xml:"root,attr,omitempty" json:"root,omitempty" yaml:"root,omitempty"`
 }
 
 type NetworkRoute struct {
-	Family  string `xml:"family,attr,omitempty" json:"family,omitempty,omitempty" yaml:"family,omitempty,omitempty"`
-	Address string `xml:"address,attr,omitempty" json:"address,omitempty,omitempty" yaml:"address,omitempty,omitempty"`
-	Netmask string `xml:"netmask,attr,omitempty" json:"netmask,omitempty,omitempty" yaml:"netmask,omitempty,omitempty"`
-	Prefix  uint   `xml:"prefix,attr,omitempty" json:"prefix,omitempty,omitempty" yaml:"prefix,omitempty,omitempty"`
-	Gateway string `xml:"gateway,attr,omitempty" json:"gateway,omitempty,omitempty" yaml:"gateway,omitempty,omitempty"`
-	Metric  string `xml:"metric,attr,omitempty" json:"metric,omitempty,omitempty" yaml:"metric,omitempty,omitempty"`
+	Family  string `xml:"family,attr,omitempty" json:"family,omitempty" yaml:"family,omitempty"`
+	Address string `xml:"address,attr,omitempty" json:"address,omitempty" yaml:"address,omitempty"`
+	Netmask string `xml:"netmask,attr,omitempty" json:"netmask,omitempty" yaml:"netmask,omitempty"`
+	Prefix  uint   `xml:"prefix,attr,omitempty" json:"prefix,omitempty" yaml:"prefix,omitempty"`
+	Gateway string `xml:"gateway,attr,omitempty" json:"gateway,omitempty" yaml:"gateway,omitempty"`
+	Metric  string `xml:"metric,attr,omitempty" json:"metric,omitempty" yaml:"metric,omitempty"`
 }
 
 type NetworkDNSForwarder struct {
-	Domain string `xml:"domain,attr,omitempty" json:"domain,omitempty,omitempty" yaml:"domain,omitempty,omitempty"`
-	Addr   string `xml:"addr,attr,omitempty" json:"addr,omitempty,omitempty" yaml:"addr,omitempty,omitempty"`
+	Domain string `xml:"domain,attr,omitempty" json:"domain,omitempty" yaml:"domain,omitempty"`
+	Addr   string `xml:"addr,attr,omitempty" json:"addr,omitempty" yaml:"addr,omitempty"`
 }
 
 type NetworkDNSTXT struct {
@@ -207,18 +207,18 @@ type NetworkDNSHost struct {
 
 type NetworkDNSSRV struct {
 	XMLName  xml.Name `xml:"srv" json:"srv" yaml:"srv"`
-	Service  string   `xml:"service,attr,omitempty" json:"service,omitempty,omitempty" yaml:"service,omitempty,omitempty"`
-	Protocol string   `xml:"protocol,attr,omitempty" json:"protocol,omitempty,omitempty" yaml:"protocol,omitempty,omitempty"`
-	Target   string   `xml:"target,attr,omitempty" json:"target,omitempty,omitempty" yaml:"target,omitempty,omitempty"`
-	Port     uint     `xml:"port,attr,omitempty" json:"port,omitempty,omitempty" yaml:"port,omitempty,omitempty"`
-	Priority uint     `xml:"priority,attr,omitempty" json:"priority,omitempty,omitempty" yaml:"priority,omitempty,omitempty"`
-	Weight   uint     `xml:"weight,attr,omitempty" json:"weight,omitempty,omitempty" yaml:"weight,omitempty,omitempty"`
-	Domain   string   `xml:"domain,attr,omitempty" json:"domain,omitempty,omitempty" yaml:"domain,omitempty,omitempty"`
+	Service  string   `xml:"service,attr,omitempty" json:"service,omitempty" yaml:"service,omitempty"`
+	Protocol string   `xml:"protocol,attr,omitempty" json:"protocol,omitempty" yaml:"protocol,omitempty"`
+	Target   string   `xml:"target,attr,omitempty" json:"target,omitempty" yaml:"target,omitempty"`
+	Port     uint     `xml:"port,attr,omitempty" json:"port,omitempty" yaml:"port,omitempty"`
+	Priority uint     `xml:"priority,attr,omitempty" json:"priority,omitempty" yaml:"priority,omitempty"`
+	Weight   uint     `xml:"weight,attr,omitempty" json:"weight,omitempty" yaml:"weight,omitempty"`
+	Domain   string   `xml:"domain,attr,omitempty" json:"domain,omitempty" yaml:"domain,omitempty"`
 }
 
 type NetworkDNS struct {
-	Enable            string                `xml:"enable,attr,omitempty" json:"enable,omitempty,omitempty" yaml:"enable,omitempty,omitempty"`
-	ForwardPlainNames string                `xml:"forwardPlainNames,attr,omitempty" json:"forwardPlainNames,omitempty,omitempty" yaml:"forwardPlainNames,omitempty,omitempty"`
+	Enable            string                `xml:"enable,attr,omitempty" json:"enable,omitempty" yaml:"enable,omitempty"`
+	ForwardPlainNames string                `xml:"forwardPlainNames,attr,omitempty" json:"forwardPlainNames,omitempty" yaml:"forwardPlainNames,omitempty"`
 	Forwarders        []NetworkDNSForwarder `xml:"forwarder" json:"forwarder" yaml:"forwarder"`
 	TXTs              []NetworkDNSTXT       `xml:"txt" json:"txt" yaml:"txt"`
 	Host              []NetworkDNSHost      `xml:"host" json:"host" yaml:"host"`
@@ -235,8 +235,8 @@ type NetworkMTU struct {
 
 type Network struct {
 	XMLName             xml.Name            `xml:"network" json:"network" yaml:"network"`
-	IPv6                string              `xml:"ipv6,attr,omitempty" json:"ipv6,omitempty,omitempty" yaml:"ipv6,omitempty,omitempty"`
-	TrustGuestRxFilters string              `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty,omitempty" yaml:"trustGuestRxFilters,omitempty,omitempty"`
+	IPv6                string              `xml:"ipv6,attr,omitempty" json:"ipv6,omitempty" yaml:"ipv6,omitempty"`
+	TrustGuestRxFilters string              `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty" yaml:"trustGuestRxFilters,omitempty"`
 	Name                string              `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	UUID                string              `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
 	Metadata            *NetworkMetadata    `xml:"metadata" json:"metadata" yaml:"metadata"`
@@ -256,21 +256,21 @@ type Network struct {
 
 type NetworkPortGroup struct {
 	XMLName             xml.Name            `xml:"portgroup" json:"portgroup" yaml:"portgroup"`
-	Name                string              `xml:"name,attr,omitempty" json:"name,omitempty,omitempty" yaml:"name,omitempty,omitempty"`
-	Default             string              `xml:"default,attr,omitempty" json:"default,omitempty,omitempty" yaml:"default,omitempty,omitempty"`
-	TrustGuestRxFilters string              `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty,omitempty" yaml:"trustGuestRxFilters,omitempty,omitempty"`
+	Name                string              `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Default             string              `xml:"default,attr,omitempty" json:"default,omitempty" yaml:"default,omitempty"`
+	TrustGuestRxFilters string              `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty" yaml:"trustGuestRxFilters,omitempty"`
 	VLAN                *NetworkVLAN        `xml:"vlan" json:"vlan" yaml:"vlan"`
 	VirtualPort         *NetworkVirtualPort `xml:"virtualport" json:"virtualport" yaml:"virtualport"`
 }
 
 type NetworkVLAN struct {
-	Trunk string           `xml:"trunk,attr,omitempty" json:"trunk,omitempty,omitempty" yaml:"trunk,omitempty,omitempty"`
+	Trunk string           `xml:"trunk,attr,omitempty" json:"trunk,omitempty" yaml:"trunk,omitempty"`
 	Tags  []NetworkVLANTag `xml:"tag" json:"tag" yaml:"tag"`
 }
 
 type NetworkVLANTag struct {
 	ID         uint   `xml:"id,attr" json:"id,omitempty" yaml:"id,omitempty"`
-	NativeMode string `xml:"nativeMode,attr,omitempty" json:"nativeMode,omitempty,omitempty" yaml:"nativeMode,omitempty,omitempty"`
+	NativeMode string `xml:"nativeMode,attr,omitempty" json:"nativeMode,omitempty" yaml:"nativeMode,omitempty"`
 }
 
 type NetworkBandwidthParams struct {

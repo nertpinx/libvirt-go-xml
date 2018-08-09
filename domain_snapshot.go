@@ -28,12 +28,12 @@ package libvirtxml
 import "encoding/xml"
 
 type DomainSnapshotDiskDriver struct {
-	Type string `xml:"type,attr,omitempty" json:"type,omitempty,omitempty" yaml:"type,omitempty,omitempty"`
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 }
 
 type DomainSnapshotDisk struct {
 	Name     string                    `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
-	Snapshot string                    `xml:"snapshot,attr,omitempty" json:"snapshot,omitempty,omitempty" yaml:"snapshot,omitempty,omitempty"`
+	Snapshot string                    `xml:"snapshot,attr,omitempty" json:"snapshot,omitempty" yaml:"snapshot,omitempty"`
 	Driver   *DomainSnapshotDiskDriver `xml:"driver" json:"driver" yaml:"driver"`
 	Source   *DomainDiskSource         `xml:"source" json:"source" yaml:"source"`
 }
@@ -44,7 +44,7 @@ type DomainSnapshotDisks struct {
 
 type DomainSnapshotMemory struct {
 	Snapshot string `xml:"snapshot,attr" json:"snapshot,omitempty" yaml:"snapshot,omitempty"`
-	File     string `xml:"file,attr,omitempty" json:"file,omitempty,omitempty" yaml:"file,omitempty,omitempty"`
+	File     string `xml:"file,attr,omitempty" json:"file,omitempty" yaml:"file,omitempty"`
 }
 
 type DomainSnapshotParent struct {

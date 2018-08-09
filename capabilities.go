@@ -85,7 +85,7 @@ type CapsHostNUMACPU struct {
 	ID       int    `xml:"id,attr" json:"id,omitempty" yaml:"id,omitempty"`
 	SocketID *int   `xml:"socket_id,attr" json:"socket_id,omitempty" yaml:"socket_id,omitempty"`
 	CoreID   *int   `xml:"core_id,attr" json:"core_id,omitempty" yaml:"core_id,omitempty"`
-	Siblings string `xml:"siblings,attr,omitempty" json:"siblings,omitempty,omitempty" yaml:"siblings,omitempty,omitempty"`
+	Siblings string `xml:"siblings,attr,omitempty" json:"siblings,omitempty" yaml:"siblings,omitempty"`
 }
 
 type CapsHostNUMASibling struct {
@@ -106,7 +106,7 @@ type CapsHostNUMADistances struct {
 }
 
 type CapsHostNUMACPUs struct {
-	Num  uint              `xml:"num,attr,omitempty" json:"num,omitempty,omitempty" yaml:"num,omitempty,omitempty"`
+	Num  uint              `xml:"num,attr,omitempty" json:"num,omitempty" yaml:"num,omitempty"`
 	CPUs []CapsHostNUMACPU `xml:"cpu" json:"cpu" yaml:"cpu"`
 }
 
@@ -115,7 +115,7 @@ type CapsHostNUMATopology struct {
 }
 
 type CapsHostNUMACells struct {
-	Num   uint               `xml:"num,attr,omitempty" json:"num,omitempty,omitempty" yaml:"num,omitempty,omitempty"`
+	Num   uint               `xml:"num,attr,omitempty" json:"num,omitempty" yaml:"num,omitempty"`
 	Cells []CapsHostNUMACell `xml:"cell" json:"cell" yaml:"cell"`
 }
 
@@ -182,7 +182,7 @@ type CapsHostCacheBank struct {
 
 type CapsHostCacheControl struct {
 	Granularity uint   `xml:"granularity,attr" json:"granularity,omitempty" yaml:"granularity,omitempty"`
-	Min         uint   `xml:"min,attr,omitempty" json:"min,omitempty,omitempty" yaml:"min,omitempty,omitempty"`
+	Min         uint   `xml:"min,attr,omitempty" json:"min,omitempty" yaml:"min,omitempty"`
 	Unit        string `xml:"unit,attr" json:"unit,omitempty" yaml:"unit,omitempty"`
 	Type        string `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	MaxAllows   uint   `xml:"maxAllocs,attr" json:"maxAllocs,omitempty" yaml:"maxAllocs,omitempty"`
@@ -190,8 +190,8 @@ type CapsHostCacheControl struct {
 
 type CapsGuestMachine struct {
 	Name      string `xml:",attr" json:"" yaml:""`
-	MaxCPUs   int    `xml:"maxCpus,attr,omitempty" json:"maxCpus,omitempty,omitempty" yaml:"maxCpus,omitempty,omitempty"`
-	Canonical string `xml:"canonical,attr,omitempty" json:"canonical,omitempty,omitempty" yaml:"canonical,omitempty,omitempty"`
+	MaxCPUs   int    `xml:"maxCpus,attr,omitempty" json:"maxCpus,omitempty" yaml:"maxCpus,omitempty"`
+	Canonical string `xml:"canonical,attr,omitempty" json:"canonical,omitempty" yaml:"canonical,omitempty"`
 }
 
 type CapsGuestDomain struct {
@@ -222,18 +222,18 @@ type CapsGuestFeatureNonPAE struct {
 }
 
 type CapsGuestFeatureDiskSnapshot struct {
-	Default string `xml:"default,attr,omitempty" json:"default,omitempty,omitempty" yaml:"default,omitempty,omitempty"`
-	Toggle  string `xml:"toggle,attr,omitempty" json:"toggle,omitempty,omitempty" yaml:"toggle,omitempty,omitempty"`
+	Default string `xml:"default,attr,omitempty" json:"default,omitempty" yaml:"default,omitempty"`
+	Toggle  string `xml:"toggle,attr,omitempty" json:"toggle,omitempty" yaml:"toggle,omitempty"`
 }
 
 type CapsGuestFeatureAPIC struct {
-	Default string `xml:"default,attr,omitempty" json:"default,omitempty,omitempty" yaml:"default,omitempty,omitempty"`
-	Toggle  string `xml:"toggle,attr,omitempty" json:"toggle,omitempty,omitempty" yaml:"toggle,omitempty,omitempty"`
+	Default string `xml:"default,attr,omitempty" json:"default,omitempty" yaml:"default,omitempty"`
+	Toggle  string `xml:"toggle,attr,omitempty" json:"toggle,omitempty" yaml:"toggle,omitempty"`
 }
 
 type CapsGuestFeatureACPI struct {
-	Default string `xml:"default,attr,omitempty" json:"default,omitempty,omitempty" yaml:"default,omitempty,omitempty"`
-	Toggle  string `xml:"toggle,attr,omitempty" json:"toggle,omitempty,omitempty" yaml:"toggle,omitempty,omitempty"`
+	Default string `xml:"default,attr,omitempty" json:"default,omitempty" yaml:"default,omitempty"`
+	Toggle  string `xml:"toggle,attr,omitempty" json:"toggle,omitempty" yaml:"toggle,omitempty"`
 }
 
 type CapsGuestFeatureIA64BE struct {

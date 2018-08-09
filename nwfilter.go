@@ -37,8 +37,8 @@ type NWFilter struct {
 	XMLName  xml.Name `xml:"filter" json:"filter" yaml:"filter"`
 	Name     string   `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 	UUID     string   `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
-	Chain    string   `xml:"chain,attr,omitempty" json:"chain,omitempty,omitempty" yaml:"chain,omitempty,omitempty"`
-	Priority int      `xml:"priority,attr,omitempty" json:"priority,omitempty,omitempty" yaml:"priority,omitempty,omitempty"`
+	Chain    string   `xml:"chain,attr,omitempty" json:"chain,omitempty" yaml:"chain,omitempty"`
+	Priority int      `xml:"priority,attr,omitempty" json:"priority,omitempty" yaml:"priority,omitempty"`
 	Entries  []NWFilterEntry
 }
 
@@ -64,10 +64,10 @@ type NWFilterField struct {
 }
 
 type NWFilterRule struct {
-	Action     string `xml:"action,attr,omitempty" json:"action,omitempty,omitempty" yaml:"action,omitempty,omitempty"`
-	Direction  string `xml:"direction,attr,omitempty" json:"direction,omitempty,omitempty" yaml:"direction,omitempty,omitempty"`
-	Priority   int    `xml:"priority,attr,omitempty" json:"priority,omitempty,omitempty" yaml:"priority,omitempty,omitempty"`
-	StateMatch string `xml:"statematch,attr,omitempty" json:"statematch,omitempty,omitempty" yaml:"statematch,omitempty,omitempty"`
+	Action     string `xml:"action,attr,omitempty" json:"action,omitempty" yaml:"action,omitempty"`
+	Direction  string `xml:"direction,attr,omitempty" json:"direction,omitempty" yaml:"direction,omitempty"`
+	Priority   int    `xml:"priority,attr,omitempty" json:"priority,omitempty" yaml:"priority,omitempty"`
+	StateMatch string `xml:"statematch,attr,omitempty" json:"statematch,omitempty" yaml:"statematch,omitempty"`
 
 	ARP         *NWFilterRuleARP         `xml:"arp" json:"arp" yaml:"arp"`
 	RARP        *NWFilterRuleRARP        `xml:"rarp" json:"rarp" yaml:"rarp"`
@@ -96,27 +96,27 @@ type NWFilterRule struct {
 }
 
 type NWFilterRuleCommonMAC struct {
-	SrcMACAddr NWFilterField `xml:"srcmacaddr,attr,omitempty" json:"srcmacaddr,omitempty,omitempty" yaml:"srcmacaddr,omitempty,omitempty"`
-	SrcMACMask NWFilterField `xml:"srcmacmask,attr,omitempty" json:"srcmacmask,omitempty,omitempty" yaml:"srcmacmask,omitempty,omitempty"`
-	DstMACAddr NWFilterField `xml:"dstmacaddr,attr,omitempty" json:"dstmacaddr,omitempty,omitempty" yaml:"dstmacaddr,omitempty,omitempty"`
-	DstMACMask NWFilterField `xml:"dstmacmask,attr,omitempty" json:"dstmacmask,omitempty,omitempty" yaml:"dstmacmask,omitempty,omitempty"`
+	SrcMACAddr NWFilterField `xml:"srcmacaddr,attr,omitempty" json:"srcmacaddr,omitempty" yaml:"srcmacaddr,omitempty"`
+	SrcMACMask NWFilterField `xml:"srcmacmask,attr,omitempty" json:"srcmacmask,omitempty" yaml:"srcmacmask,omitempty"`
+	DstMACAddr NWFilterField `xml:"dstmacaddr,attr,omitempty" json:"dstmacaddr,omitempty" yaml:"dstmacaddr,omitempty"`
+	DstMACMask NWFilterField `xml:"dstmacmask,attr,omitempty" json:"dstmacmask,omitempty" yaml:"dstmacmask,omitempty"`
 }
 
 type NWFilterRuleCommonIP struct {
-	SrcMACAddr     NWFilterField `xml:"srcmacaddr,attr,omitempty" json:"srcmacaddr,omitempty,omitempty" yaml:"srcmacaddr,omitempty,omitempty"`
-	SrcIPAddr      NWFilterField `xml:"srcipaddr,attr,omitempty" json:"srcipaddr,omitempty,omitempty" yaml:"srcipaddr,omitempty,omitempty"`
-	SrcIPMask      NWFilterField `xml:"srcipmask,attr,omitempty" json:"srcipmask,omitempty,omitempty" yaml:"srcipmask,omitempty,omitempty"`
-	DstIPAddr      NWFilterField `xml:"dstipaddr,attr,omitempty" json:"dstipaddr,omitempty,omitempty" yaml:"dstipaddr,omitempty,omitempty"`
-	DstIPMask      NWFilterField `xml:"dstipmask,attr,omitempty" json:"dstipmask,omitempty,omitempty" yaml:"dstipmask,omitempty,omitempty"`
-	SrcIPFrom      NWFilterField `xml:"srcipfrom,attr,omitempty" json:"srcipfrom,omitempty,omitempty" yaml:"srcipfrom,omitempty,omitempty"`
-	SrcIPTo        NWFilterField `xml:"srcipto,attr,omitempty" json:"srcipto,omitempty,omitempty" yaml:"srcipto,omitempty,omitempty"`
-	DstIPFrom      NWFilterField `xml:"dstipfrom,attr,omitempty" json:"dstipfrom,omitempty,omitempty" yaml:"dstipfrom,omitempty,omitempty"`
-	DstIPTo        NWFilterField `xml:"dstipto,attr,omitempty" json:"dstipto,omitempty,omitempty" yaml:"dstipto,omitempty,omitempty"`
+	SrcMACAddr     NWFilterField `xml:"srcmacaddr,attr,omitempty" json:"srcmacaddr,omitempty" yaml:"srcmacaddr,omitempty"`
+	SrcIPAddr      NWFilterField `xml:"srcipaddr,attr,omitempty" json:"srcipaddr,omitempty" yaml:"srcipaddr,omitempty"`
+	SrcIPMask      NWFilterField `xml:"srcipmask,attr,omitempty" json:"srcipmask,omitempty" yaml:"srcipmask,omitempty"`
+	DstIPAddr      NWFilterField `xml:"dstipaddr,attr,omitempty" json:"dstipaddr,omitempty" yaml:"dstipaddr,omitempty"`
+	DstIPMask      NWFilterField `xml:"dstipmask,attr,omitempty" json:"dstipmask,omitempty" yaml:"dstipmask,omitempty"`
+	SrcIPFrom      NWFilterField `xml:"srcipfrom,attr,omitempty" json:"srcipfrom,omitempty" yaml:"srcipfrom,omitempty"`
+	SrcIPTo        NWFilterField `xml:"srcipto,attr,omitempty" json:"srcipto,omitempty" yaml:"srcipto,omitempty"`
+	DstIPFrom      NWFilterField `xml:"dstipfrom,attr,omitempty" json:"dstipfrom,omitempty" yaml:"dstipfrom,omitempty"`
+	DstIPTo        NWFilterField `xml:"dstipto,attr,omitempty" json:"dstipto,omitempty" yaml:"dstipto,omitempty"`
 	DSCP           NWFilterField `xml:"dscp,attr" json:"dscp,omitempty" yaml:"dscp,omitempty"`
 	ConnLimitAbove NWFilterField `xml:"connlimit-above,attr" json:"connlimit-above,omitempty" yaml:"connlimit-above,omitempty"`
-	State          NWFilterField `xml:"state,attr,omitempty" json:"state,omitempty,omitempty" yaml:"state,omitempty,omitempty"`
-	IPSet          NWFilterField `xml:"ipset,attr,omitempty" json:"ipset,omitempty,omitempty" yaml:"ipset,omitempty,omitempty"`
-	IPSetFlags     NWFilterField `xml:"ipsetflags,attr,omitempty" json:"ipsetflags,omitempty,omitempty" yaml:"ipsetflags,omitempty,omitempty"`
+	State          NWFilterField `xml:"state,attr,omitempty" json:"state,omitempty" yaml:"state,omitempty"`
+	IPSet          NWFilterField `xml:"ipset,attr,omitempty" json:"ipset,omitempty" yaml:"ipset,omitempty"`
+	IPSetFlags     NWFilterField `xml:"ipsetflags,attr,omitempty" json:"ipsetflags,omitempty" yaml:"ipsetflags,omitempty"`
 }
 
 type NWFilterRuleCommonPort struct {
@@ -127,68 +127,68 @@ type NWFilterRuleCommonPort struct {
 }
 
 type NWFilterRuleARP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonMAC
 	HWType        NWFilterField `xml:"hwtype,attr" json:"hwtype,omitempty" yaml:"hwtype,omitempty"`
 	ProtocolType  NWFilterField `xml:"protocoltype,attr" json:"protocoltype,omitempty" yaml:"protocoltype,omitempty"`
-	OpCode        NWFilterField `xml:"opcode,attr,omitempty" json:"opcode,omitempty,omitempty" yaml:"opcode,omitempty,omitempty"`
-	ARPSrcMACAddr NWFilterField `xml:"arpsrcmacaddr,attr,omitempty" json:"arpsrcmacaddr,omitempty,omitempty" yaml:"arpsrcmacaddr,omitempty,omitempty"`
-	ARPDstMACAddr NWFilterField `xml:"arpdstmacaddr,attr,omitempty" json:"arpdstmacaddr,omitempty,omitempty" yaml:"arpdstmacaddr,omitempty,omitempty"`
-	ARPSrcIPAddr  NWFilterField `xml:"arpsrcipaddr,attr,omitempty" json:"arpsrcipaddr,omitempty,omitempty" yaml:"arpsrcipaddr,omitempty,omitempty"`
-	ARPSrcIPMask  NWFilterField `xml:"arpsrcipmask,attr,omitempty" json:"arpsrcipmask,omitempty,omitempty" yaml:"arpsrcipmask,omitempty,omitempty"`
-	ARPDstIPAddr  NWFilterField `xml:"arpdstipaddr,attr,omitempty" json:"arpdstipaddr,omitempty,omitempty" yaml:"arpdstipaddr,omitempty,omitempty"`
-	ARPDstIPMask  NWFilterField `xml:"arpdstipmask,attr,omitempty" json:"arpdstipmask,omitempty,omitempty" yaml:"arpdstipmask,omitempty,omitempty"`
-	Gratuitous    NWFilterField `xml:"gratuitous,attr,omitempty" json:"gratuitous,omitempty,omitempty" yaml:"gratuitous,omitempty,omitempty"`
-	Comment       string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	OpCode        NWFilterField `xml:"opcode,attr,omitempty" json:"opcode,omitempty" yaml:"opcode,omitempty"`
+	ARPSrcMACAddr NWFilterField `xml:"arpsrcmacaddr,attr,omitempty" json:"arpsrcmacaddr,omitempty" yaml:"arpsrcmacaddr,omitempty"`
+	ARPDstMACAddr NWFilterField `xml:"arpdstmacaddr,attr,omitempty" json:"arpdstmacaddr,omitempty" yaml:"arpdstmacaddr,omitempty"`
+	ARPSrcIPAddr  NWFilterField `xml:"arpsrcipaddr,attr,omitempty" json:"arpsrcipaddr,omitempty" yaml:"arpsrcipaddr,omitempty"`
+	ARPSrcIPMask  NWFilterField `xml:"arpsrcipmask,attr,omitempty" json:"arpsrcipmask,omitempty" yaml:"arpsrcipmask,omitempty"`
+	ARPDstIPAddr  NWFilterField `xml:"arpdstipaddr,attr,omitempty" json:"arpdstipaddr,omitempty" yaml:"arpdstipaddr,omitempty"`
+	ARPDstIPMask  NWFilterField `xml:"arpdstipmask,attr,omitempty" json:"arpdstipmask,omitempty" yaml:"arpdstipmask,omitempty"`
+	Gratuitous    NWFilterField `xml:"gratuitous,attr,omitempty" json:"gratuitous,omitempty" yaml:"gratuitous,omitempty"`
+	Comment       string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleRARP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonMAC
 	HWType        NWFilterField `xml:"hwtype,attr" json:"hwtype,omitempty" yaml:"hwtype,omitempty"`
 	ProtocolType  NWFilterField `xml:"protocoltype,attr" json:"protocoltype,omitempty" yaml:"protocoltype,omitempty"`
-	OpCode        NWFilterField `xml:"opcode,attr,omitempty" json:"opcode,omitempty,omitempty" yaml:"opcode,omitempty,omitempty"`
-	ARPSrcMACAddr NWFilterField `xml:"arpsrcmacaddr,attr,omitempty" json:"arpsrcmacaddr,omitempty,omitempty" yaml:"arpsrcmacaddr,omitempty,omitempty"`
-	ARPDstMACAddr NWFilterField `xml:"arpdstmacaddr,attr,omitempty" json:"arpdstmacaddr,omitempty,omitempty" yaml:"arpdstmacaddr,omitempty,omitempty"`
-	ARPSrcIPAddr  NWFilterField `xml:"arpsrcipaddr,attr,omitempty" json:"arpsrcipaddr,omitempty,omitempty" yaml:"arpsrcipaddr,omitempty,omitempty"`
-	ARPSrcIPMask  NWFilterField `xml:"arpsrcipmask,attr,omitempty" json:"arpsrcipmask,omitempty,omitempty" yaml:"arpsrcipmask,omitempty,omitempty"`
-	ARPDstIPAddr  NWFilterField `xml:"arpdstipaddr,attr,omitempty" json:"arpdstipaddr,omitempty,omitempty" yaml:"arpdstipaddr,omitempty,omitempty"`
-	ARPDstIPMask  NWFilterField `xml:"arpdstipmask,attr,omitempty" json:"arpdstipmask,omitempty,omitempty" yaml:"arpdstipmask,omitempty,omitempty"`
-	Gratuitous    NWFilterField `xml:"gratuitous,attr,omitempty" json:"gratuitous,omitempty,omitempty" yaml:"gratuitous,omitempty,omitempty"`
-	Comment       string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	OpCode        NWFilterField `xml:"opcode,attr,omitempty" json:"opcode,omitempty" yaml:"opcode,omitempty"`
+	ARPSrcMACAddr NWFilterField `xml:"arpsrcmacaddr,attr,omitempty" json:"arpsrcmacaddr,omitempty" yaml:"arpsrcmacaddr,omitempty"`
+	ARPDstMACAddr NWFilterField `xml:"arpdstmacaddr,attr,omitempty" json:"arpdstmacaddr,omitempty" yaml:"arpdstmacaddr,omitempty"`
+	ARPSrcIPAddr  NWFilterField `xml:"arpsrcipaddr,attr,omitempty" json:"arpsrcipaddr,omitempty" yaml:"arpsrcipaddr,omitempty"`
+	ARPSrcIPMask  NWFilterField `xml:"arpsrcipmask,attr,omitempty" json:"arpsrcipmask,omitempty" yaml:"arpsrcipmask,omitempty"`
+	ARPDstIPAddr  NWFilterField `xml:"arpdstipaddr,attr,omitempty" json:"arpdstipaddr,omitempty" yaml:"arpdstipaddr,omitempty"`
+	ARPDstIPMask  NWFilterField `xml:"arpdstipmask,attr,omitempty" json:"arpdstipmask,omitempty" yaml:"arpdstipmask,omitempty"`
+	Gratuitous    NWFilterField `xml:"gratuitous,attr,omitempty" json:"gratuitous,omitempty" yaml:"gratuitous,omitempty"`
+	Comment       string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleMAC struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonMAC
-	ProtocolID NWFilterField `xml:"protocolid,attr,omitempty" json:"protocolid,omitempty,omitempty" yaml:"protocolid,omitempty,omitempty"`
-	Comment    string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	ProtocolID NWFilterField `xml:"protocolid,attr,omitempty" json:"protocolid,omitempty" yaml:"protocolid,omitempty"`
+	Comment    string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleVLAN struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonMAC
-	VLANID        NWFilterField `xml:"vlanid,attr,omitempty" json:"vlanid,omitempty,omitempty" yaml:"vlanid,omitempty,omitempty"`
-	EncapProtocol NWFilterField `xml:"encap-protocol,attr,omitempty" json:"encap-protocol,omitempty,omitempty" yaml:"encap-protocol,omitempty,omitempty"`
-	Comment       string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	VLANID        NWFilterField `xml:"vlanid,attr,omitempty" json:"vlanid,omitempty" yaml:"vlanid,omitempty"`
+	EncapProtocol NWFilterField `xml:"encap-protocol,attr,omitempty" json:"encap-protocol,omitempty" yaml:"encap-protocol,omitempty"`
+	Comment       string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleSTP struct {
-	Match             NWFilterField `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
-	SrcMACAddr        NWFilterField `xml:"srcmacaddr,attr,omitempty" json:"srcmacaddr,omitempty,omitempty" yaml:"srcmacaddr,omitempty,omitempty"`
-	SrcMACMask        NWFilterField `xml:"srcmacmask,attr,omitempty" json:"srcmacmask,omitempty,omitempty" yaml:"srcmacmask,omitempty,omitempty"`
+	Match             NWFilterField `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
+	SrcMACAddr        NWFilterField `xml:"srcmacaddr,attr,omitempty" json:"srcmacaddr,omitempty" yaml:"srcmacaddr,omitempty"`
+	SrcMACMask        NWFilterField `xml:"srcmacmask,attr,omitempty" json:"srcmacmask,omitempty" yaml:"srcmacmask,omitempty"`
 	Type              NWFilterField `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Flags             NWFilterField `xml:"flags,attr" json:"flags,omitempty" yaml:"flags,omitempty"`
 	RootPriority      NWFilterField `xml:"root-priority,attr" json:"root-priority,omitempty" yaml:"root-priority,omitempty"`
 	RootPriorityHi    NWFilterField `xml:"root-priority-hi,attr" json:"root-priority-hi,omitempty" yaml:"root-priority-hi,omitempty"`
-	RootAddress       NWFilterField `xml:"root-address,attr,omitempty" json:"root-address,omitempty,omitempty" yaml:"root-address,omitempty,omitempty"`
-	RootAddressMask   NWFilterField `xml:"root-address-mask,attr,omitempty" json:"root-address-mask,omitempty,omitempty" yaml:"root-address-mask,omitempty,omitempty"`
+	RootAddress       NWFilterField `xml:"root-address,attr,omitempty" json:"root-address,omitempty" yaml:"root-address,omitempty"`
+	RootAddressMask   NWFilterField `xml:"root-address-mask,attr,omitempty" json:"root-address-mask,omitempty" yaml:"root-address-mask,omitempty"`
 	RootCost          NWFilterField `xml:"root-cost,attr" json:"root-cost,omitempty" yaml:"root-cost,omitempty"`
 	RootCostHi        NWFilterField `xml:"root-cost-hi,attr" json:"root-cost-hi,omitempty" yaml:"root-cost-hi,omitempty"`
 	SenderPriority    NWFilterField `xml:"sender-priority,attr" json:"sender-priority,omitempty" yaml:"sender-priority,omitempty"`
 	SenderPriorityHi  NWFilterField `xml:"sender-priority-hi,attr" json:"sender-priority-hi,omitempty" yaml:"sender-priority-hi,omitempty"`
-	SenderAddress     NWFilterField `xml:"sender-address,attr,omitempty" json:"sender-address,omitempty,omitempty" yaml:"sender-address,omitempty,omitempty"`
-	SenderAddressMask NWFilterField `xml:"sender-address-mask,attr,omitempty" json:"sender-address-mask,omitempty,omitempty" yaml:"sender-address-mask,omitempty,omitempty"`
+	SenderAddress     NWFilterField `xml:"sender-address,attr,omitempty" json:"sender-address,omitempty" yaml:"sender-address,omitempty"`
+	SenderAddressMask NWFilterField `xml:"sender-address-mask,attr,omitempty" json:"sender-address-mask,omitempty" yaml:"sender-address-mask,omitempty"`
 	Port              NWFilterField `xml:"port,attr" json:"port,omitempty" yaml:"port,omitempty"`
 	PortHi            NWFilterField `xml:"port-hi,attr" json:"port-hi,omitempty" yaml:"port-hi,omitempty"`
 	Age               NWFilterField `xml:"age,attr" json:"age,omitempty" yaml:"age,omitempty"`
@@ -199,151 +199,151 @@ type NWFilterRuleSTP struct {
 	HelloTimeHi       NWFilterField `xml:"hello-time-hi,attr" json:"hello-time-hi,omitempty" yaml:"hello-time-hi,omitempty"`
 	ForwardDelay      NWFilterField `xml:"forward-delay,attr" json:"forward-delay,omitempty" yaml:"forward-delay,omitempty"`
 	ForwardDelayHi    NWFilterField `xml:"forward-delay-hi,attr" json:"forward-delay-hi,omitempty" yaml:"forward-delay-hi,omitempty"`
-	Comment           string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment           string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleIP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonMAC
-	SrcIPAddr NWFilterField `xml:"srcipaddr,attr,omitempty" json:"srcipaddr,omitempty,omitempty" yaml:"srcipaddr,omitempty,omitempty"`
-	SrcIPMask NWFilterField `xml:"srcipmask,attr,omitempty" json:"srcipmask,omitempty,omitempty" yaml:"srcipmask,omitempty,omitempty"`
-	DstIPAddr NWFilterField `xml:"dstipaddr,attr,omitempty" json:"dstipaddr,omitempty,omitempty" yaml:"dstipaddr,omitempty,omitempty"`
-	DstIPMask NWFilterField `xml:"dstipmask,attr,omitempty" json:"dstipmask,omitempty,omitempty" yaml:"dstipmask,omitempty,omitempty"`
-	Protocol  NWFilterField `xml:"protocol,attr,omitempty" json:"protocol,omitempty,omitempty" yaml:"protocol,omitempty,omitempty"`
+	SrcIPAddr NWFilterField `xml:"srcipaddr,attr,omitempty" json:"srcipaddr,omitempty" yaml:"srcipaddr,omitempty"`
+	SrcIPMask NWFilterField `xml:"srcipmask,attr,omitempty" json:"srcipmask,omitempty" yaml:"srcipmask,omitempty"`
+	DstIPAddr NWFilterField `xml:"dstipaddr,attr,omitempty" json:"dstipaddr,omitempty" yaml:"dstipaddr,omitempty"`
+	DstIPMask NWFilterField `xml:"dstipmask,attr,omitempty" json:"dstipmask,omitempty" yaml:"dstipmask,omitempty"`
+	Protocol  NWFilterField `xml:"protocol,attr,omitempty" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	NWFilterRuleCommonPort
 	DSCP    NWFilterField `xml:"dscp,attr" json:"dscp,omitempty" yaml:"dscp,omitempty"`
-	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonMAC
-	SrcIPAddr NWFilterField `xml:"srcipaddr,attr,omitempty" json:"srcipaddr,omitempty,omitempty" yaml:"srcipaddr,omitempty,omitempty"`
-	SrcIPMask NWFilterField `xml:"srcipmask,attr,omitempty" json:"srcipmask,omitempty,omitempty" yaml:"srcipmask,omitempty,omitempty"`
-	DstIPAddr NWFilterField `xml:"dstipaddr,attr,omitempty" json:"dstipaddr,omitempty,omitempty" yaml:"dstipaddr,omitempty,omitempty"`
-	DstIPMask NWFilterField `xml:"dstipmask,attr,omitempty" json:"dstipmask,omitempty,omitempty" yaml:"dstipmask,omitempty,omitempty"`
-	Protocol  NWFilterField `xml:"protocol,attr,omitempty" json:"protocol,omitempty,omitempty" yaml:"protocol,omitempty,omitempty"`
+	SrcIPAddr NWFilterField `xml:"srcipaddr,attr,omitempty" json:"srcipaddr,omitempty" yaml:"srcipaddr,omitempty"`
+	SrcIPMask NWFilterField `xml:"srcipmask,attr,omitempty" json:"srcipmask,omitempty" yaml:"srcipmask,omitempty"`
+	DstIPAddr NWFilterField `xml:"dstipaddr,attr,omitempty" json:"dstipaddr,omitempty" yaml:"dstipaddr,omitempty"`
+	DstIPMask NWFilterField `xml:"dstipmask,attr,omitempty" json:"dstipmask,omitempty" yaml:"dstipmask,omitempty"`
+	Protocol  NWFilterField `xml:"protocol,attr,omitempty" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	NWFilterRuleCommonPort
 	Type    NWFilterField `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	TypeEnd NWFilterField `xml:"typeend,attr" json:"typeend,omitempty" yaml:"typeend,omitempty"`
 	Code    NWFilterField `xml:"code,attr" json:"code,omitempty" yaml:"code,omitempty"`
 	CodeEnd NWFilterField `xml:"codeend,attr" json:"codeend,omitempty" yaml:"codeend,omitempty"`
-	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleTCP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
 	NWFilterRuleCommonPort
 	Option  NWFilterField `xml:"option,attr" json:"option,omitempty" yaml:"option,omitempty"`
-	Flags   NWFilterField `xml:"flags,attr,omitempty" json:"flags,omitempty,omitempty" yaml:"flags,omitempty,omitempty"`
-	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Flags   NWFilterField `xml:"flags,attr,omitempty" json:"flags,omitempty" yaml:"flags,omitempty"`
+	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleUDP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
 	NWFilterRuleCommonPort
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleUDPLite struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleESP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleAH struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleSCTP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
 	NWFilterRuleCommonPort
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleICMP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
 	Type    NWFilterField `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Code    NWFilterField `xml:"code,attr" json:"code,omitempty" yaml:"code,omitempty"`
-	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleAll struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleIGMP struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleTCPIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
 	NWFilterRuleCommonPort
 	Option  NWFilterField `xml:"option,attr" json:"option,omitempty" yaml:"option,omitempty"`
-	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleUDPIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
 	NWFilterRuleCommonPort
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleUDPLiteIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleESPIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleAHIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleSCTPIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
 	NWFilterRuleCommonPort
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleICMPIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
 	Type    NWFilterField `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Code    NWFilterField `xml:"code,attr" json:"code,omitempty" yaml:"code,omitempty"`
-	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string        `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 type NWFilterRuleAllIPv6 struct {
-	Match string `xml:"match,attr,omitempty" json:"match,omitempty,omitempty" yaml:"match,omitempty,omitempty"`
+	Match string `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	NWFilterRuleCommonIP
-	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty,omitempty" yaml:"comment,omitempty,omitempty"`
+	Comment string `xml:"comment,attr,omitempty" json:"comment,omitempty" yaml:"comment,omitempty"`
 }
 
 func (s *NWFilterField) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {

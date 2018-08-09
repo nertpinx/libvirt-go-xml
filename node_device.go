@@ -44,7 +44,7 @@ type NodeDevice struct {
 }
 
 type NodeDeviceDevNode struct {
-	Type string `xml:"type,attr,omitempty" json:"type,omitempty,omitempty" yaml:"type,omitempty,omitempty"`
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	Path string `xml:",attr" json:"" yaml:""`
 }
 
@@ -77,8 +77,8 @@ type NodeDevicePCIExpress struct {
 }
 
 type NodeDevicePCIExpressLink struct {
-	Validity string  `xml:"validity,attr,omitempty" json:"validity,omitempty,omitempty" yaml:"validity,omitempty,omitempty"`
-	Speed    float64 `xml:"speed,attr,omitempty" json:"speed,omitempty,omitempty" yaml:"speed,omitempty,omitempty"`
+	Validity string  `xml:"validity,attr,omitempty" json:"validity,omitempty" yaml:"validity,omitempty"`
+	Speed    float64 `xml:"speed,attr,omitempty" json:"speed,omitempty" yaml:"speed,omitempty"`
 	Port     *uint   `xml:"port,attr" json:"port,omitempty" yaml:"port,omitempty"`
 	Width    *uint   `xml:"width,attr" json:"width,omitempty" yaml:"width,omitempty"`
 }
@@ -121,7 +121,7 @@ type NodeDevicePCISubCapability struct {
 
 type NodeDevicePCIVirtFunctionsCapability struct {
 	Address  []NodeDevicePCIAddress `xml:"address,omitempty" json:"address,omitempty" yaml:"address,omitempty"`
-	MaxCount int                    `xml:"maxCount,attr,omitempty" json:"maxCount,omitempty,omitempty" yaml:"maxCount,omitempty,omitempty"`
+	MaxCount int                    `xml:"maxCount,attr,omitempty" json:"maxCount,omitempty" yaml:"maxCount,omitempty"`
 }
 
 type NodeDevicePCIPhysFunctionCapability struct {
@@ -182,7 +182,7 @@ type NodeDeviceNetOffloadFeatures struct {
 
 type NodeDeviceNetLink struct {
 	State string `xml:"state,attr" json:"state,omitempty" yaml:"state,omitempty"`
-	Speed string `xml:"speed,attr,omitempty" json:"speed,omitempty,omitempty" yaml:"speed,omitempty,omitempty"`
+	Speed string `xml:"speed,attr,omitempty" json:"speed,omitempty" yaml:"speed,omitempty"`
 }
 
 type NodeDeviceNetSubCapability struct {

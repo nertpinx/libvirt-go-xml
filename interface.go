@@ -31,7 +31,7 @@ import (
 
 type Interface struct {
 	XMLName  xml.Name            `xml:"interface" json:"interface" yaml:"interface"`
-	Name     string              `xml:"name,attr,omitempty" json:"name,omitempty,omitempty" yaml:"name,omitempty,omitempty"`
+	Name     string              `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Start    *InterfaceStart     `xml:"start" json:"start" yaml:"start"`
 	MTU      *InterfaceMTU       `xml:"mtu" json:"mtu" yaml:"mtu"`
 	Protocol []InterfaceProtocol `xml:"protocol" json:"protocol" yaml:"protocol"`
@@ -51,7 +51,7 @@ type InterfaceMTU struct {
 }
 
 type InterfaceProtocol struct {
-	Family   string             `xml:"family,attr,omitempty" json:"family,omitempty,omitempty" yaml:"family,omitempty,omitempty"`
+	Family   string             `xml:"family,attr,omitempty" json:"family,omitempty" yaml:"family,omitempty"`
 	AutoConf *InterfaceAutoConf `xml:"autoconf" json:"autoconf" yaml:"autoconf"`
 	DHCP     *InterfaceDHCP     `xml:"dhcp" json:"dhcp" yaml:"dhcp"`
 	IPs      []InterfaceIP      `xml:"ip" json:"ip" yaml:"ip"`
@@ -62,12 +62,12 @@ type InterfaceAutoConf struct {
 }
 
 type InterfaceDHCP struct {
-	PeerDNS string `xml:"peerdns,attr,omitempty" json:"peerdns,omitempty,omitempty" yaml:"peerdns,omitempty,omitempty"`
+	PeerDNS string `xml:"peerdns,attr,omitempty" json:"peerdns,omitempty" yaml:"peerdns,omitempty"`
 }
 
 type InterfaceIP struct {
 	Address string `xml:"address,attr" json:"address,omitempty" yaml:"address,omitempty"`
-	Prefix  uint   `xml:"prefix,attr,omitempty" json:"prefix,omitempty,omitempty" yaml:"prefix,omitempty,omitempty"`
+	Prefix  uint   `xml:"prefix,attr,omitempty" json:"prefix,omitempty" yaml:"prefix,omitempty"`
 }
 
 type InterfaceRoute struct {
@@ -75,8 +75,8 @@ type InterfaceRoute struct {
 }
 
 type InterfaceLink struct {
-	Speed uint   `xml:"speed,attr,omitempty" json:"speed,omitempty,omitempty" yaml:"speed,omitempty,omitempty"`
-	State string `xml:"state,attr,omitempty" json:"state,omitempty,omitempty" yaml:"state,omitempty,omitempty"`
+	Speed uint   `xml:"speed,attr,omitempty" json:"speed,omitempty" yaml:"speed,omitempty"`
+	State string `xml:"state,attr,omitempty" json:"state,omitempty" yaml:"state,omitempty"`
 }
 
 type InterfaceMAC struct {
@@ -84,26 +84,26 @@ type InterfaceMAC struct {
 }
 
 type InterfaceBond struct {
-	Mode       string               `xml:"mode,attr,omitempty" json:"mode,omitempty,omitempty" yaml:"mode,omitempty,omitempty"`
+	Mode       string               `xml:"mode,attr,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
 	ARPMon     *InterfaceBondARPMon `xml:"arpmon" json:"arpmon" yaml:"arpmon"`
 	MIIMon     *InterfaceBondMIIMon `xml:"miimon" json:"miimon" yaml:"miimon"`
 	Interfaces []Interface          `xml:"interface" json:"interface" yaml:"interface"`
 }
 
 type InterfaceBondARPMon struct {
-	Interval uint   `xml:"interval,attr,omitempty" json:"interval,omitempty,omitempty" yaml:"interval,omitempty,omitempty"`
-	Target   string `xml:"target,attr,omitempty" json:"target,omitempty,omitempty" yaml:"target,omitempty,omitempty"`
-	Validate string `xml:"validate,attr,omitempty" json:"validate,omitempty,omitempty" yaml:"validate,omitempty,omitempty"`
+	Interval uint   `xml:"interval,attr,omitempty" json:"interval,omitempty" yaml:"interval,omitempty"`
+	Target   string `xml:"target,attr,omitempty" json:"target,omitempty" yaml:"target,omitempty"`
+	Validate string `xml:"validate,attr,omitempty" json:"validate,omitempty" yaml:"validate,omitempty"`
 }
 
 type InterfaceBondMIIMon struct {
-	Freq    uint   `xml:"freq,attr,omitempty" json:"freq,omitempty,omitempty" yaml:"freq,omitempty,omitempty"`
-	UpDelay uint   `xml:"updelay,attr,omitempty" json:"updelay,omitempty,omitempty" yaml:"updelay,omitempty,omitempty"`
-	Carrier string `xml:"carrier,attr,omitempty" json:"carrier,omitempty,omitempty" yaml:"carrier,omitempty,omitempty"`
+	Freq    uint   `xml:"freq,attr,omitempty" json:"freq,omitempty" yaml:"freq,omitempty"`
+	UpDelay uint   `xml:"updelay,attr,omitempty" json:"updelay,omitempty" yaml:"updelay,omitempty"`
+	Carrier string `xml:"carrier,attr,omitempty" json:"carrier,omitempty" yaml:"carrier,omitempty"`
 }
 
 type InterfaceBridge struct {
-	STP        string      `xml:"stp,attr,omitempty" json:"stp,omitempty,omitempty" yaml:"stp,omitempty,omitempty"`
+	STP        string      `xml:"stp,attr,omitempty" json:"stp,omitempty" yaml:"stp,omitempty"`
 	Delay      *float64    `xml:"delay,attr" json:"delay,omitempty" yaml:"delay,omitempty"`
 	Interfaces []Interface `xml:"interface" json:"interface" yaml:"interface"`
 }

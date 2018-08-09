@@ -28,7 +28,7 @@ package libvirtxml
 import "encoding/xml"
 
 type StorageVolumeSize struct {
-	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty,omitempty" yaml:"unit,omitempty,omitempty"`
+	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 	Value uint64 `xml:",attr" json:"" yaml:""`
 }
 
@@ -72,7 +72,7 @@ type StorageVolumeBackingStore struct {
 
 type StorageVolume struct {
 	XMLName      xml.Name                   `xml:"volume" json:"volume" yaml:"volume"`
-	Type         string                     `xml:"type,attr,omitempty" json:"type,omitempty,omitempty" yaml:"type,omitempty,omitempty"`
+	Type         string                     `xml:"type,attr,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	Name         string                     `xml:"name" json:"name" yaml:"name"`
 	Key          string                     `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
 	Allocation   *StorageVolumeSize         `xml:"allocation" json:"allocation" yaml:"allocation"`
