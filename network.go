@@ -93,8 +93,8 @@ type NetworkForwardNATPort struct {
 }
 
 type NetworkForwardNAT struct {
-	Addresses []NetworkForwardNATAddress `xml:"address" json:"address" yaml:"address"`
-	Ports     []NetworkForwardNATPort    `xml:"port" json:"port" yaml:"port"`
+	Addresses []NetworkForwardNATAddress `xml:"address" json:"address,omitempty" yaml:"address,omitempty"`
+	Ports     []NetworkForwardNATPort    `xml:"port" json:"port,omitempty" yaml:"port,omitempty"`
 }
 
 type NetworkForward struct {
@@ -102,10 +102,10 @@ type NetworkForward struct {
 	Dev        string                    `xml:"dev,attr,omitempty" json:"dev,omitempty" yaml:"dev,omitempty"`
 	Managed    string                    `xml:"managed,attr,omitempty" json:"managed,omitempty" yaml:"managed,omitempty"`
 	Driver     *NetworkForwardDriver     `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
-	PFs        []NetworkForwardPF        `xml:"pf" json:"pf" yaml:"pf"`
+	PFs        []NetworkForwardPF        `xml:"pf" json:"pf,omitempty" yaml:"pf,omitempty"`
 	NAT        *NetworkForwardNAT        `xml:"nat" json:"nat,omitempty" yaml:"nat,omitempty"`
-	Interfaces []NetworkForwardInterface `xml:"interface" json:"interface" yaml:"interface"`
-	Addresses  []NetworkForwardAddress   `xml:"address" json:"address" yaml:"address"`
+	Interfaces []NetworkForwardInterface `xml:"interface" json:"interface,omitempty" yaml:"interface,omitempty"`
+	Addresses  []NetworkForwardAddress   `xml:"address" json:"address,omitempty" yaml:"address,omitempty"`
 }
 
 type NetworkForwardDriver struct {
@@ -156,9 +156,9 @@ type NetworkBootp struct {
 }
 
 type NetworkDHCP struct {
-	Ranges []NetworkDHCPRange `xml:"range" json:"range" yaml:"range"`
-	Hosts  []NetworkDHCPHost  `xml:"host" json:"host" yaml:"host"`
-	Bootp  []NetworkBootp     `xml:"bootp" json:"bootp" yaml:"bootp"`
+	Ranges []NetworkDHCPRange `xml:"range" json:"range,omitempty" yaml:"range,omitempty"`
+	Hosts  []NetworkDHCPHost  `xml:"host" json:"host,omitempty" yaml:"host,omitempty"`
+	Bootp  []NetworkBootp     `xml:"bootp" json:"bootp,omitempty" yaml:"bootp,omitempty"`
 }
 
 type NetworkIP struct {
@@ -202,7 +202,7 @@ type NetworkDNSHostHostname struct {
 type NetworkDNSHost struct {
 	XMLName   xml.Name                 `xml:"host" json:"host" yaml:"host"`
 	IP        string                   `xml:"ip,attr" json:"ip,omitempty" yaml:"ip,omitempty"`
-	Hostnames []NetworkDNSHostHostname `xml:"hostname" json:"hostname" yaml:"hostname"`
+	Hostnames []NetworkDNSHostHostname `xml:"hostname" json:"hostname,omitempty" yaml:"hostname,omitempty"`
 }
 
 type NetworkDNSSRV struct {
@@ -219,10 +219,10 @@ type NetworkDNSSRV struct {
 type NetworkDNS struct {
 	Enable            string                `xml:"enable,attr,omitempty" json:"enable,omitempty" yaml:"enable,omitempty"`
 	ForwardPlainNames string                `xml:"forwardPlainNames,attr,omitempty" json:"forwardPlainNames,omitempty" yaml:"forwardPlainNames,omitempty"`
-	Forwarders        []NetworkDNSForwarder `xml:"forwarder" json:"forwarder" yaml:"forwarder"`
-	TXTs              []NetworkDNSTXT       `xml:"txt" json:"txt" yaml:"txt"`
-	Host              []NetworkDNSHost      `xml:"host" json:"host" yaml:"host"`
-	SRVs              []NetworkDNSSRV       `xml:"srv" json:"srv" yaml:"srv"`
+	Forwarders        []NetworkDNSForwarder `xml:"forwarder" json:"forwarder,omitempty" yaml:"forwarder,omitempty"`
+	TXTs              []NetworkDNSTXT       `xml:"txt" json:"txt,omitempty" yaml:"txt,omitempty"`
+	Host              []NetworkDNSHost      `xml:"host" json:"host,omitempty" yaml:"host,omitempty"`
+	SRVs              []NetworkDNSSRV       `xml:"srv" json:"srv,omitempty" yaml:"srv,omitempty"`
 }
 
 type NetworkMetadata struct {
@@ -248,10 +248,10 @@ type Network struct {
 	DNS                 *NetworkDNS         `xml:"dns" json:"dns,omitempty" yaml:"dns,omitempty"`
 	VLAN                *NetworkVLAN        `xml:"vlan" json:"vlan,omitempty" yaml:"vlan,omitempty"`
 	Bandwidth           *NetworkBandwidth   `xml:"bandwidth" json:"bandwidth,omitempty" yaml:"bandwidth,omitempty"`
-	IPs                 []NetworkIP         `xml:"ip" json:"ip" yaml:"ip"`
-	Routes              []NetworkRoute      `xml:"route" json:"route" yaml:"route"`
+	IPs                 []NetworkIP         `xml:"ip" json:"ip,omitempty" yaml:"ip,omitempty"`
+	Routes              []NetworkRoute      `xml:"route" json:"route,omitempty" yaml:"route,omitempty"`
 	VirtualPort         *NetworkVirtualPort `xml:"virtualport" json:"virtualport,omitempty" yaml:"virtualport,omitempty"`
-	PortGroups          []NetworkPortGroup  `xml:"portgroup" json:"portgroup" yaml:"portgroup"`
+	PortGroups          []NetworkPortGroup  `xml:"portgroup" json:"portgroup,omitempty" yaml:"portgroup,omitempty"`
 }
 
 type NetworkPortGroup struct {
@@ -265,7 +265,7 @@ type NetworkPortGroup struct {
 
 type NetworkVLAN struct {
 	Trunk string           `xml:"trunk,attr,omitempty" json:"trunk,omitempty" yaml:"trunk,omitempty"`
-	Tags  []NetworkVLANTag `xml:"tag" json:"tag" yaml:"tag"`
+	Tags  []NetworkVLANTag `xml:"tag" json:"tag,omitempty" yaml:"tag,omitempty"`
 }
 
 type NetworkVLANTag struct {

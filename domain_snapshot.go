@@ -39,7 +39,7 @@ type DomainSnapshotDisk struct {
 }
 
 type DomainSnapshotDisks struct {
-	Disks []DomainSnapshotDisk `xml:"disk" json:"disk" yaml:"disk"`
+	Disks []DomainSnapshotDisk `xml:"disk" json:"disk,omitempty" yaml:"disk,omitempty"`
 }
 
 type DomainSnapshotMemory struct {

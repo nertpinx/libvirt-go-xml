@@ -54,8 +54,8 @@ type DomainCapsOS struct {
 
 type DomainCapsOSLoader struct {
 	Supported string           `xml:"supported,attr" json:"supported,omitempty" yaml:"supported,omitempty"`
-	Values    []string         `xml:"value" json:"value" yaml:"value"`
-	Enums     []DomainCapsEnum `xml:"enum" json:"enum" yaml:"enum"`
+	Values    []string         `xml:"value" json:"value,omitempty" yaml:"value,omitempty"`
+	Enums     []DomainCapsEnum `xml:"enum" json:"enum,omitempty" yaml:"enum,omitempty"`
 }
 
 type DomainCapsIOThreads struct {
@@ -63,15 +63,15 @@ type DomainCapsIOThreads struct {
 }
 
 type DomainCapsCPU struct {
-	Modes []DomainCapsCPUMode `xml:"mode" json:"mode" yaml:"mode"`
+	Modes []DomainCapsCPUMode `xml:"mode" json:"mode,omitempty" yaml:"mode,omitempty"`
 }
 
 type DomainCapsCPUMode struct {
 	Name      string                 `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 	Supported string                 `xml:"supported,attr" json:"supported,omitempty" yaml:"supported,omitempty"`
-	Models    []DomainCapsCPUModel   `xml:"model" json:"model" yaml:"model"`
+	Models    []DomainCapsCPUModel   `xml:"model" json:"model,omitempty" yaml:"model,omitempty"`
 	Vendor    string                 `xml:"vendor,omitempty" json:"vendor,omitempty" yaml:"vendor,omitempty"`
-	Features  []DomainCapsCPUFeature `xml:"feature" json:"feature" yaml:"feature"`
+	Features  []DomainCapsCPUFeature `xml:"feature" json:"feature,omitempty" yaml:"feature,omitempty"`
 }
 
 type DomainCapsCPUModel struct {
@@ -87,7 +87,7 @@ type DomainCapsCPUFeature struct {
 
 type DomainCapsEnum struct {
 	Name   string   `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
-	Values []string `xml:"value" json:"value" yaml:"value"`
+	Values []string `xml:"value" json:"value,omitempty" yaml:"value,omitempty"`
 }
 
 type DomainCapsDevices struct {
@@ -99,7 +99,7 @@ type DomainCapsDevices struct {
 
 type DomainCapsDevice struct {
 	Supported string           `xml:"supported,attr" json:"supported,omitempty" yaml:"supported,omitempty"`
-	Enums     []DomainCapsEnum `xml:"enum" json:"enum" yaml:"enum"`
+	Enums     []DomainCapsEnum `xml:"enum" json:"enum,omitempty" yaml:"enum,omitempty"`
 }
 
 type DomainCapsFeatures struct {
@@ -111,7 +111,7 @@ type DomainCapsFeatures struct {
 
 type DomainCapsFeatureGIC struct {
 	Supported string           `xml:"supported,attr" json:"supported,omitempty" yaml:"supported,omitempty"`
-	Enums     []DomainCapsEnum `xml:"enum" json:"enum" yaml:"enum"`
+	Enums     []DomainCapsEnum `xml:"enum" json:"enum,omitempty" yaml:"enum,omitempty"`
 }
 
 type DomainCapsFeatureVMCoreInfo struct {

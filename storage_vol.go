@@ -60,7 +60,7 @@ type StorageVolumeTarget struct {
 	Timestamps  *StorageVolumeTargetTimestamps  `xml:"timestamps" json:"timestamps,omitempty" yaml:"timestamps,omitempty"`
 	Compat      string                          `xml:"compat,omitempty" json:"compat,omitempty" yaml:"compat,omitempty"`
 	NoCOW       *struct{}                       `xml:"nocow" json:"nocow" yaml:"nocow"`
-	Features    []StorageVolumeTargetFeature    `xml:"features" json:"features" yaml:"features"`
+	Features    []StorageVolumeTargetFeature    `xml:"features" json:"features,omitempty" yaml:"features,omitempty"`
 	Encryption  *StorageEncryption              `xml:"encryption" json:"encryption,omitempty" yaml:"encryption,omitempty"`
 }
 

@@ -34,7 +34,7 @@ type Interface struct {
 	Name     string              `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Start    *InterfaceStart     `xml:"start" json:"start,omitempty" yaml:"start,omitempty"`
 	MTU      *InterfaceMTU       `xml:"mtu" json:"mtu,omitempty" yaml:"mtu,omitempty"`
-	Protocol []InterfaceProtocol `xml:"protocol" json:"protocol" yaml:"protocol"`
+	Protocol []InterfaceProtocol `xml:"protocol" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	Link     *InterfaceLink      `xml:"link" json:"link,omitempty" yaml:"link,omitempty"`
 	MAC      *InterfaceMAC       `xml:"mac" json:"mac,omitempty" yaml:"mac,omitempty"`
 	Bond     *InterfaceBond      `xml:"bond" json:"bond,omitempty" yaml:"bond,omitempty"`
@@ -54,8 +54,8 @@ type InterfaceProtocol struct {
 	Family   string             `xml:"family,attr,omitempty" json:"family,omitempty" yaml:"family,omitempty"`
 	AutoConf *InterfaceAutoConf `xml:"autoconf" json:"autoconf,omitempty" yaml:"autoconf,omitempty"`
 	DHCP     *InterfaceDHCP     `xml:"dhcp" json:"dhcp,omitempty" yaml:"dhcp,omitempty"`
-	IPs      []InterfaceIP      `xml:"ip" json:"ip" yaml:"ip"`
-	Route    []InterfaceRoute   `xml:"route" json:"route" yaml:"route"`
+	IPs      []InterfaceIP      `xml:"ip" json:"ip,omitempty" yaml:"ip,omitempty"`
+	Route    []InterfaceRoute   `xml:"route" json:"route,omitempty" yaml:"route,omitempty"`
 }
 
 type InterfaceAutoConf struct {
@@ -87,7 +87,7 @@ type InterfaceBond struct {
 	Mode       string               `xml:"mode,attr,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
 	ARPMon     *InterfaceBondARPMon `xml:"arpmon" json:"arpmon,omitempty" yaml:"arpmon,omitempty"`
 	MIIMon     *InterfaceBondMIIMon `xml:"miimon" json:"miimon,omitempty" yaml:"miimon,omitempty"`
-	Interfaces []Interface          `xml:"interface" json:"interface" yaml:"interface"`
+	Interfaces []Interface          `xml:"interface" json:"interface,omitempty" yaml:"interface,omitempty"`
 }
 
 type InterfaceBondARPMon struct {
@@ -105,7 +105,7 @@ type InterfaceBondMIIMon struct {
 type InterfaceBridge struct {
 	STP        string      `xml:"stp,attr,omitempty" json:"stp,omitempty" yaml:"stp,omitempty"`
 	Delay      *float64    `xml:"delay,attr" json:"delay,omitempty" yaml:"delay,omitempty"`
-	Interfaces []Interface `xml:"interface" json:"interface" yaml:"interface"`
+	Interfaces []Interface `xml:"interface" json:"interface,omitempty" yaml:"interface,omitempty"`
 }
 
 type InterfaceVLAN struct {

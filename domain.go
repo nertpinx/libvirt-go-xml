@@ -135,12 +135,12 @@ type DomainDiskSource struct {
 
 type DomainDiskSourceFile struct {
 	File     string                 `xml:"file,attr,omitempty" json:"file,omitempty" yaml:"file,omitempty"`
-	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 }
 
 type DomainDiskSourceBlock struct {
 	Dev      string                 `xml:"dev,attr,omitempty" json:"dev,omitempty" yaml:"dev,omitempty"`
-	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 }
 
 type DomainDiskSourceDir struct {
@@ -151,7 +151,7 @@ type DomainDiskSourceNetwork struct {
 	Protocol  string                            `xml:"protocol,attr,omitempty" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	Name      string                            `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	TLS       string                            `xml:"tls,attr,omitempty" json:"tls,omitempty" yaml:"tls,omitempty"`
-	Hosts     []DomainDiskSourceHost            `xml:"host" json:"host" yaml:"host"`
+	Hosts     []DomainDiskSourceHost            `xml:"host" json:"host,omitempty" yaml:"host,omitempty"`
 	Initiator *DomainDiskSourceNetworkInitiator `xml:"initiator" json:"initiator,omitempty" yaml:"initiator,omitempty"`
 	Snapshot  *DomainDiskSourceNetworkSnapshot  `xml:"snapshot" json:"snapshot,omitempty" yaml:"snapshot,omitempty"`
 	Config    *DomainDiskSourceNetworkConfig    `xml:"config" json:"config,omitempty" yaml:"config,omitempty"`
@@ -178,7 +178,7 @@ type DomainDiskSourceVolume struct {
 	Pool     string                 `xml:"pool,attr,omitempty" json:"pool,omitempty" yaml:"pool,omitempty"`
 	Volume   string                 `xml:"volume,attr,omitempty" json:"volume,omitempty" yaml:"volume,omitempty"`
 	Mode     string                 `xml:"mode,attr,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
-	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 }
 
 type DomainDiskDriver struct {
@@ -407,8 +407,8 @@ type DomainInterfaceSourceUser struct {
 }
 
 type DomainInterfaceSourceEthernet struct {
-	IP    []DomainInterfaceIP    `xml:"ip" json:"ip" yaml:"ip"`
-	Route []DomainInterfaceRoute `xml:"route" json:"route" yaml:"route"`
+	IP    []DomainInterfaceIP    `xml:"ip" json:"ip,omitempty" yaml:"ip,omitempty"`
+	Route []DomainInterfaceRoute `xml:"route" json:"route,omitempty" yaml:"route,omitempty"`
 }
 
 type DomainInterfaceSourceServer struct {
@@ -567,7 +567,7 @@ type DomainInterfaceBandwidth struct {
 
 type DomainInterfaceVLan struct {
 	Trunk string                   `xml:"trunk,attr,omitempty" json:"trunk,omitempty" yaml:"trunk,omitempty"`
-	Tags  []DomainInterfaceVLanTag `xml:"tag" json:"tag" yaml:"tag"`
+	Tags  []DomainInterfaceVLanTag `xml:"tag" json:"tag,omitempty" yaml:"tag,omitempty"`
 }
 
 type DomainInterfaceVLanTag struct {
@@ -582,7 +582,7 @@ type DomainInterfaceGuest struct {
 
 type DomainInterfaceFilterRef struct {
 	Filter     string                       `xml:"filter,attr" json:"filter,omitempty" yaml:"filter,omitempty"`
-	Parameters []DomainInterfaceFilterParam `xml:"parameter" json:"parameter" yaml:"parameter"`
+	Parameters []DomainInterfaceFilterParam `xml:"parameter" json:"parameter,omitempty" yaml:"parameter,omitempty"`
 }
 
 type DomainInterfaceFilterParam struct {
@@ -646,8 +646,8 @@ type DomainInterface struct {
 	Boot                *DomainDeviceBoot           `xml:"boot" json:"boot,omitempty" yaml:"boot,omitempty"`
 	VLan                *DomainInterfaceVLan        `xml:"vlan" json:"vlan,omitempty" yaml:"vlan,omitempty"`
 	VirtualPort         *DomainInterfaceVirtualPort `xml:"virtualport" json:"virtualport,omitempty" yaml:"virtualport,omitempty"`
-	IP                  []DomainInterfaceIP         `xml:"ip" json:"ip" yaml:"ip"`
-	Route               []DomainInterfaceRoute      `xml:"route" json:"route" yaml:"route"`
+	IP                  []DomainInterfaceIP         `xml:"ip" json:"ip,omitempty" yaml:"ip,omitempty"`
+	Route               []DomainInterfaceRoute      `xml:"route" json:"route,omitempty" yaml:"route,omitempty"`
 	Script              *DomainInterfaceScript      `xml:"script" json:"script,omitempty" yaml:"script,omitempty"`
 	Target              *DomainInterfaceTarget      `xml:"target" json:"target,omitempty" yaml:"target,omitempty"`
 	Guest               *DomainInterfaceGuest       `xml:"guest" json:"guest,omitempty" yaml:"guest,omitempty"`
@@ -689,23 +689,23 @@ type DomainChardevSourceVC struct {
 
 type DomainChardevSourcePty struct {
 	Path     string                 `xml:"path,attr" json:"path,omitempty" yaml:"path,omitempty"`
-	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 }
 
 type DomainChardevSourceDev struct {
 	Path     string                 `xml:"path,attr" json:"path,omitempty" yaml:"path,omitempty"`
-	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 }
 
 type DomainChardevSourceFile struct {
 	Path     string                 `xml:"path,attr" json:"path,omitempty" yaml:"path,omitempty"`
 	Append   string                 `xml:"append,attr,omitempty" json:"append,omitempty" yaml:"append,omitempty"`
-	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 }
 
 type DomainChardevSourcePipe struct {
 	Path     string                 `xml:"path,attr" json:"path,omitempty" yaml:"path,omitempty"`
-	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel []DomainDeviceSecLabel `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 }
 
 type DomainChardevSourceStdIO struct {
@@ -735,7 +735,7 @@ type DomainChardevSourceUNIX struct {
 	Mode      string                        `xml:"mode,attr,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
 	Path      string                        `xml:"path,attr" json:"path,omitempty" yaml:"path,omitempty"`
 	Reconnect *DomainChardevSourceReconnect `xml:"reconnect" json:"reconnect,omitempty" yaml:"reconnect,omitempty"`
-	SecLabel  []DomainDeviceSecLabel        `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel  []DomainDeviceSecLabel        `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 }
 
 type DomainChardevSourceSpiceVMC struct {
@@ -935,7 +935,7 @@ type DomainRedirDev struct {
 }
 
 type DomainRedirFilter struct {
-	USB []DomainRedirFilterUSB `xml:"usbdev" json:"usbdev" yaml:"usbdev"`
+	USB []DomainRedirFilterUSB `xml:"usbdev" json:"usbdev,omitempty" yaml:"usbdev,omitempty"`
 }
 
 type DomainRedirFilterUSB struct {
@@ -1015,7 +1015,7 @@ type DomainGraphicVNC struct {
 	PasswdValidTo string                  `xml:"passwdValidTo,attr,omitempty" json:"passwdValidTo,omitempty" yaml:"passwdValidTo,omitempty"`
 	Connected     string                  `xml:"connected,attr,omitempty" json:"connected,omitempty" yaml:"connected,omitempty"`
 	Listen        string                  `xml:"listen,attr,omitempty" json:"listen,omitempty" yaml:"listen,omitempty"`
-	Listeners     []DomainGraphicListener `xml:"listen" json:"listen" yaml:"listen"`
+	Listeners     []DomainGraphicListener `xml:"listen" json:"listen,omitempty" yaml:"listen,omitempty"`
 }
 
 type DomainGraphicRDP struct {
@@ -1024,7 +1024,7 @@ type DomainGraphicRDP struct {
 	ReplaceUser string                  `xml:"replaceUser,attr,omitempty" json:"replaceUser,omitempty" yaml:"replaceUser,omitempty"`
 	MultiUser   string                  `xml:"multiUser,attr,omitempty" json:"multiUser,omitempty" yaml:"multiUser,omitempty"`
 	Listen      string                  `xml:"listen,attr,omitempty" json:"listen,omitempty" yaml:"listen,omitempty"`
-	Listeners   []DomainGraphicListener `xml:"listen" json:"listen" yaml:"listen"`
+	Listeners   []DomainGraphicListener `xml:"listen" json:"listen,omitempty" yaml:"listen,omitempty"`
 }
 
 type DomainGraphicDesktop struct {
@@ -1084,8 +1084,8 @@ type DomainGraphicSpice struct {
 	Passwd        string                          `xml:"passwd,attr,omitempty" json:"passwd,omitempty" yaml:"passwd,omitempty"`
 	PasswdValidTo string                          `xml:"passwdValidTo,attr,omitempty" json:"passwdValidTo,omitempty" yaml:"passwdValidTo,omitempty"`
 	Connected     string                          `xml:"connected,attr,omitempty" json:"connected,omitempty" yaml:"connected,omitempty"`
-	Listeners     []DomainGraphicListener         `xml:"listen" json:"listen" yaml:"listen"`
-	Channel       []DomainGraphicSpiceChannel     `xml:"channel" json:"channel" yaml:"channel"`
+	Listeners     []DomainGraphicListener         `xml:"listen" json:"listen,omitempty" yaml:"listen,omitempty"`
+	Channel       []DomainGraphicSpiceChannel     `xml:"channel" json:"channel,omitempty" yaml:"channel,omitempty"`
 	Image         *DomainGraphicSpiceImage        `xml:"image" json:"image,omitempty" yaml:"image,omitempty"`
 	JPEG          *DomainGraphicSpiceJPEG         `xml:"jpeg" json:"jpeg,omitempty" yaml:"jpeg,omitempty"`
 	ZLib          *DomainGraphicSpiceZLib         `xml:"zlib" json:"zlib,omitempty" yaml:"zlib,omitempty"`
@@ -1186,7 +1186,7 @@ type DomainSoundCodec struct {
 type DomainSound struct {
 	XMLName xml.Name           `xml:"sound" json:"sound" yaml:"sound"`
 	Model   string             `xml:"model,attr" json:"model,omitempty" yaml:"model,omitempty"`
-	Codec   []DomainSoundCodec `xml:"codec" json:"codec" yaml:"codec"`
+	Codec   []DomainSoundCodec `xml:"codec" json:"codec,omitempty" yaml:"codec,omitempty"`
 	Alias   *DomainAlias       `xml:"alias" json:"alias,omitempty" yaml:"alias,omitempty"`
 	Address *DomainAddress     `xml:"address" json:"address,omitempty" yaml:"address,omitempty"`
 }
@@ -1257,7 +1257,7 @@ type DomainHostdevSubsysSCSISourceHost struct {
 
 type DomainHostdevSubsysSCSISourceISCSI struct {
 	Name string                 `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
-	Host []DomainDiskSourceHost `xml:"host" json:"host" yaml:"host"`
+	Host []DomainDiskSourceHost `xml:"host" json:"host,omitempty" yaml:"host,omitempty"`
 	Auth *DomainDiskAuth        `xml:"auth" json:"auth,omitempty" yaml:"auth,omitempty"`
 }
 
@@ -1327,8 +1327,8 @@ type DomainRoute struct {
 
 type DomainHostdevCapsNet struct {
 	Source *DomainHostdevCapsNetSource `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
-	IP     []DomainIP                  `xml:"ip" json:"ip" yaml:"ip"`
-	Route  []DomainRoute               `xml:"route" json:"route" yaml:"route"`
+	IP     []DomainIP                  `xml:"ip" json:"ip,omitempty" yaml:"ip,omitempty"`
+	Route  []DomainRoute               `xml:"route" json:"route,omitempty" yaml:"route,omitempty"`
 }
 
 type DomainHostdevCapsNetSource struct {
@@ -1439,7 +1439,7 @@ type DomainSmartcard struct {
 	Passthrough *DomainChardevSource      `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 	Protocol    *DomainChardevProtocol    `xml:"protocol" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	Host        *DomainSmartcardHost      `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
-	HostCerts   []DomainSmartcardHostCert `xml:"certificate" json:"certificate" yaml:"certificate"`
+	HostCerts   []DomainSmartcardHostCert `xml:"certificate" json:"certificate,omitempty" yaml:"certificate,omitempty"`
 	Database    string                    `xml:"database,omitempty" json:"database,omitempty" yaml:"database,omitempty"`
 	Alias       *DomainAlias              `xml:"alias" json:"alias,omitempty" yaml:"alias,omitempty"`
 	Address     *DomainAddress            `xml:"address" json:"address,omitempty" yaml:"address,omitempty"`
@@ -1509,32 +1509,32 @@ type DomainShmemMSI struct {
 
 type DomainDeviceList struct {
 	Emulator     string              `xml:"emulator,omitempty" json:"emulator,omitempty" yaml:"emulator,omitempty"`
-	Disks        []DomainDisk        `xml:"disk" json:"disk" yaml:"disk"`
-	Controllers  []DomainController  `xml:"controller" json:"controller" yaml:"controller"`
-	Leases       []DomainLease       `xml:"lease" json:"lease" yaml:"lease"`
-	Filesystems  []DomainFilesystem  `xml:"filesystem" json:"filesystem" yaml:"filesystem"`
-	Interfaces   []DomainInterface   `xml:"interface" json:"interface" yaml:"interface"`
-	Smartcards   []DomainSmartcard   `xml:"smartcard" json:"smartcard" yaml:"smartcard"`
-	Serials      []DomainSerial      `xml:"serial" json:"serial" yaml:"serial"`
-	Parallels    []DomainParallel    `xml:"parallel" json:"parallel" yaml:"parallel"`
-	Consoles     []DomainConsole     `xml:"console" json:"console" yaml:"console"`
-	Channels     []DomainChannel     `xml:"channel" json:"channel" yaml:"channel"`
-	Inputs       []DomainInput       `xml:"input" json:"input" yaml:"input"`
-	TPMs         []DomainTPM         `xml:"tpm" json:"tpm" yaml:"tpm"`
-	Graphics     []DomainGraphic     `xml:"graphics" json:"graphics" yaml:"graphics"`
-	Sounds       []DomainSound       `xml:"sound" json:"sound" yaml:"sound"`
-	Videos       []DomainVideo       `xml:"video" json:"video" yaml:"video"`
-	Hostdevs     []DomainHostdev     `xml:"hostdev" json:"hostdev" yaml:"hostdev"`
-	RedirDevs    []DomainRedirDev    `xml:"redirdev" json:"redirdev" yaml:"redirdev"`
-	RedirFilters []DomainRedirFilter `xml:"redirfilter" json:"redirfilter" yaml:"redirfilter"`
-	Hubs         []DomainHub         `xml:"hub" json:"hub" yaml:"hub"`
+	Disks        []DomainDisk        `xml:"disk" json:"disk,omitempty" yaml:"disk,omitempty"`
+	Controllers  []DomainController  `xml:"controller" json:"controller,omitempty" yaml:"controller,omitempty"`
+	Leases       []DomainLease       `xml:"lease" json:"lease,omitempty" yaml:"lease,omitempty"`
+	Filesystems  []DomainFilesystem  `xml:"filesystem" json:"filesystem,omitempty" yaml:"filesystem,omitempty"`
+	Interfaces   []DomainInterface   `xml:"interface" json:"interface,omitempty" yaml:"interface,omitempty"`
+	Smartcards   []DomainSmartcard   `xml:"smartcard" json:"smartcard,omitempty" yaml:"smartcard,omitempty"`
+	Serials      []DomainSerial      `xml:"serial" json:"serial,omitempty" yaml:"serial,omitempty"`
+	Parallels    []DomainParallel    `xml:"parallel" json:"parallel,omitempty" yaml:"parallel,omitempty"`
+	Consoles     []DomainConsole     `xml:"console" json:"console,omitempty" yaml:"console,omitempty"`
+	Channels     []DomainChannel     `xml:"channel" json:"channel,omitempty" yaml:"channel,omitempty"`
+	Inputs       []DomainInput       `xml:"input" json:"input,omitempty" yaml:"input,omitempty"`
+	TPMs         []DomainTPM         `xml:"tpm" json:"tpm,omitempty" yaml:"tpm,omitempty"`
+	Graphics     []DomainGraphic     `xml:"graphics" json:"graphics,omitempty" yaml:"graphics,omitempty"`
+	Sounds       []DomainSound       `xml:"sound" json:"sound,omitempty" yaml:"sound,omitempty"`
+	Videos       []DomainVideo       `xml:"video" json:"video,omitempty" yaml:"video,omitempty"`
+	Hostdevs     []DomainHostdev     `xml:"hostdev" json:"hostdev,omitempty" yaml:"hostdev,omitempty"`
+	RedirDevs    []DomainRedirDev    `xml:"redirdev" json:"redirdev,omitempty" yaml:"redirdev,omitempty"`
+	RedirFilters []DomainRedirFilter `xml:"redirfilter" json:"redirfilter,omitempty" yaml:"redirfilter,omitempty"`
+	Hubs         []DomainHub         `xml:"hub" json:"hub,omitempty" yaml:"hub,omitempty"`
 	Watchdog     *DomainWatchdog     `xml:"watchdog" json:"watchdog,omitempty" yaml:"watchdog,omitempty"`
 	MemBalloon   *DomainMemBalloon   `xml:"memballoon" json:"memballoon,omitempty" yaml:"memballoon,omitempty"`
-	RNGs         []DomainRNG         `xml:"rng" json:"rng" yaml:"rng"`
+	RNGs         []DomainRNG         `xml:"rng" json:"rng,omitempty" yaml:"rng,omitempty"`
 	NVRAM        *DomainNVRAM        `xml:"nvram" json:"nvram,omitempty" yaml:"nvram,omitempty"`
-	Panics       []DomainPanic       `xml:"panic" json:"panic" yaml:"panic"`
-	Shmems       []DomainShmem       `xml:"shmem" json:"shmem" yaml:"shmem"`
-	Memorydevs   []DomainMemorydev   `xml:"memory" json:"memory" yaml:"memory"`
+	Panics       []DomainPanic       `xml:"panic" json:"panic,omitempty" yaml:"panic,omitempty"`
+	Shmems       []DomainShmem       `xml:"shmem" json:"shmem,omitempty" yaml:"shmem,omitempty"`
+	Memorydevs   []DomainMemorydev   `xml:"memory" json:"memory,omitempty" yaml:"memory,omitempty"`
 	IOMMU        *DomainIOMMU        `xml:"iommu" json:"iommu,omitempty" yaml:"iommu,omitempty"`
 	VSock        *DomainVSock        `xml:"vsock" json:"vsock,omitempty" yaml:"vsock,omitempty"`
 }
@@ -1563,7 +1563,7 @@ type DomainMemoryHugepage struct {
 }
 
 type DomainMemoryHugepages struct {
-	Hugepages []DomainMemoryHugepage `xml:"page" json:"page" yaml:"page"`
+	Hugepages []DomainMemoryHugepage `xml:"page" json:"page,omitempty" yaml:"page,omitempty"`
 }
 
 type DomainMemoryNosharepages struct {
@@ -1622,41 +1622,41 @@ type DomainBootMenu struct {
 }
 
 type DomainSysInfoBIOS struct {
-	Entry []DomainSysInfoEntry `xml:"entry" json:"entry" yaml:"entry"`
+	Entry []DomainSysInfoEntry `xml:"entry" json:"entry,omitempty" yaml:"entry,omitempty"`
 }
 
 type DomainSysInfoSystem struct {
-	Entry []DomainSysInfoEntry `xml:"entry" json:"entry" yaml:"entry"`
+	Entry []DomainSysInfoEntry `xml:"entry" json:"entry,omitempty" yaml:"entry,omitempty"`
 }
 
 type DomainSysInfoBaseBoard struct {
-	Entry []DomainSysInfoEntry `xml:"entry" json:"entry" yaml:"entry"`
+	Entry []DomainSysInfoEntry `xml:"entry" json:"entry,omitempty" yaml:"entry,omitempty"`
 }
 
 type DomainSysInfoProcessor struct {
-	Entry []DomainSysInfoEntry `xml:"entry" json:"entry" yaml:"entry"`
+	Entry []DomainSysInfoEntry `xml:"entry" json:"entry,omitempty" yaml:"entry,omitempty"`
 }
 
 type DomainSysInfoMemory struct {
-	Entry []DomainSysInfoEntry `xml:"entry" json:"entry" yaml:"entry"`
+	Entry []DomainSysInfoEntry `xml:"entry" json:"entry,omitempty" yaml:"entry,omitempty"`
 }
 
 type DomainSysInfoChassis struct {
-	Entry []DomainSysInfoEntry `xml:"entry" json:"entry" yaml:"entry"`
+	Entry []DomainSysInfoEntry `xml:"entry" json:"entry,omitempty" yaml:"entry,omitempty"`
 }
 
 type DomainSysInfoOEMStrings struct {
-	Entry []string `xml:"entry" json:"entry" yaml:"entry"`
+	Entry []string `xml:"entry" json:"entry,omitempty" yaml:"entry,omitempty"`
 }
 
 type DomainSysInfo struct {
 	Type       string                   `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	BIOS       *DomainSysInfoBIOS       `xml:"bios" json:"bios,omitempty" yaml:"bios,omitempty"`
 	System     *DomainSysInfoSystem     `xml:"system" json:"system,omitempty" yaml:"system,omitempty"`
-	BaseBoard  []DomainSysInfoBaseBoard `xml:"baseBoard" json:"baseBoard" yaml:"baseBoard"`
+	BaseBoard  []DomainSysInfoBaseBoard `xml:"baseBoard" json:"baseBoard,omitempty" yaml:"baseBoard,omitempty"`
 	Chassis    *DomainSysInfoChassis    `xml:"chassis" json:"chassis,omitempty" yaml:"chassis,omitempty"`
-	Processor  []DomainSysInfoProcessor `xml:"processor" json:"processor" yaml:"processor"`
-	Memory     []DomainSysInfoMemory    `xml:"memory" json:"memory" yaml:"memory"`
+	Processor  []DomainSysInfoProcessor `xml:"processor" json:"processor,omitempty" yaml:"processor,omitempty"`
+	Memory     []DomainSysInfoMemory    `xml:"memory" json:"memory,omitempty" yaml:"memory,omitempty"`
 	OEMStrings *DomainSysInfoOEMStrings `xml:"oemStrings" json:"oemStrings,omitempty" yaml:"oemStrings,omitempty"`
 }
 
@@ -1678,7 +1678,7 @@ type DomainLoader struct {
 }
 
 type DomainACPI struct {
-	Tables []DomainACPITable `xml:"table" json:"table" yaml:"table"`
+	Tables []DomainACPITable `xml:"table" json:"table,omitempty" yaml:"table,omitempty"`
 }
 
 type DomainACPITable struct {
@@ -1694,8 +1694,8 @@ type DomainOSInitEnv struct {
 type DomainOS struct {
 	Type        *DomainOSType      `xml:"type" json:"type,omitempty" yaml:"type,omitempty"`
 	Init        string             `xml:"init,omitempty" json:"init,omitempty" yaml:"init,omitempty"`
-	InitArgs    []string           `xml:"initarg" json:"initarg" yaml:"initarg"`
-	InitEnv     []DomainOSInitEnv  `xml:"initenv" json:"initenv" yaml:"initenv"`
+	InitArgs    []string           `xml:"initarg" json:"initarg,omitempty" yaml:"initarg,omitempty"`
+	InitEnv     []DomainOSInitEnv  `xml:"initenv" json:"initenv,omitempty" yaml:"initenv,omitempty"`
 	InitDir     string             `xml:"initdir,omitempty" json:"initdir,omitempty" yaml:"initdir,omitempty"`
 	InitUser    string             `xml:"inituser,omitempty" json:"inituser,omitempty" yaml:"inituser,omitempty"`
 	InitGroup   string             `xml:"initgroup,omitempty" json:"initgroup,omitempty" yaml:"initgroup,omitempty"`
@@ -1706,7 +1706,7 @@ type DomainOS struct {
 	Cmdline     string             `xml:"cmdline,omitempty" json:"cmdline,omitempty" yaml:"cmdline,omitempty"`
 	DTB         string             `xml:"dtb,omitempty" json:"dtb,omitempty" yaml:"dtb,omitempty"`
 	ACPI        *DomainACPI        `xml:"acpi" json:"acpi,omitempty" yaml:"acpi,omitempty"`
-	BootDevices []DomainBootDevice `xml:"boot" json:"boot" yaml:"boot"`
+	BootDevices []DomainBootDevice `xml:"boot" json:"boot,omitempty" yaml:"boot,omitempty"`
 	BootMenu    *DomainBootMenu    `xml:"bootmenu" json:"bootmenu,omitempty" yaml:"bootmenu,omitempty"`
 	BIOS        *DomainBIOS        `xml:"bios" json:"bios,omitempty" yaml:"bios,omitempty"`
 	SMBios      *DomainSMBios      `xml:"smbios" json:"smbios,omitempty" yaml:"smbios,omitempty"`
@@ -1731,7 +1731,7 @@ type DomainVCPUsVCPU struct {
 }
 
 type DomainVCPUs struct {
-	VCPU []DomainVCPUsVCPU `xml:"vcpu" json:"vcpu" yaml:"vcpu"`
+	VCPU []DomainVCPUsVCPU `xml:"vcpu" json:"vcpu,omitempty" yaml:"vcpu,omitempty"`
 }
 
 type DomainCPUModel struct {
@@ -1765,12 +1765,12 @@ type DomainCPU struct {
 	Vendor   string             `xml:"vendor,omitempty" json:"vendor,omitempty" yaml:"vendor,omitempty"`
 	Topology *DomainCPUTopology `xml:"topology" json:"topology,omitempty" yaml:"topology,omitempty"`
 	Cache    *DomainCPUCache    `xml:"cache" json:"cache,omitempty" yaml:"cache,omitempty"`
-	Features []DomainCPUFeature `xml:"feature" json:"feature" yaml:"feature"`
+	Features []DomainCPUFeature `xml:"feature" json:"feature,omitempty" yaml:"feature,omitempty"`
 	Numa     *DomainNuma        `xml:"numa" json:"numa,omitempty" yaml:"numa,omitempty"`
 }
 
 type DomainNuma struct {
-	Cell []DomainCell `xml:"cell" json:"cell" yaml:"cell"`
+	Cell []DomainCell `xml:"cell" json:"cell,omitempty" yaml:"cell,omitempty"`
 }
 
 type DomainCell struct {
@@ -1784,7 +1784,7 @@ type DomainCell struct {
 }
 
 type DomainCellDistances struct {
-	Siblings []DomainCellSibling `xml:"sibling" json:"sibling" yaml:"sibling"`
+	Siblings []DomainCellSibling `xml:"sibling" json:"sibling,omitempty" yaml:"sibling,omitempty"`
 }
 
 type DomainCellSibling struct {
@@ -1797,7 +1797,7 @@ type DomainClock struct {
 	Basis      string        `xml:"basis,attr,omitempty" json:"basis,omitempty" yaml:"basis,omitempty"`
 	Adjustment string        `xml:"adjustment,attr,omitempty" json:"adjustment,omitempty" yaml:"adjustment,omitempty"`
 	TimeZone   string        `xml:"timezone,attr,omitempty" json:"timezone,omitempty" yaml:"timezone,omitempty"`
-	Timer      []DomainTimer `xml:"timer" json:"timer" yaml:"timer"`
+	Timer      []DomainTimer `xml:"timer" json:"timer,omitempty" yaml:"timer,omitempty"`
 }
 
 type DomainTimer struct {
@@ -2000,7 +2000,7 @@ type DomainCPUTuneIOThreadSched struct {
 
 type DomainCPUCacheTune struct {
 	VCPUs string                    `xml:"vcpus,attr,omitempty" json:"vcpus,omitempty" yaml:"vcpus,omitempty"`
-	Cache []DomainCPUCacheTuneCache `xml:"cache" json:"cache" yaml:"cache"`
+	Cache []DomainCPUCacheTuneCache `xml:"cache" json:"cache,omitempty" yaml:"cache,omitempty"`
 }
 
 type DomainCPUCacheTuneCache struct {
@@ -2021,12 +2021,12 @@ type DomainCPUTune struct {
 	EmulatorQuota  *DomainCPUTuneQuota          `xml:"emulator_quota" json:"emulator_quota,omitempty" yaml:"emulator_quota,omitempty"`
 	IOThreadPeriod *DomainCPUTunePeriod         `xml:"iothread_period" json:"iothread_period,omitempty" yaml:"iothread_period,omitempty"`
 	IOThreadQuota  *DomainCPUTuneQuota          `xml:"iothread_quota" json:"iothread_quota,omitempty" yaml:"iothread_quota,omitempty"`
-	VCPUPin        []DomainCPUTuneVCPUPin       `xml:"vcpupin" json:"vcpupin" yaml:"vcpupin"`
+	VCPUPin        []DomainCPUTuneVCPUPin       `xml:"vcpupin" json:"vcpupin,omitempty" yaml:"vcpupin,omitempty"`
 	EmulatorPin    *DomainCPUTuneEmulatorPin    `xml:"emulatorpin" json:"emulatorpin,omitempty" yaml:"emulatorpin,omitempty"`
-	IOThreadPin    []DomainCPUTuneIOThreadPin   `xml:"iothreadpin" json:"iothreadpin" yaml:"iothreadpin"`
-	VCPUSched      []DomainCPUTuneVCPUSched     `xml:"vcpusched" json:"vcpusched" yaml:"vcpusched"`
-	IOThreadSched  []DomainCPUTuneIOThreadSched `xml:"iothreadsched" json:"iothreadsched" yaml:"iothreadsched"`
-	CacheTune      []DomainCPUCacheTune         `xml:"cachetune" json:"cachetune" yaml:"cachetune"`
+	IOThreadPin    []DomainCPUTuneIOThreadPin   `xml:"iothreadpin" json:"iothreadpin,omitempty" yaml:"iothreadpin,omitempty"`
+	VCPUSched      []DomainCPUTuneVCPUSched     `xml:"vcpusched" json:"vcpusched,omitempty" yaml:"vcpusched,omitempty"`
+	IOThreadSched  []DomainCPUTuneIOThreadSched `xml:"iothreadsched" json:"iothreadsched,omitempty" yaml:"iothreadsched,omitempty"`
+	CacheTune      []DomainCPUCacheTune         `xml:"cachetune" json:"cachetune,omitempty" yaml:"cachetune,omitempty"`
 }
 
 type DomainQEMUCommandlineArg struct {
@@ -2040,8 +2040,8 @@ type DomainQEMUCommandlineEnv struct {
 
 type DomainQEMUCommandline struct {
 	XMLName xml.Name                   `xml:"http://libvirt.org/schemas/domain/qemu/1.0 commandline" json:"http://libvirt.org/schemas/domain/qemu/1.0 commandline" yaml:"http://libvirt.org/schemas/domain/qemu/1.0 commandline"`
-	Args    []DomainQEMUCommandlineArg `xml:"arg" json:"arg" yaml:"arg"`
-	Envs    []DomainQEMUCommandlineEnv `xml:"env" json:"env" yaml:"env"`
+	Args    []DomainQEMUCommandlineArg `xml:"arg" json:"arg,omitempty" yaml:"arg,omitempty"`
+	Envs    []DomainQEMUCommandlineEnv `xml:"env" json:"env,omitempty" yaml:"env,omitempty"`
 }
 
 type DomainLXCNamespace struct {
@@ -2058,7 +2058,7 @@ type DomainLXCNamespaceMap struct {
 
 type DomainBlockIOTune struct {
 	Weight uint                      `xml:"weight,omitempty" json:"weight,omitempty" yaml:"weight,omitempty"`
-	Device []DomainBlockIOTuneDevice `xml:"device" json:"device" yaml:"device"`
+	Device []DomainBlockIOTuneDevice `xml:"device" json:"device,omitempty" yaml:"device,omitempty"`
 }
 
 type DomainBlockIOTuneDevice struct {
@@ -2097,7 +2097,7 @@ type DomainDeviceSecLabel struct {
 
 type DomainNUMATune struct {
 	Memory   *DomainNUMATuneMemory   `xml:"memory" json:"memory,omitempty" yaml:"memory,omitempty"`
-	MemNodes []DomainNUMATuneMemNode `xml:"memnode" json:"memnode" yaml:"memnode"`
+	MemNodes []DomainNUMATuneMemNode `xml:"memnode" json:"memnode,omitempty" yaml:"memnode,omitempty"`
 }
 
 type DomainNUMATuneMemory struct {
@@ -2113,7 +2113,7 @@ type DomainNUMATuneMemNode struct {
 }
 
 type DomainIOThreadIDs struct {
-	IOThreads []DomainIOThread `xml:"iothread" json:"iothread" yaml:"iothread"`
+	IOThreads []DomainIOThread `xml:"iothread" json:"iothread,omitempty" yaml:"iothread,omitempty"`
 }
 
 type DomainIOThread struct {
@@ -2121,7 +2121,7 @@ type DomainIOThread struct {
 }
 
 type DomainKeyWrap struct {
-	Ciphers []DomainKeyWrapCipher `xml:"cipher" json:"cipher" yaml:"cipher"`
+	Ciphers []DomainKeyWrapCipher `xml:"cipher" json:"cipher,omitempty" yaml:"cipher,omitempty"`
 }
 
 type DomainKeyWrapCipher struct {
@@ -2130,8 +2130,8 @@ type DomainKeyWrapCipher struct {
 }
 
 type DomainIDMap struct {
-	UIDs []DomainIDMapRange `xml:"uid" json:"uid" yaml:"uid"`
-	GIDs []DomainIDMapRange `xml:"gid" json:"gid" yaml:"gid"`
+	UIDs []DomainIDMapRange `xml:"uid" json:"uid,omitempty" yaml:"uid,omitempty"`
+	GIDs []DomainIDMapRange `xml:"gid" json:"gid,omitempty" yaml:"gid,omitempty"`
 }
 
 type DomainIDMapRange struct {
@@ -2162,7 +2162,7 @@ type DomainVMWareDataCenterPath struct {
 }
 
 type DomainPerf struct {
-	Events []DomainPerfEvent `xml:"event" json:"event" yaml:"event"`
+	Events []DomainPerfEvent `xml:"event" json:"event,omitempty" yaml:"event,omitempty"`
 }
 
 type DomainPerfEvent struct {
@@ -2214,7 +2214,7 @@ type Domain struct {
 	PM                   *DomainPM            `xml:"pm" json:"pm,omitempty" yaml:"pm,omitempty"`
 	Perf                 *DomainPerf          `xml:"perf" json:"perf,omitempty" yaml:"perf,omitempty"`
 	Devices              *DomainDeviceList    `xml:"devices" json:"devices,omitempty" yaml:"devices,omitempty"`
-	SecLabel             []DomainSecLabel     `xml:"seclabel" json:"seclabel" yaml:"seclabel"`
+	SecLabel             []DomainSecLabel     `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
 	QEMUCommandline      *DomainQEMUCommandline
 	LXCNamespace         *DomainLXCNamespace
 	VMWareDataCenterPath *DomainVMWareDataCenterPath

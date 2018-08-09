@@ -63,7 +63,7 @@ type StoragePoolSourceHost struct {
 type StoragePoolSourceDevice struct {
 	Path          string                              `xml:"path,attr" json:"path,omitempty" yaml:"path,omitempty"`
 	PartSeparator string                              `xml:"part_separator,attr,omitempty" json:"part_separator,omitempty" yaml:"part_separator,omitempty"`
-	FreeExtents   []StoragePoolSourceDeviceFreeExtent `xml:"freeExtent" json:"freeExtent" yaml:"freeExtent"`
+	FreeExtents   []StoragePoolSourceDeviceFreeExtent `xml:"freeExtent" json:"freeExtent,omitempty" yaml:"freeExtent,omitempty"`
 }
 
 type StoragePoolSourceDeviceFreeExtent struct {
@@ -127,8 +127,8 @@ type StoragePoolSourceInitiatorIQN struct {
 type StoragePoolSource struct {
 	Name      string                      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Dir       *StoragePoolSourceDir       `xml:"dir" json:"dir,omitempty" yaml:"dir,omitempty"`
-	Host      []StoragePoolSourceHost     `xml:"host" json:"host" yaml:"host"`
-	Device    []StoragePoolSourceDevice   `xml:"device" json:"device" yaml:"device"`
+	Host      []StoragePoolSourceHost     `xml:"host" json:"host,omitempty" yaml:"host,omitempty"`
+	Device    []StoragePoolSourceDevice   `xml:"device" json:"device,omitempty" yaml:"device,omitempty"`
 	Auth      *StoragePoolSourceAuth      `xml:"auth" json:"auth,omitempty" yaml:"auth,omitempty"`
 	Vendor    *StoragePoolSourceVendor    `xml:"vendor" json:"vendor,omitempty" yaml:"vendor,omitempty"`
 	Product   *StoragePoolSourceProduct   `xml:"product" json:"product,omitempty" yaml:"product,omitempty"`

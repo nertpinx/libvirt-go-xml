@@ -49,7 +49,7 @@ type NWFilterEntry struct {
 
 type NWFilterRef struct {
 	Filter     string              `xml:"filter,attr" json:"filter,omitempty" yaml:"filter,omitempty"`
-	Parameters []NWFilterParameter `xml:"parameter" json:"parameter" yaml:"parameter"`
+	Parameters []NWFilterParameter `xml:"parameter" json:"parameter,omitempty" yaml:"parameter,omitempty"`
 }
 
 type NWFilterParameter struct {

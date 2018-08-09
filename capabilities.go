@@ -54,9 +54,9 @@ type CapsHostCPU struct {
 	Model        string                   `xml:"model,omitempty" json:"model,omitempty" yaml:"model,omitempty"`
 	Vendor       string                   `xml:"vendor,omitempty" json:"vendor,omitempty" yaml:"vendor,omitempty"`
 	Topology     *CapsHostCPUTopology     `xml:"topology" json:"topology,omitempty" yaml:"topology,omitempty"`
-	FeatureFlags []CapsHostCPUFeatureFlag `xml:"feature" json:"feature" yaml:"feature"`
+	FeatureFlags []CapsHostCPUFeatureFlag `xml:"feature" json:"feature,omitempty" yaml:"feature,omitempty"`
 	Features     *CapsHostCPUFeatures     `xml:"features" json:"features,omitempty" yaml:"features,omitempty"`
-	PageSizes    []CapsHostCPUPageSize    `xml:"pages" json:"pages" yaml:"pages"`
+	PageSizes    []CapsHostCPUPageSize    `xml:"pages" json:"pages,omitempty" yaml:"pages,omitempty"`
 	Microcode    *CapsHostCPUMicrocode    `xml:"microcode" json:"microcode,omitempty" yaml:"microcode,omitempty"`
 }
 
@@ -96,18 +96,18 @@ type CapsHostNUMASibling struct {
 type CapsHostNUMACell struct {
 	ID        int                    `xml:"id,attr" json:"id,omitempty" yaml:"id,omitempty"`
 	Memory    *CapsHostNUMAMemory    `xml:"memory" json:"memory,omitempty" yaml:"memory,omitempty"`
-	PageInfo  []CapsHostNUMAPageInfo `xml:"pages" json:"pages" yaml:"pages"`
+	PageInfo  []CapsHostNUMAPageInfo `xml:"pages" json:"pages,omitempty" yaml:"pages,omitempty"`
 	Distances *CapsHostNUMADistances `xml:"distances" json:"distances,omitempty" yaml:"distances,omitempty"`
 	CPUS      *CapsHostNUMACPUs      `xml:"cpus" json:"cpus,omitempty" yaml:"cpus,omitempty"`
 }
 
 type CapsHostNUMADistances struct {
-	Siblings []CapsHostNUMASibling `xml:"sibling" json:"sibling" yaml:"sibling"`
+	Siblings []CapsHostNUMASibling `xml:"sibling" json:"sibling,omitempty" yaml:"sibling,omitempty"`
 }
 
 type CapsHostNUMACPUs struct {
 	Num  uint              `xml:"num,attr,omitempty" json:"num,omitempty" yaml:"num,omitempty"`
-	CPUs []CapsHostNUMACPU `xml:"cpu" json:"cpu" yaml:"cpu"`
+	CPUs []CapsHostNUMACPU `xml:"cpu" json:"cpu,omitempty" yaml:"cpu,omitempty"`
 }
 
 type CapsHostNUMATopology struct {
@@ -116,7 +116,7 @@ type CapsHostNUMATopology struct {
 
 type CapsHostNUMACells struct {
 	Num   uint               `xml:"num,attr,omitempty" json:"num,omitempty" yaml:"num,omitempty"`
-	Cells []CapsHostNUMACell `xml:"cell" json:"cell" yaml:"cell"`
+	Cells []CapsHostNUMACell `xml:"cell" json:"cell,omitempty" yaml:"cell,omitempty"`
 }
 
 type CapsHostSecModelLabel struct {
@@ -127,7 +127,7 @@ type CapsHostSecModelLabel struct {
 type CapsHostSecModel struct {
 	Name   string                  `xml:"model" json:"model" yaml:"model"`
 	DOI    string                  `xml:"doi" json:"doi" yaml:"doi"`
-	Labels []CapsHostSecModelLabel `xml:"baselabel" json:"baselabel" yaml:"baselabel"`
+	Labels []CapsHostSecModelLabel `xml:"baselabel" json:"baselabel,omitempty" yaml:"baselabel,omitempty"`
 }
 
 type CapsHostMigrationFeatures struct {
@@ -139,7 +139,7 @@ type CapsHostMigrationLive struct {
 }
 
 type CapsHostMigrationURITransports struct {
-	URI []string `xml:"uri_transport" json:"uri_transport" yaml:"uri_transport"`
+	URI []string `xml:"uri_transport" json:"uri_transport,omitempty" yaml:"uri_transport,omitempty"`
 }
 
 type CapsHost struct {
@@ -150,7 +150,7 @@ type CapsHost struct {
 	MigrationFeatures *CapsHostMigrationFeatures `xml:"migration_features" json:"migration_features,omitempty" yaml:"migration_features,omitempty"`
 	NUMA              *CapsHostNUMATopology      `xml:"topology" json:"topology,omitempty" yaml:"topology,omitempty"`
 	Cache             *CapsHostCache             `xml:"cache" json:"cache,omitempty" yaml:"cache,omitempty"`
-	SecModel          []CapsHostSecModel         `xml:"secmodel" json:"secmodel" yaml:"secmodel"`
+	SecModel          []CapsHostSecModel         `xml:"secmodel" json:"secmodel,omitempty" yaml:"secmodel,omitempty"`
 }
 
 type CapsHostPowerManagement struct {
@@ -167,7 +167,7 @@ type CapsHostIOMMU struct {
 }
 
 type CapsHostCache struct {
-	Banks []CapsHostCacheBank `xml:"bank" json:"bank" yaml:"bank"`
+	Banks []CapsHostCacheBank `xml:"bank" json:"bank,omitempty" yaml:"bank,omitempty"`
 }
 
 type CapsHostCacheBank struct {
@@ -177,7 +177,7 @@ type CapsHostCacheBank struct {
 	Size    uint                   `xml:"size,attr" json:"size,omitempty" yaml:"size,omitempty"`
 	Unit    string                 `xml:"unit,attr" json:"unit,omitempty" yaml:"unit,omitempty"`
 	CPUs    string                 `xml:"cpus,attr" json:"cpus,omitempty" yaml:"cpus,omitempty"`
-	Control []CapsHostCacheControl `xml:"control" json:"control" yaml:"control"`
+	Control []CapsHostCacheControl `xml:"control" json:"control,omitempty" yaml:"control,omitempty"`
 }
 
 type CapsHostCacheControl struct {
@@ -197,7 +197,7 @@ type CapsGuestMachine struct {
 type CapsGuestDomain struct {
 	Type     string             `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Emulator string             `xml:"emulator,omitempty" json:"emulator,omitempty" yaml:"emulator,omitempty"`
-	Machines []CapsGuestMachine `xml:"machine" json:"machine" yaml:"machine"`
+	Machines []CapsGuestMachine `xml:"machine" json:"machine,omitempty" yaml:"machine,omitempty"`
 }
 
 type CapsGuestArch struct {
@@ -205,8 +205,8 @@ type CapsGuestArch struct {
 	WordSize string             `xml:"wordsize" json:"wordsize" yaml:"wordsize"`
 	Emulator string             `xml:"emulator" json:"emulator" yaml:"emulator"`
 	Loader   string             `xml:"loader,omitempty" json:"loader,omitempty" yaml:"loader,omitempty"`
-	Machines []CapsGuestMachine `xml:"machine" json:"machine" yaml:"machine"`
-	Domains  []CapsGuestDomain  `xml:"domain" json:"domain" yaml:"domain"`
+	Machines []CapsGuestMachine `xml:"machine" json:"machine,omitempty" yaml:"machine,omitempty"`
+	Domains  []CapsGuestDomain  `xml:"domain" json:"domain,omitempty" yaml:"domain,omitempty"`
 }
 
 type CapsGuestFeatureCPUSelection struct {
@@ -259,7 +259,7 @@ type CapsGuest struct {
 type Caps struct {
 	XMLName xml.Name    `xml:"capabilities" json:"capabilities" yaml:"capabilities"`
 	Host    CapsHost    `xml:"host" json:"host" yaml:"host"`
-	Guests  []CapsGuest `xml:"guest" json:"guest" yaml:"guest"`
+	Guests  []CapsGuest `xml:"guest" json:"guest,omitempty" yaml:"guest,omitempty"`
 }
 
 func (c *CapsHostCPU) Unmarshal(doc string) error {
