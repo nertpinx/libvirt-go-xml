@@ -29,7 +29,7 @@ import "encoding/xml"
 
 type StorageVolumeSize struct {
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty,omitempty" yaml:"unit,omitempty,omitempty"`
-	Value uint64 `xml:",chardata" json:",chardata" yaml:",chardata"`
+	Value uint64 `xml:",attr" json:"" yaml:""`
 }
 
 type StorageVolumeTargetPermissions struct {

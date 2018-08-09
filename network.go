@@ -196,7 +196,7 @@ type NetworkDNSTXT struct {
 }
 
 type NetworkDNSHostHostname struct {
-	Hostname string `xml:",chardata" json:",chardata" yaml:",chardata"`
+	Hostname string `xml:",attr" json:"" yaml:""`
 }
 
 type NetworkDNSHost struct {
