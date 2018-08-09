@@ -26,25 +26,25 @@
 package libvirtxml
 
 type StorageEncryptionSecret struct {
-	Type string `xml:"type,attr"`
-	UUID string `xml:"uuid,attr"`
+	Type string `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
+	UUID string `xml:"uuid,attr" json:"uuid,omitempty" yaml:"uuid,omitempty"`
 }
 
 type StorageEncryptionCipher struct {
-	Name string `xml:"name,attr"`
-	Size uint64 `xml:"size,attr"`
-	Mode string `xml:"mode,attr"`
-	Hash string `xml:"hash,attr"`
+	Name string `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
+	Size uint64 `xml:"size,attr" json:"size,omitempty" yaml:"size,omitempty"`
+	Mode string `xml:"mode,attr" json:"mode,omitempty" yaml:"mode,omitempty"`
+	Hash string `xml:"hash,attr" json:"hash,omitempty" yaml:"hash,omitempty"`
 }
 
 type StorageEncryptionIvgen struct {
-	Name string `xml:"name,attr"`
-	Hash string `xml:"hash,attr"`
+	Name string `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
+	Hash string `xml:"hash,attr" json:"hash,omitempty" yaml:"hash,omitempty"`
 }
 
 type StorageEncryption struct {
-	Format string                   `xml:"format,attr"`
-	Secret *StorageEncryptionSecret `xml:"secret"`
-	Cipher *StorageEncryptionCipher `xml:"cipher"`
-	Ivgen  *StorageEncryptionIvgen  `xml:"ivgen"`
+	Format string                   `xml:"format,attr" json:"format,omitempty" yaml:"format,omitempty"`
+	Secret *StorageEncryptionSecret `xml:"secret" json:"secret" yaml:"secret"`
+	Cipher *StorageEncryptionCipher `xml:"cipher" json:"cipher" yaml:"cipher"`
+	Ivgen  *StorageEncryptionIvgen  `xml:"ivgen" json:"ivgen" yaml:"ivgen"`
 }

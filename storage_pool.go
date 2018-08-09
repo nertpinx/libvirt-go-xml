@@ -28,125 +28,125 @@ package libvirtxml
 import "encoding/xml"
 
 type StoragePoolSize struct {
-	Unit  string `xml:"unit,attr,omitempty"`
-	Value uint64 `xml:",chardata"`
+	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty,omitempty" yaml:"unit,omitempty,omitempty"`
+	Value uint64 `xml:",chardata" json:",chardata" yaml:",chardata"`
 }
 
 type StoragePoolTargetPermissions struct {
-	Owner string `xml:"owner,omitempty"`
-	Group string `xml:"group,omitempty"`
-	Mode  string `xml:"mode,omitempty"`
-	Label string `xml:"label,omitempty"`
+	Owner string `xml:"owner,omitempty" json:"owner,omitempty" yaml:"owner,omitempty"`
+	Group string `xml:"group,omitempty" json:"group,omitempty" yaml:"group,omitempty"`
+	Mode  string `xml:"mode,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
+	Label string `xml:"label,omitempty" json:"label,omitempty" yaml:"label,omitempty"`
 }
 
 type StoragePoolTargetTimestamps struct {
-	Atime string `xml:"atime"`
-	Mtime string `xml:"mtime"`
-	Ctime string `xml:"ctime"`
+	Atime string `xml:"atime" json:"atime" yaml:"atime"`
+	Mtime string `xml:"mtime" json:"mtime" yaml:"mtime"`
+	Ctime string `xml:"ctime" json:"ctime" yaml:"ctime"`
 }
 
 type StoragePoolTarget struct {
-	Path        string                        `xml:"path,omitempty"`
-	Permissions *StoragePoolTargetPermissions `xml:"permissions"`
-	Timestamps  *StoragePoolTargetTimestamps  `xml:"timestamps"`
-	Encryption  *StorageEncryption            `xml:"encryption"`
+	Path        string                        `xml:"path,omitempty" json:"path,omitempty" yaml:"path,omitempty"`
+	Permissions *StoragePoolTargetPermissions `xml:"permissions" json:"permissions" yaml:"permissions"`
+	Timestamps  *StoragePoolTargetTimestamps  `xml:"timestamps" json:"timestamps" yaml:"timestamps"`
+	Encryption  *StorageEncryption            `xml:"encryption" json:"encryption" yaml:"encryption"`
 }
 
 type StoragePoolSourceFormat struct {
-	Type string `xml:"type,attr"`
+	Type string `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 }
 type StoragePoolSourceHost struct {
-	Name string `xml:"name,attr"`
-	Port string `xml:"port,attr,omitempty"`
+	Name string `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
+	Port string `xml:"port,attr,omitempty" json:"port,omitempty,omitempty" yaml:"port,omitempty,omitempty"`
 }
 
 type StoragePoolSourceDevice struct {
-	Path          string                              `xml:"path,attr"`
-	PartSeparator string                              `xml:"part_separator,attr,omitempty"`
-	FreeExtents   []StoragePoolSourceDeviceFreeExtent `xml:"freeExtent"`
+	Path          string                              `xml:"path,attr" json:"path,omitempty" yaml:"path,omitempty"`
+	PartSeparator string                              `xml:"part_separator,attr,omitempty" json:"part_separator,omitempty,omitempty" yaml:"part_separator,omitempty,omitempty"`
+	FreeExtents   []StoragePoolSourceDeviceFreeExtent `xml:"freeExtent" json:"freeExtent" yaml:"freeExtent"`
 }
 
 type StoragePoolSourceDeviceFreeExtent struct {
-	Start uint64 `xml:"start,attr"`
-	End   uint64 `xml:"end,attr"`
+	Start uint64 `xml:"start,attr" json:"start,omitempty" yaml:"start,omitempty"`
+	End   uint64 `xml:"end,attr" json:"end,omitempty" yaml:"end,omitempty"`
 }
 
 type StoragePoolSourceAuthSecret struct {
-	Usage string `xml:"usage,attr,omitempty"`
-	UUID  string `xml:"uuid,attr,omitempty"`
+	Usage string `xml:"usage,attr,omitempty" json:"usage,omitempty,omitempty" yaml:"usage,omitempty,omitempty"`
+	UUID  string `xml:"uuid,attr,omitempty" json:"uuid,omitempty,omitempty" yaml:"uuid,omitempty,omitempty"`
 }
 
 type StoragePoolSourceAuth struct {
-	Type     string                       `xml:"type,attr"`
-	Username string                       `xml:"username,attr"`
-	Secret   *StoragePoolSourceAuthSecret `xml:"secret"`
+	Type     string                       `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
+	Username string                       `xml:"username,attr" json:"username,omitempty" yaml:"username,omitempty"`
+	Secret   *StoragePoolSourceAuthSecret `xml:"secret" json:"secret" yaml:"secret"`
 }
 
 type StoragePoolSourceVendor struct {
-	Name string `xml:"name,attr"`
+	Name string `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 }
 
 type StoragePoolSourceProduct struct {
-	Name string `xml:"name,attr"`
+	Name string `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 }
 
 type StoragePoolPCIAddress struct {
-	Domain   *uint `xml:"domain,attr"`
-	Bus      *uint `xml:"bus,attr"`
-	Slot     *uint `xml:"slot,attr"`
-	Function *uint `xml:"function,attr"`
+	Domain   *uint `xml:"domain,attr" json:"domain,omitempty" yaml:"domain,omitempty"`
+	Bus      *uint `xml:"bus,attr" json:"bus,omitempty" yaml:"bus,omitempty"`
+	Slot     *uint `xml:"slot,attr" json:"slot,omitempty" yaml:"slot,omitempty"`
+	Function *uint `xml:"function,attr" json:"function,omitempty" yaml:"function,omitempty"`
 }
 
 type StoragePoolSourceAdapterParentAddr struct {
-	UniqueID uint64                 `xml:"unique_id,attr"`
-	Address  *StoragePoolPCIAddress `xml:"address"`
+	UniqueID uint64                 `xml:"unique_id,attr" json:"unique_id,omitempty" yaml:"unique_id,omitempty"`
+	Address  *StoragePoolPCIAddress `xml:"address" json:"address" yaml:"address"`
 }
 
 type StoragePoolSourceAdapter struct {
-	Type       string                              `xml:"type,attr,omitempty"`
-	Name       string                              `xml:"name,attr,omitempty"`
-	Parent     string                              `xml:"parent,attr,omitempty"`
-	Managed    string                              `xml:"managed,attr,omitempty"`
-	WWNN       string                              `xml:"wwnn,attr,omitempty"`
-	WWPN       string                              `xml:"wwpn,attr,omitempty"`
-	ParentAddr *StoragePoolSourceAdapterParentAddr `xml:"parentaddr"`
+	Type       string                              `xml:"type,attr,omitempty" json:"type,omitempty,omitempty" yaml:"type,omitempty,omitempty"`
+	Name       string                              `xml:"name,attr,omitempty" json:"name,omitempty,omitempty" yaml:"name,omitempty,omitempty"`
+	Parent     string                              `xml:"parent,attr,omitempty" json:"parent,omitempty,omitempty" yaml:"parent,omitempty,omitempty"`
+	Managed    string                              `xml:"managed,attr,omitempty" json:"managed,omitempty,omitempty" yaml:"managed,omitempty,omitempty"`
+	WWNN       string                              `xml:"wwnn,attr,omitempty" json:"wwnn,omitempty,omitempty" yaml:"wwnn,omitempty,omitempty"`
+	WWPN       string                              `xml:"wwpn,attr,omitempty" json:"wwpn,omitempty,omitempty" yaml:"wwpn,omitempty,omitempty"`
+	ParentAddr *StoragePoolSourceAdapterParentAddr `xml:"parentaddr" json:"parentaddr" yaml:"parentaddr"`
 }
 
 type StoragePoolSourceDir struct {
-	Path string `xml:"path,attr"`
+	Path string `xml:"path,attr" json:"path,omitempty" yaml:"path,omitempty"`
 }
 
 type StoragePoolSourceInitiator struct {
-	IQN StoragePoolSourceInitiatorIQN `xml:"iqn"`
+	IQN StoragePoolSourceInitiatorIQN `xml:"iqn" json:"iqn" yaml:"iqn"`
 }
 
 type StoragePoolSourceInitiatorIQN struct {
-	Name string `xml:"name,attr,omitempty"`
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty,omitempty" yaml:"name,omitempty,omitempty"`
 }
 
 type StoragePoolSource struct {
-	Name      string                      `xml:"name,omitempty"`
-	Dir       *StoragePoolSourceDir       `xml:"dir"`
-	Host      []StoragePoolSourceHost     `xml:"host"`
-	Device    []StoragePoolSourceDevice   `xml:"device"`
-	Auth      *StoragePoolSourceAuth      `xml:"auth"`
-	Vendor    *StoragePoolSourceVendor    `xml:"vendor"`
-	Product   *StoragePoolSourceProduct   `xml:"product"`
-	Format    *StoragePoolSourceFormat    `xml:"format"`
-	Adapter   *StoragePoolSourceAdapter   `xml:"adapter"`
-	Initiator *StoragePoolSourceInitiator `xml:"initiator"`
+	Name      string                      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Dir       *StoragePoolSourceDir       `xml:"dir" json:"dir" yaml:"dir"`
+	Host      []StoragePoolSourceHost     `xml:"host" json:"host" yaml:"host"`
+	Device    []StoragePoolSourceDevice   `xml:"device" json:"device" yaml:"device"`
+	Auth      *StoragePoolSourceAuth      `xml:"auth" json:"auth" yaml:"auth"`
+	Vendor    *StoragePoolSourceVendor    `xml:"vendor" json:"vendor" yaml:"vendor"`
+	Product   *StoragePoolSourceProduct   `xml:"product" json:"product" yaml:"product"`
+	Format    *StoragePoolSourceFormat    `xml:"format" json:"format" yaml:"format"`
+	Adapter   *StoragePoolSourceAdapter   `xml:"adapter" json:"adapter" yaml:"adapter"`
+	Initiator *StoragePoolSourceInitiator `xml:"initiator" json:"initiator" yaml:"initiator"`
 }
 
 type StoragePool struct {
-	XMLName    xml.Name           `xml:"pool"`
-	Type       string             `xml:"type,attr"`
-	Name       string             `xml:"name,omitempty"`
-	UUID       string             `xml:"uuid,omitempty"`
-	Allocation *StoragePoolSize   `xml:"allocation"`
-	Capacity   *StoragePoolSize   `xml:"capacity"`
-	Available  *StoragePoolSize   `xml:"available"`
-	Target     *StoragePoolTarget `xml:"target"`
-	Source     *StoragePoolSource `xml:"source"`
+	XMLName    xml.Name           `xml:"pool" json:"pool" yaml:"pool"`
+	Type       string             `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
+	Name       string             `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	UUID       string             `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
+	Allocation *StoragePoolSize   `xml:"allocation" json:"allocation" yaml:"allocation"`
+	Capacity   *StoragePoolSize   `xml:"capacity" json:"capacity" yaml:"capacity"`
+	Available  *StoragePoolSize   `xml:"available" json:"available" yaml:"available"`
+	Target     *StoragePoolTarget `xml:"target" json:"target" yaml:"target"`
+	Source     *StoragePoolSource `xml:"source" json:"source" yaml:"source"`
 }
 
 func (a *StoragePoolPCIAddress) MarshalXML(e *xml.Encoder, start xml.StartElement) error {

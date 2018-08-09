@@ -30,19 +30,19 @@ import (
 )
 
 type SecretUsage struct {
-	Type   string `xml:"type,attr"`
-	Volume string `xml:"volume,omitempty"`
-	Name   string `xml:"name,omitempty"`
-	Target string `xml:"target,omitempty"`
+	Type   string `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
+	Volume string `xml:"volume,omitempty" json:"volume,omitempty" yaml:"volume,omitempty"`
+	Name   string `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Target string `xml:"target,omitempty" json:"target,omitempty" yaml:"target,omitempty"`
 }
 
 type Secret struct {
-	XMLName     xml.Name     `xml:"secret"`
-	Ephemeral   string       `xml:"ephemeral,attr,omitempty"`
-	Private     string       `xml:"private,attr,omitempty"`
-	Description string       `xml:"description,omitempty"`
-	UUID        string       `xml:"uuid,omitempty"`
-	Usage       *SecretUsage `xml:"usage"`
+	XMLName     xml.Name     `xml:"secret" json:"secret" yaml:"secret"`
+	Ephemeral   string       `xml:"ephemeral,attr,omitempty" json:"ephemeral,omitempty,omitempty" yaml:"ephemeral,omitempty,omitempty"`
+	Private     string       `xml:"private,attr,omitempty" json:"private,omitempty,omitempty" yaml:"private,omitempty,omitempty"`
+	Description string       `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
+	UUID        string       `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
+	Usage       *SecretUsage `xml:"usage" json:"usage" yaml:"usage"`
 }
 
 func (s *Secret) Unmarshal(doc string) error {

@@ -28,40 +28,40 @@ package libvirtxml
 import "encoding/xml"
 
 type DomainSnapshotDiskDriver struct {
-	Type string `xml:"type,attr,omitempty"`
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty,omitempty" yaml:"type,omitempty,omitempty"`
 }
 
 type DomainSnapshotDisk struct {
-	Name     string                    `xml:"name,attr"`
-	Snapshot string                    `xml:"snapshot,attr,omitempty"`
-	Driver   *DomainSnapshotDiskDriver `xml:"driver"`
-	Source   *DomainDiskSource         `xml:"source"`
+	Name     string                    `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
+	Snapshot string                    `xml:"snapshot,attr,omitempty" json:"snapshot,omitempty,omitempty" yaml:"snapshot,omitempty,omitempty"`
+	Driver   *DomainSnapshotDiskDriver `xml:"driver" json:"driver" yaml:"driver"`
+	Source   *DomainDiskSource         `xml:"source" json:"source" yaml:"source"`
 }
 
 type DomainSnapshotDisks struct {
-	Disks []DomainSnapshotDisk `xml:"disk"`
+	Disks []DomainSnapshotDisk `xml:"disk" json:"disk" yaml:"disk"`
 }
 
 type DomainSnapshotMemory struct {
-	Snapshot string `xml:"snapshot,attr"`
-	File     string `xml:"file,attr,omitempty"`
+	Snapshot string `xml:"snapshot,attr" json:"snapshot,omitempty" yaml:"snapshot,omitempty"`
+	File     string `xml:"file,attr,omitempty" json:"file,omitempty,omitempty" yaml:"file,omitempty,omitempty"`
 }
 
 type DomainSnapshotParent struct {
-	Name string `xml:"name"`
+	Name string `xml:"name" json:"name" yaml:"name"`
 }
 
 type DomainSnapshot struct {
-	XMLName      xml.Name              `xml:"domainsnapshot"`
-	Name         string                `xml:"name,omitempty"`
-	Description  string                `xml:"description,omitempty"`
-	State        string                `xml:"state,omitempty"`
-	CreationTime string                `xml:"creationTime,omitempty"`
-	Parent       *DomainSnapshotParent `xml:"parent"`
-	Memory       *DomainSnapshotMemory `xml:"memory"`
-	Disks        *DomainSnapshotDisks  `xml:"disks"`
-	Domain       *Domain               `xml:"domain"`
-	Active       *uint                 `xml:"active"`
+	XMLName      xml.Name              `xml:"domainsnapshot" json:"domainsnapshot" yaml:"domainsnapshot"`
+	Name         string                `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Description  string                `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
+	State        string                `xml:"state,omitempty" json:"state,omitempty" yaml:"state,omitempty"`
+	CreationTime string                `xml:"creationTime,omitempty" json:"creationTime,omitempty" yaml:"creationTime,omitempty"`
+	Parent       *DomainSnapshotParent `xml:"parent" json:"parent" yaml:"parent"`
+	Memory       *DomainSnapshotMemory `xml:"memory" json:"memory" yaml:"memory"`
+	Disks        *DomainSnapshotDisks  `xml:"disks" json:"disks" yaml:"disks"`
+	Domain       *Domain               `xml:"domain" json:"domain" yaml:"domain"`
+	Active       *uint                 `xml:"active" json:"active" yaml:"active"`
 }
 
 type domainSnapshotDisk DomainSnapshotDisk
