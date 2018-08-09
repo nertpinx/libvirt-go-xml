@@ -31,6 +31,8 @@ import (
 	"io"
 	"strconv"
 	"strings"
+
+	"gopkg.in/yaml.v2"
 )
 
 type DomainControllerPCIHole64 struct {
@@ -2226,6 +2228,14 @@ func (d *Domain) Unmarshal(doc string) error {
 
 func (d *Domain) Marshal() (string, error) {
 	doc, err := xml.MarshalIndent(d, "", "  ")
+	if err != nil {
+		return "", err
+	}
+	return string(doc), nil
+}
+
+func (d *Domain) MarshalYAML() (string, error) {
+	doc, err := yaml.Marshal(d)
 	if err != nil {
 		return "", err
 	}
