@@ -53,21 +53,21 @@ type CapsHostCPU struct {
 	Arch         string                   `xml:"arch,omitempty" json:"arch,omitempty" yaml:"arch,omitempty"`
 	Model        string                   `xml:"model,omitempty" json:"model,omitempty" yaml:"model,omitempty"`
 	Vendor       string                   `xml:"vendor,omitempty" json:"vendor,omitempty" yaml:"vendor,omitempty"`
-	Topology     *CapsHostCPUTopology     `xml:"topology" json:"topology" yaml:"topology"`
+	Topology     *CapsHostCPUTopology     `xml:"topology" json:"topology,omitempty" yaml:"topology,omitempty"`
 	FeatureFlags []CapsHostCPUFeatureFlag `xml:"feature" json:"feature" yaml:"feature"`
-	Features     *CapsHostCPUFeatures     `xml:"features" json:"features" yaml:"features"`
+	Features     *CapsHostCPUFeatures     `xml:"features" json:"features,omitempty" yaml:"features,omitempty"`
 	PageSizes    []CapsHostCPUPageSize    `xml:"pages" json:"pages" yaml:"pages"`
-	Microcode    *CapsHostCPUMicrocode    `xml:"microcode" json:"microcode" yaml:"microcode"`
+	Microcode    *CapsHostCPUMicrocode    `xml:"microcode" json:"microcode,omitempty" yaml:"microcode,omitempty"`
 }
 
 type CapsHostCPUFeature struct {
 }
 
 type CapsHostCPUFeatures struct {
-	PAE    *CapsHostCPUFeature `xml:"pae" json:"pae" yaml:"pae"`
-	NonPAE *CapsHostCPUFeature `xml:"nonpae" json:"nonpae" yaml:"nonpae"`
-	SVM    *CapsHostCPUFeature `xml:"svm" json:"svm" yaml:"svm"`
-	VMX    *CapsHostCPUFeature `xml:"vmx" json:"vmx" yaml:"vmx"`
+	PAE    *CapsHostCPUFeature `xml:"pae" json:"pae,omitempty" yaml:"pae,omitempty"`
+	NonPAE *CapsHostCPUFeature `xml:"nonpae" json:"nonpae,omitempty" yaml:"nonpae,omitempty"`
+	SVM    *CapsHostCPUFeature `xml:"svm" json:"svm,omitempty" yaml:"svm,omitempty"`
+	VMX    *CapsHostCPUFeature `xml:"vmx" json:"vmx,omitempty" yaml:"vmx,omitempty"`
 }
 
 type CapsHostNUMAMemory struct {
@@ -83,8 +83,8 @@ type CapsHostNUMAPageInfo struct {
 
 type CapsHostNUMACPU struct {
 	ID       int    `xml:"id,attr" json:"id,omitempty" yaml:"id,omitempty"`
-	SocketID *int   `xml:"socket_id,attr" json:"socket_id,omitempty" yaml:"socket_id,omitempty"`
-	CoreID   *int   `xml:"core_id,attr" json:"core_id,omitempty" yaml:"core_id,omitempty"`
+	SocketID *int   `xml:"socket_id,attr" json:"socket_id,omitempty,omitempty" yaml:"socket_id,omitempty,omitempty"`
+	CoreID   *int   `xml:"core_id,attr" json:"core_id,omitempty,omitempty" yaml:"core_id,omitempty,omitempty"`
 	Siblings string `xml:"siblings,attr,omitempty" json:"siblings,omitempty" yaml:"siblings,omitempty"`
 }
 
@@ -95,10 +95,10 @@ type CapsHostNUMASibling struct {
 
 type CapsHostNUMACell struct {
 	ID        int                    `xml:"id,attr" json:"id,omitempty" yaml:"id,omitempty"`
-	Memory    *CapsHostNUMAMemory    `xml:"memory" json:"memory" yaml:"memory"`
+	Memory    *CapsHostNUMAMemory    `xml:"memory" json:"memory,omitempty" yaml:"memory,omitempty"`
 	PageInfo  []CapsHostNUMAPageInfo `xml:"pages" json:"pages" yaml:"pages"`
-	Distances *CapsHostNUMADistances `xml:"distances" json:"distances" yaml:"distances"`
-	CPUS      *CapsHostNUMACPUs      `xml:"cpus" json:"cpus" yaml:"cpus"`
+	Distances *CapsHostNUMADistances `xml:"distances" json:"distances,omitempty" yaml:"distances,omitempty"`
+	CPUS      *CapsHostNUMACPUs      `xml:"cpus" json:"cpus,omitempty" yaml:"cpus,omitempty"`
 }
 
 type CapsHostNUMADistances struct {
@@ -111,7 +111,7 @@ type CapsHostNUMACPUs struct {
 }
 
 type CapsHostNUMATopology struct {
-	Cells *CapsHostNUMACells `xml:"cells" json:"cells" yaml:"cells"`
+	Cells *CapsHostNUMACells `xml:"cells" json:"cells,omitempty" yaml:"cells,omitempty"`
 }
 
 type CapsHostNUMACells struct {
@@ -131,8 +131,8 @@ type CapsHostSecModel struct {
 }
 
 type CapsHostMigrationFeatures struct {
-	Live          *CapsHostMigrationLive          `xml:"live" json:"live" yaml:"live"`
-	URITransports *CapsHostMigrationURITransports `xml:"uri_transports" json:"uri_transports" yaml:"uri_transports"`
+	Live          *CapsHostMigrationLive          `xml:"live" json:"live,omitempty" yaml:"live,omitempty"`
+	URITransports *CapsHostMigrationURITransports `xml:"uri_transports" json:"uri_transports,omitempty" yaml:"uri_transports,omitempty"`
 }
 
 type CapsHostMigrationLive struct {
@@ -144,19 +144,19 @@ type CapsHostMigrationURITransports struct {
 
 type CapsHost struct {
 	UUID              string                     `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
-	CPU               *CapsHostCPU               `xml:"cpu" json:"cpu" yaml:"cpu"`
-	PowerManagement   *CapsHostPowerManagement   `xml:"power_management" json:"power_management" yaml:"power_management"`
-	IOMMU             *CapsHostIOMMU             `xml:"iommu" json:"iommu" yaml:"iommu"`
-	MigrationFeatures *CapsHostMigrationFeatures `xml:"migration_features" json:"migration_features" yaml:"migration_features"`
-	NUMA              *CapsHostNUMATopology      `xml:"topology" json:"topology" yaml:"topology"`
-	Cache             *CapsHostCache             `xml:"cache" json:"cache" yaml:"cache"`
+	CPU               *CapsHostCPU               `xml:"cpu" json:"cpu,omitempty" yaml:"cpu,omitempty"`
+	PowerManagement   *CapsHostPowerManagement   `xml:"power_management" json:"power_management,omitempty" yaml:"power_management,omitempty"`
+	IOMMU             *CapsHostIOMMU             `xml:"iommu" json:"iommu,omitempty" yaml:"iommu,omitempty"`
+	MigrationFeatures *CapsHostMigrationFeatures `xml:"migration_features" json:"migration_features,omitempty" yaml:"migration_features,omitempty"`
+	NUMA              *CapsHostNUMATopology      `xml:"topology" json:"topology,omitempty" yaml:"topology,omitempty"`
+	Cache             *CapsHostCache             `xml:"cache" json:"cache,omitempty" yaml:"cache,omitempty"`
 	SecModel          []CapsHostSecModel         `xml:"secmodel" json:"secmodel" yaml:"secmodel"`
 }
 
 type CapsHostPowerManagement struct {
-	SuspendMem    *CapsHostPowerManagementMode `xml:"suspend_mem" json:"suspend_mem" yaml:"suspend_mem"`
-	SuspendDisk   *CapsHostPowerManagementMode `xml:"suspend_disk" json:"suspend_disk" yaml:"suspend_disk"`
-	SuspendHybrid *CapsHostPowerManagementMode `xml:"suspend_hybrid" json:"suspend_hybrid" yaml:"suspend_hybrid"`
+	SuspendMem    *CapsHostPowerManagementMode `xml:"suspend_mem" json:"suspend_mem,omitempty" yaml:"suspend_mem,omitempty"`
+	SuspendDisk   *CapsHostPowerManagementMode `xml:"suspend_disk" json:"suspend_disk,omitempty" yaml:"suspend_disk,omitempty"`
+	SuspendHybrid *CapsHostPowerManagementMode `xml:"suspend_hybrid" json:"suspend_hybrid,omitempty" yaml:"suspend_hybrid,omitempty"`
 }
 
 type CapsHostPowerManagementMode struct {
@@ -240,20 +240,20 @@ type CapsGuestFeatureIA64BE struct {
 }
 
 type CapsGuestFeatures struct {
-	CPUSelection *CapsGuestFeatureCPUSelection `xml:"cpuselection" json:"cpuselection" yaml:"cpuselection"`
-	DeviceBoot   *CapsGuestFeatureDeviceBoot   `xml:"deviceboot" json:"deviceboot" yaml:"deviceboot"`
-	DiskSnapshot *CapsGuestFeatureDiskSnapshot `xml:"disksnapshot" json:"disksnapshot" yaml:"disksnapshot"`
-	PAE          *CapsGuestFeaturePAE          `xml:"pae" json:"pae" yaml:"pae"`
-	NonPAE       *CapsGuestFeatureNonPAE       `xml:"nonpae" json:"nonpae" yaml:"nonpae"`
-	APIC         *CapsGuestFeatureAPIC         `xml:"apic" json:"apic" yaml:"apic"`
-	ACPI         *CapsGuestFeatureACPI         `xml:"acpi" json:"acpi" yaml:"acpi"`
+	CPUSelection *CapsGuestFeatureCPUSelection `xml:"cpuselection" json:"cpuselection,omitempty" yaml:"cpuselection,omitempty"`
+	DeviceBoot   *CapsGuestFeatureDeviceBoot   `xml:"deviceboot" json:"deviceboot,omitempty" yaml:"deviceboot,omitempty"`
+	DiskSnapshot *CapsGuestFeatureDiskSnapshot `xml:"disksnapshot" json:"disksnapshot,omitempty" yaml:"disksnapshot,omitempty"`
+	PAE          *CapsGuestFeaturePAE          `xml:"pae" json:"pae,omitempty" yaml:"pae,omitempty"`
+	NonPAE       *CapsGuestFeatureNonPAE       `xml:"nonpae" json:"nonpae,omitempty" yaml:"nonpae,omitempty"`
+	APIC         *CapsGuestFeatureAPIC         `xml:"apic" json:"apic,omitempty" yaml:"apic,omitempty"`
+	ACPI         *CapsGuestFeatureACPI         `xml:"acpi" json:"acpi,omitempty" yaml:"acpi,omitempty"`
 	IA64BE       *CapsGuestFeatureIA64BE       `xml:"ia64_be" json:"ia64_be" yaml:"ia64_be"`
 }
 
 type CapsGuest struct {
 	OSType   string             `xml:"os_type" json:"os_type" yaml:"os_type"`
 	Arch     CapsGuestArch      `xml:"arch" json:"arch" yaml:"arch"`
-	Features *CapsGuestFeatures `xml:"features" json:"features" yaml:"features"`
+	Features *CapsGuestFeatures `xml:"features" json:"features,omitempty" yaml:"features,omitempty"`
 }
 
 type Caps struct {

@@ -42,7 +42,7 @@ type Secret struct {
 	Private     string       `xml:"private,attr,omitempty" json:"private,omitempty" yaml:"private,omitempty"`
 	Description string       `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
 	UUID        string       `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
-	Usage       *SecretUsage `xml:"usage" json:"usage" yaml:"usage"`
+	Usage       *SecretUsage `xml:"usage" json:"usage,omitempty" yaml:"usage,omitempty"`
 }
 
 func (s *Secret) Unmarshal(doc string) error {

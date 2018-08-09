@@ -69,22 +69,22 @@ type NWFilterRule struct {
 	Priority   int    `xml:"priority,attr,omitempty" json:"priority,omitempty" yaml:"priority,omitempty"`
 	StateMatch string `xml:"statematch,attr,omitempty" json:"statematch,omitempty" yaml:"statematch,omitempty"`
 
-	ARP         *NWFilterRuleARP         `xml:"arp" json:"arp" yaml:"arp"`
-	RARP        *NWFilterRuleRARP        `xml:"rarp" json:"rarp" yaml:"rarp"`
-	MAC         *NWFilterRuleMAC         `xml:"mac" json:"mac" yaml:"mac"`
-	VLAN        *NWFilterRuleVLAN        `xml:"vlan" json:"vlan" yaml:"vlan"`
-	STP         *NWFilterRuleSTP         `xml:"stp" json:"stp" yaml:"stp"`
-	IP          *NWFilterRuleIP          `xml:"ip" json:"ip" yaml:"ip"`
+	ARP         *NWFilterRuleARP         `xml:"arp" json:"arp,omitempty" yaml:"arp,omitempty"`
+	RARP        *NWFilterRuleRARP        `xml:"rarp" json:"rarp,omitempty" yaml:"rarp,omitempty"`
+	MAC         *NWFilterRuleMAC         `xml:"mac" json:"mac,omitempty" yaml:"mac,omitempty"`
+	VLAN        *NWFilterRuleVLAN        `xml:"vlan" json:"vlan,omitempty" yaml:"vlan,omitempty"`
+	STP         *NWFilterRuleSTP         `xml:"stp" json:"stp,omitempty" yaml:"stp,omitempty"`
+	IP          *NWFilterRuleIP          `xml:"ip" json:"ip,omitempty" yaml:"ip,omitempty"`
 	IPv6        *NWFilterRuleIPv6        `xml:"ipv6" json:"ipv6" yaml:"ipv6"`
-	TCP         *NWFilterRuleTCP         `xml:"tcp" json:"tcp" yaml:"tcp"`
-	UDP         *NWFilterRuleUDP         `xml:"udp" json:"udp" yaml:"udp"`
-	UDPLite     *NWFilterRuleUDPLite     `xml:"udplite" json:"udplite" yaml:"udplite"`
-	ESP         *NWFilterRuleESP         `xml:"esp" json:"esp" yaml:"esp"`
-	AH          *NWFilterRuleAH          `xml:"ah" json:"ah" yaml:"ah"`
-	SCTP        *NWFilterRuleSCTP        `xml:"sctp" json:"sctp" yaml:"sctp"`
-	ICMP        *NWFilterRuleICMP        `xml:"icmp" json:"icmp" yaml:"icmp"`
-	All         *NWFilterRuleAll         `xml:"all" json:"all" yaml:"all"`
-	IGMP        *NWFilterRuleIGMP        `xml:"igmp" json:"igmp" yaml:"igmp"`
+	TCP         *NWFilterRuleTCP         `xml:"tcp" json:"tcp,omitempty" yaml:"tcp,omitempty"`
+	UDP         *NWFilterRuleUDP         `xml:"udp" json:"udp,omitempty" yaml:"udp,omitempty"`
+	UDPLite     *NWFilterRuleUDPLite     `xml:"udplite" json:"udplite,omitempty" yaml:"udplite,omitempty"`
+	ESP         *NWFilterRuleESP         `xml:"esp" json:"esp,omitempty" yaml:"esp,omitempty"`
+	AH          *NWFilterRuleAH          `xml:"ah" json:"ah,omitempty" yaml:"ah,omitempty"`
+	SCTP        *NWFilterRuleSCTP        `xml:"sctp" json:"sctp,omitempty" yaml:"sctp,omitempty"`
+	ICMP        *NWFilterRuleICMP        `xml:"icmp" json:"icmp,omitempty" yaml:"icmp,omitempty"`
+	All         *NWFilterRuleAll         `xml:"all" json:"all,omitempty" yaml:"all,omitempty"`
+	IGMP        *NWFilterRuleIGMP        `xml:"igmp" json:"igmp,omitempty" yaml:"igmp,omitempty"`
 	TCPIPv6     *NWFilterRuleTCPIPv6     `xml:"tcp-ipv6" json:"tcp-ipv6" yaml:"tcp-ipv6"`
 	UDPIPv6     *NWFilterRuleUDPIPv6     `xml:"udp-ipv6" json:"udp-ipv6" yaml:"udp-ipv6"`
 	UDPLiteIPv6 *NWFilterRuleUDPLiteIPv6 `xml:"udplite-ipv6" json:"udplite-ipv6" yaml:"udplite-ipv6"`

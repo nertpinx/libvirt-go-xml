@@ -32,14 +32,14 @@ import (
 type Interface struct {
 	XMLName  xml.Name            `xml:"interface" json:"interface" yaml:"interface"`
 	Name     string              `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Start    *InterfaceStart     `xml:"start" json:"start" yaml:"start"`
-	MTU      *InterfaceMTU       `xml:"mtu" json:"mtu" yaml:"mtu"`
+	Start    *InterfaceStart     `xml:"start" json:"start,omitempty" yaml:"start,omitempty"`
+	MTU      *InterfaceMTU       `xml:"mtu" json:"mtu,omitempty" yaml:"mtu,omitempty"`
 	Protocol []InterfaceProtocol `xml:"protocol" json:"protocol" yaml:"protocol"`
-	Link     *InterfaceLink      `xml:"link" json:"link" yaml:"link"`
-	MAC      *InterfaceMAC       `xml:"mac" json:"mac" yaml:"mac"`
-	Bond     *InterfaceBond      `xml:"bond" json:"bond" yaml:"bond"`
-	Bridge   *InterfaceBridge    `xml:"bridge" json:"bridge" yaml:"bridge"`
-	VLAN     *InterfaceVLAN      `xml:"vlan" json:"vlan" yaml:"vlan"`
+	Link     *InterfaceLink      `xml:"link" json:"link,omitempty" yaml:"link,omitempty"`
+	MAC      *InterfaceMAC       `xml:"mac" json:"mac,omitempty" yaml:"mac,omitempty"`
+	Bond     *InterfaceBond      `xml:"bond" json:"bond,omitempty" yaml:"bond,omitempty"`
+	Bridge   *InterfaceBridge    `xml:"bridge" json:"bridge,omitempty" yaml:"bridge,omitempty"`
+	VLAN     *InterfaceVLAN      `xml:"vlan" json:"vlan,omitempty" yaml:"vlan,omitempty"`
 }
 
 type InterfaceStart struct {
@@ -52,8 +52,8 @@ type InterfaceMTU struct {
 
 type InterfaceProtocol struct {
 	Family   string             `xml:"family,attr,omitempty" json:"family,omitempty" yaml:"family,omitempty"`
-	AutoConf *InterfaceAutoConf `xml:"autoconf" json:"autoconf" yaml:"autoconf"`
-	DHCP     *InterfaceDHCP     `xml:"dhcp" json:"dhcp" yaml:"dhcp"`
+	AutoConf *InterfaceAutoConf `xml:"autoconf" json:"autoconf,omitempty" yaml:"autoconf,omitempty"`
+	DHCP     *InterfaceDHCP     `xml:"dhcp" json:"dhcp,omitempty" yaml:"dhcp,omitempty"`
 	IPs      []InterfaceIP      `xml:"ip" json:"ip" yaml:"ip"`
 	Route    []InterfaceRoute   `xml:"route" json:"route" yaml:"route"`
 }
@@ -85,8 +85,8 @@ type InterfaceMAC struct {
 
 type InterfaceBond struct {
 	Mode       string               `xml:"mode,attr,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
-	ARPMon     *InterfaceBondARPMon `xml:"arpmon" json:"arpmon" yaml:"arpmon"`
-	MIIMon     *InterfaceBondMIIMon `xml:"miimon" json:"miimon" yaml:"miimon"`
+	ARPMon     *InterfaceBondARPMon `xml:"arpmon" json:"arpmon,omitempty" yaml:"arpmon,omitempty"`
+	MIIMon     *InterfaceBondMIIMon `xml:"miimon" json:"miimon,omitempty" yaml:"miimon,omitempty"`
 	Interfaces []Interface          `xml:"interface" json:"interface" yaml:"interface"`
 }
 
@@ -109,8 +109,8 @@ type InterfaceBridge struct {
 }
 
 type InterfaceVLAN struct {
-	Tag       *uint      `xml:"tag,attr" json:"tag,omitempty" yaml:"tag,omitempty"`
-	Interface *Interface `xml:"interface" json:"interface" yaml:"interface"`
+	Tag       *uint      `xml:"tag,attr" json:"tag,omitempty,omitempty" yaml:"tag,omitempty,omitempty"`
+	Interface *Interface `xml:"interface" json:"interface,omitempty" yaml:"interface,omitempty"`
 }
 
 type interfaceDup Interface

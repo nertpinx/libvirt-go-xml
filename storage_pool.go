@@ -47,9 +47,9 @@ type StoragePoolTargetTimestamps struct {
 
 type StoragePoolTarget struct {
 	Path        string                        `xml:"path,omitempty" json:"path,omitempty" yaml:"path,omitempty"`
-	Permissions *StoragePoolTargetPermissions `xml:"permissions" json:"permissions" yaml:"permissions"`
-	Timestamps  *StoragePoolTargetTimestamps  `xml:"timestamps" json:"timestamps" yaml:"timestamps"`
-	Encryption  *StorageEncryption            `xml:"encryption" json:"encryption" yaml:"encryption"`
+	Permissions *StoragePoolTargetPermissions `xml:"permissions" json:"permissions,omitempty" yaml:"permissions,omitempty"`
+	Timestamps  *StoragePoolTargetTimestamps  `xml:"timestamps" json:"timestamps,omitempty" yaml:"timestamps,omitempty"`
+	Encryption  *StorageEncryption            `xml:"encryption" json:"encryption,omitempty" yaml:"encryption,omitempty"`
 }
 
 type StoragePoolSourceFormat struct {
@@ -79,7 +79,7 @@ type StoragePoolSourceAuthSecret struct {
 type StoragePoolSourceAuth struct {
 	Type     string                       `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Username string                       `xml:"username,attr" json:"username,omitempty" yaml:"username,omitempty"`
-	Secret   *StoragePoolSourceAuthSecret `xml:"secret" json:"secret" yaml:"secret"`
+	Secret   *StoragePoolSourceAuthSecret `xml:"secret" json:"secret,omitempty" yaml:"secret,omitempty"`
 }
 
 type StoragePoolSourceVendor struct {
@@ -91,15 +91,15 @@ type StoragePoolSourceProduct struct {
 }
 
 type StoragePoolPCIAddress struct {
-	Domain   *uint `xml:"domain,attr" json:"domain,omitempty" yaml:"domain,omitempty"`
-	Bus      *uint `xml:"bus,attr" json:"bus,omitempty" yaml:"bus,omitempty"`
-	Slot     *uint `xml:"slot,attr" json:"slot,omitempty" yaml:"slot,omitempty"`
-	Function *uint `xml:"function,attr" json:"function,omitempty" yaml:"function,omitempty"`
+	Domain   *uint `xml:"domain,attr" json:"domain,omitempty,omitempty" yaml:"domain,omitempty,omitempty"`
+	Bus      *uint `xml:"bus,attr" json:"bus,omitempty,omitempty" yaml:"bus,omitempty,omitempty"`
+	Slot     *uint `xml:"slot,attr" json:"slot,omitempty,omitempty" yaml:"slot,omitempty,omitempty"`
+	Function *uint `xml:"function,attr" json:"function,omitempty,omitempty" yaml:"function,omitempty,omitempty"`
 }
 
 type StoragePoolSourceAdapterParentAddr struct {
 	UniqueID uint64                 `xml:"unique_id,attr" json:"unique_id,omitempty" yaml:"unique_id,omitempty"`
-	Address  *StoragePoolPCIAddress `xml:"address" json:"address" yaml:"address"`
+	Address  *StoragePoolPCIAddress `xml:"address" json:"address,omitempty" yaml:"address,omitempty"`
 }
 
 type StoragePoolSourceAdapter struct {
@@ -109,7 +109,7 @@ type StoragePoolSourceAdapter struct {
 	Managed    string                              `xml:"managed,attr,omitempty" json:"managed,omitempty" yaml:"managed,omitempty"`
 	WWNN       string                              `xml:"wwnn,attr,omitempty" json:"wwnn,omitempty" yaml:"wwnn,omitempty"`
 	WWPN       string                              `xml:"wwpn,attr,omitempty" json:"wwpn,omitempty" yaml:"wwpn,omitempty"`
-	ParentAddr *StoragePoolSourceAdapterParentAddr `xml:"parentaddr" json:"parentaddr" yaml:"parentaddr"`
+	ParentAddr *StoragePoolSourceAdapterParentAddr `xml:"parentaddr" json:"parentaddr,omitempty" yaml:"parentaddr,omitempty"`
 }
 
 type StoragePoolSourceDir struct {
@@ -126,15 +126,15 @@ type StoragePoolSourceInitiatorIQN struct {
 
 type StoragePoolSource struct {
 	Name      string                      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Dir       *StoragePoolSourceDir       `xml:"dir" json:"dir" yaml:"dir"`
+	Dir       *StoragePoolSourceDir       `xml:"dir" json:"dir,omitempty" yaml:"dir,omitempty"`
 	Host      []StoragePoolSourceHost     `xml:"host" json:"host" yaml:"host"`
 	Device    []StoragePoolSourceDevice   `xml:"device" json:"device" yaml:"device"`
-	Auth      *StoragePoolSourceAuth      `xml:"auth" json:"auth" yaml:"auth"`
-	Vendor    *StoragePoolSourceVendor    `xml:"vendor" json:"vendor" yaml:"vendor"`
-	Product   *StoragePoolSourceProduct   `xml:"product" json:"product" yaml:"product"`
-	Format    *StoragePoolSourceFormat    `xml:"format" json:"format" yaml:"format"`
-	Adapter   *StoragePoolSourceAdapter   `xml:"adapter" json:"adapter" yaml:"adapter"`
-	Initiator *StoragePoolSourceInitiator `xml:"initiator" json:"initiator" yaml:"initiator"`
+	Auth      *StoragePoolSourceAuth      `xml:"auth" json:"auth,omitempty" yaml:"auth,omitempty"`
+	Vendor    *StoragePoolSourceVendor    `xml:"vendor" json:"vendor,omitempty" yaml:"vendor,omitempty"`
+	Product   *StoragePoolSourceProduct   `xml:"product" json:"product,omitempty" yaml:"product,omitempty"`
+	Format    *StoragePoolSourceFormat    `xml:"format" json:"format,omitempty" yaml:"format,omitempty"`
+	Adapter   *StoragePoolSourceAdapter   `xml:"adapter" json:"adapter,omitempty" yaml:"adapter,omitempty"`
+	Initiator *StoragePoolSourceInitiator `xml:"initiator" json:"initiator,omitempty" yaml:"initiator,omitempty"`
 }
 
 type StoragePool struct {
@@ -142,11 +142,11 @@ type StoragePool struct {
 	Type       string             `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Name       string             `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	UUID       string             `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
-	Allocation *StoragePoolSize   `xml:"allocation" json:"allocation" yaml:"allocation"`
-	Capacity   *StoragePoolSize   `xml:"capacity" json:"capacity" yaml:"capacity"`
-	Available  *StoragePoolSize   `xml:"available" json:"available" yaml:"available"`
-	Target     *StoragePoolTarget `xml:"target" json:"target" yaml:"target"`
-	Source     *StoragePoolSource `xml:"source" json:"source" yaml:"source"`
+	Allocation *StoragePoolSize   `xml:"allocation" json:"allocation,omitempty" yaml:"allocation,omitempty"`
+	Capacity   *StoragePoolSize   `xml:"capacity" json:"capacity,omitempty" yaml:"capacity,omitempty"`
+	Available  *StoragePoolSize   `xml:"available" json:"available,omitempty" yaml:"available,omitempty"`
+	Target     *StoragePoolTarget `xml:"target" json:"target,omitempty" yaml:"target,omitempty"`
+	Source     *StoragePoolSource `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 }
 
 func (a *StoragePoolPCIAddress) MarshalXML(e *xml.Encoder, start xml.StartElement) error {

@@ -35,12 +35,12 @@ type DomainCaps struct {
 	Domain    string               `xml:"domain" json:"domain" yaml:"domain"`
 	Machine   string               `xml:"machine,omitempty" json:"machine,omitempty" yaml:"machine,omitempty"`
 	Arch      string               `xml:"arch" json:"arch" yaml:"arch"`
-	VCPU      *DomainCapsVCPU      `xml:"vcpu" json:"vcpu" yaml:"vcpu"`
-	IOThreads *DomainCapsIOThreads `xml:"iothreads" json:"iothreads" yaml:"iothreads"`
+	VCPU      *DomainCapsVCPU      `xml:"vcpu" json:"vcpu,omitempty" yaml:"vcpu,omitempty"`
+	IOThreads *DomainCapsIOThreads `xml:"iothreads" json:"iothreads,omitempty" yaml:"iothreads,omitempty"`
 	OS        DomainCapsOS         `xml:"os" json:"os" yaml:"os"`
-	CPU       *DomainCapsCPU       `xml:"cpu" json:"cpu" yaml:"cpu"`
-	Devices   *DomainCapsDevices   `xml:"devices" json:"devices" yaml:"devices"`
-	Features  *DomainCapsFeatures  `xml:"features" json:"features" yaml:"features"`
+	CPU       *DomainCapsCPU       `xml:"cpu" json:"cpu,omitempty" yaml:"cpu,omitempty"`
+	Devices   *DomainCapsDevices   `xml:"devices" json:"devices,omitempty" yaml:"devices,omitempty"`
+	Features  *DomainCapsFeatures  `xml:"features" json:"features,omitempty" yaml:"features,omitempty"`
 }
 
 type DomainCapsVCPU struct {
@@ -49,7 +49,7 @@ type DomainCapsVCPU struct {
 
 type DomainCapsOS struct {
 	Supported string              `xml:"supported,attr" json:"supported,omitempty" yaml:"supported,omitempty"`
-	Loader    *DomainCapsOSLoader `xml:"loader" json:"loader" yaml:"loader"`
+	Loader    *DomainCapsOSLoader `xml:"loader" json:"loader,omitempty" yaml:"loader,omitempty"`
 }
 
 type DomainCapsOSLoader struct {
@@ -91,10 +91,10 @@ type DomainCapsEnum struct {
 }
 
 type DomainCapsDevices struct {
-	Disk     *DomainCapsDevice `xml:"disk" json:"disk" yaml:"disk"`
-	Graphics *DomainCapsDevice `xml:"graphics" json:"graphics" yaml:"graphics"`
-	Video    *DomainCapsDevice `xml:"video" json:"video" yaml:"video"`
-	HostDev  *DomainCapsDevice `xml:"hostdev" json:"hostdev" yaml:"hostdev"`
+	Disk     *DomainCapsDevice `xml:"disk" json:"disk,omitempty" yaml:"disk,omitempty"`
+	Graphics *DomainCapsDevice `xml:"graphics" json:"graphics,omitempty" yaml:"graphics,omitempty"`
+	Video    *DomainCapsDevice `xml:"video" json:"video,omitempty" yaml:"video,omitempty"`
+	HostDev  *DomainCapsDevice `xml:"hostdev" json:"hostdev,omitempty" yaml:"hostdev,omitempty"`
 }
 
 type DomainCapsDevice struct {
@@ -103,10 +103,10 @@ type DomainCapsDevice struct {
 }
 
 type DomainCapsFeatures struct {
-	GIC        *DomainCapsFeatureGIC        `xml:"gic" json:"gic" yaml:"gic"`
-	VMCoreInfo *DomainCapsFeatureVMCoreInfo `xml:"vmcoreinfo" json:"vmcoreinfo" yaml:"vmcoreinfo"`
-	GenID      *DomainCapsFeatureGenID      `xml:"genid" json:"genid" yaml:"genid"`
-	SEV        *DomainCapsFeatureSEV        `xml:"sev" json:"sev" yaml:"sev"`
+	GIC        *DomainCapsFeatureGIC        `xml:"gic" json:"gic,omitempty" yaml:"gic,omitempty"`
+	VMCoreInfo *DomainCapsFeatureVMCoreInfo `xml:"vmcoreinfo" json:"vmcoreinfo,omitempty" yaml:"vmcoreinfo,omitempty"`
+	GenID      *DomainCapsFeatureGenID      `xml:"genid" json:"genid,omitempty" yaml:"genid,omitempty"`
+	SEV        *DomainCapsFeatureSEV        `xml:"sev" json:"sev,omitempty" yaml:"sev,omitempty"`
 }
 
 type DomainCapsFeatureGIC struct {

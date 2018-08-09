@@ -44,7 +44,7 @@ type StorageEncryptionIvgen struct {
 
 type StorageEncryption struct {
 	Format string                   `xml:"format,attr" json:"format,omitempty" yaml:"format,omitempty"`
-	Secret *StorageEncryptionSecret `xml:"secret" json:"secret" yaml:"secret"`
-	Cipher *StorageEncryptionCipher `xml:"cipher" json:"cipher" yaml:"cipher"`
-	Ivgen  *StorageEncryptionIvgen  `xml:"ivgen" json:"ivgen" yaml:"ivgen"`
+	Secret *StorageEncryptionSecret `xml:"secret" json:"secret,omitempty" yaml:"secret,omitempty"`
+	Cipher *StorageEncryptionCipher `xml:"cipher" json:"cipher,omitempty" yaml:"cipher,omitempty"`
+	Ivgen  *StorageEncryptionIvgen  `xml:"ivgen" json:"ivgen,omitempty" yaml:"ivgen,omitempty"`
 }

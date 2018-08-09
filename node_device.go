@@ -39,7 +39,7 @@ type NodeDevice struct {
 	Path       string               `xml:"path,omitempty" json:"path,omitempty" yaml:"path,omitempty"`
 	DevNodes   []NodeDeviceDevNode  `xml:"devnode" json:"devnode" yaml:"devnode"`
 	Parent     string               `xml:"parent,omitempty" json:"parent,omitempty" yaml:"parent,omitempty"`
-	Driver     *NodeDeviceDriver    `xml:"driver" json:"driver" yaml:"driver"`
+	Driver     *NodeDeviceDriver    `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
 	Capability NodeDeviceCapability `xml:"capability" json:"capability" yaml:"capability"`
 }
 
@@ -79,8 +79,8 @@ type NodeDevicePCIExpress struct {
 type NodeDevicePCIExpressLink struct {
 	Validity string  `xml:"validity,attr,omitempty" json:"validity,omitempty" yaml:"validity,omitempty"`
 	Speed    float64 `xml:"speed,attr,omitempty" json:"speed,omitempty" yaml:"speed,omitempty"`
-	Port     *uint   `xml:"port,attr" json:"port,omitempty" yaml:"port,omitempty"`
-	Width    *uint   `xml:"width,attr" json:"width,omitempty" yaml:"width,omitempty"`
+	Port     *uint   `xml:"port,attr" json:"port,omitempty,omitempty" yaml:"port,omitempty,omitempty"`
+	Width    *uint   `xml:"width,attr" json:"width,omitempty,omitempty" yaml:"width,omitempty,omitempty"`
 }
 
 type NodeDeviceIOMMUGroup struct {
@@ -93,23 +93,23 @@ type NodeDeviceNUMA struct {
 }
 
 type NodeDevicePCICapability struct {
-	Domain       *uint                        `xml:"domain" json:"domain" yaml:"domain"`
-	Bus          *uint                        `xml:"bus" json:"bus" yaml:"bus"`
-	Slot         *uint                        `xml:"slot" json:"slot" yaml:"slot"`
-	Function     *uint                        `xml:"function" json:"function" yaml:"function"`
+	Domain       *uint                        `xml:"domain" json:"domain,omitempty" yaml:"domain,omitempty"`
+	Bus          *uint                        `xml:"bus" json:"bus,omitempty" yaml:"bus,omitempty"`
+	Slot         *uint                        `xml:"slot" json:"slot,omitempty" yaml:"slot,omitempty"`
+	Function     *uint                        `xml:"function" json:"function,omitempty" yaml:"function,omitempty"`
 	Product      NodeDeviceIDName             `xml:"product,omitempty" json:"product,omitempty" yaml:"product,omitempty"`
 	Vendor       NodeDeviceIDName             `xml:"vendor,omitempty" json:"vendor,omitempty" yaml:"vendor,omitempty"`
-	IOMMUGroup   *NodeDeviceIOMMUGroup        `xml:"iommuGroup" json:"iommuGroup" yaml:"iommuGroup"`
-	NUMA         *NodeDeviceNUMA              `xml:"numa" json:"numa" yaml:"numa"`
-	PCIExpress   *NodeDevicePCIExpress        `xml:"pci-express" json:"pci-express" yaml:"pci-express"`
+	IOMMUGroup   *NodeDeviceIOMMUGroup        `xml:"iommuGroup" json:"iommuGroup,omitempty" yaml:"iommuGroup,omitempty"`
+	NUMA         *NodeDeviceNUMA              `xml:"numa" json:"numa,omitempty" yaml:"numa,omitempty"`
+	PCIExpress   *NodeDevicePCIExpress        `xml:"pci-express" json:"pci-express,omitempty" yaml:"pci-express,omitempty"`
 	Capabilities []NodeDevicePCISubCapability `xml:"capability" json:"capability" yaml:"capability"`
 }
 
 type NodeDevicePCIAddress struct {
-	Domain   *uint `xml:"domain,attr" json:"domain,omitempty" yaml:"domain,omitempty"`
-	Bus      *uint `xml:"bus,attr" json:"bus,omitempty" yaml:"bus,omitempty"`
-	Slot     *uint `xml:"slot,attr" json:"slot,omitempty" yaml:"slot,omitempty"`
-	Function *uint `xml:"function,attr" json:"function,omitempty" yaml:"function,omitempty"`
+	Domain   *uint `xml:"domain,attr" json:"domain,omitempty,omitempty" yaml:"domain,omitempty,omitempty"`
+	Bus      *uint `xml:"bus,attr" json:"bus,omitempty,omitempty" yaml:"bus,omitempty,omitempty"`
+	Slot     *uint `xml:"slot,attr" json:"slot,omitempty,omitempty" yaml:"slot,omitempty,omitempty"`
+	Function *uint `xml:"function,attr" json:"function,omitempty,omitempty" yaml:"function,omitempty,omitempty"`
 }
 
 type NodeDevicePCISubCapability struct {
@@ -157,8 +157,8 @@ type NodeDeviceSystemFirmware struct {
 
 type NodeDeviceSystemCapability struct {
 	Product  string                    `xml:"product,omitempty" json:"product,omitempty" yaml:"product,omitempty"`
-	Hardware *NodeDeviceSystemHardware `xml:"hardware" json:"hardware" yaml:"hardware"`
-	Firmware *NodeDeviceSystemFirmware `xml:"firmware" json:"firmware" yaml:"firmware"`
+	Hardware *NodeDeviceSystemHardware `xml:"hardware" json:"hardware,omitempty" yaml:"hardware,omitempty"`
+	Firmware *NodeDeviceSystemFirmware `xml:"firmware" json:"firmware,omitempty" yaml:"firmware,omitempty"`
 }
 
 type NodeDeviceUSBDeviceCapability struct {
@@ -199,7 +199,7 @@ type NodeDeviceNet80203Capability struct {
 type NodeDeviceNetCapability struct {
 	Interface  string                         `xml:"interface" json:"interface" yaml:"interface"`
 	Address    string                         `xml:"address" json:"address" yaml:"address"`
-	Link       *NodeDeviceNetLink             `xml:"link" json:"link" yaml:"link"`
+	Link       *NodeDeviceNetLink             `xml:"link" json:"link,omitempty" yaml:"link,omitempty"`
 	Features   []NodeDeviceNetOffloadFeatures `xml:"feature,omitempty" json:"feature,omitempty" yaml:"feature,omitempty"`
 	Capability []NodeDeviceNetSubCapability   `xml:"capability" json:"capability" yaml:"capability"`
 }
@@ -222,7 +222,7 @@ type NodeDeviceSCSIHostSubCapability struct {
 
 type NodeDeviceSCSIHostCapability struct {
 	Host       uint                              `xml:"host" json:"host" yaml:"host"`
-	UniqueID   *uint                             `xml:"unique_id" json:"unique_id" yaml:"unique_id"`
+	UniqueID   *uint                             `xml:"unique_id" json:"unique_id,omitempty" yaml:"unique_id,omitempty"`
 	Capability []NodeDeviceSCSIHostSubCapability `xml:"capability" json:"capability" yaml:"capability"`
 }
 
@@ -253,11 +253,11 @@ type NodeDeviceStorageSubCapability struct {
 }
 
 type NodeDeviceStorageRemovableCapability struct {
-	MediaAvailable   *uint  `xml:"media_available" json:"media_available" yaml:"media_available"`
-	MediaSize        *uint  `xml:"media_size" json:"media_size" yaml:"media_size"`
+	MediaAvailable   *uint  `xml:"media_available" json:"media_available,omitempty" yaml:"media_available,omitempty"`
+	MediaSize        *uint  `xml:"media_size" json:"media_size,omitempty" yaml:"media_size,omitempty"`
 	MediaLabel       string `xml:"media_label,omitempty" json:"media_label,omitempty" yaml:"media_label,omitempty"`
-	LogicalBlockSize *uint  `xml:"logical_block_size" json:"logical_block_size" yaml:"logical_block_size"`
-	NumBlocks        *uint  `xml:"num_blocks" json:"num_blocks" yaml:"num_blocks"`
+	LogicalBlockSize *uint  `xml:"logical_block_size" json:"logical_block_size,omitempty" yaml:"logical_block_size,omitempty"`
+	NumBlocks        *uint  `xml:"num_blocks" json:"num_blocks,omitempty" yaml:"num_blocks,omitempty"`
 }
 
 type NodeDeviceStorageCapability struct {
@@ -267,9 +267,9 @@ type NodeDeviceStorageCapability struct {
 	Model            string                           `xml:"model,omitempty" json:"model,omitempty" yaml:"model,omitempty"`
 	Vendor           string                           `xml:"vendor,omitempty" json:"vendor,omitempty" yaml:"vendor,omitempty"`
 	Serial           string                           `xml:"serial,omitempty" json:"serial,omitempty" yaml:"serial,omitempty"`
-	Size             *uint                            `xml:"size" json:"size" yaml:"size"`
-	LogicalBlockSize *uint                            `xml:"logical_block_size" json:"logical_block_size" yaml:"logical_block_size"`
-	NumBlocks        *uint                            `xml:"num_blocks" json:"num_blocks" yaml:"num_blocks"`
+	Size             *uint                            `xml:"size" json:"size,omitempty" yaml:"size,omitempty"`
+	LogicalBlockSize *uint                            `xml:"logical_block_size" json:"logical_block_size,omitempty" yaml:"logical_block_size,omitempty"`
+	NumBlocks        *uint                            `xml:"num_blocks" json:"num_blocks,omitempty" yaml:"num_blocks,omitempty"`
 	Capability       []NodeDeviceStorageSubCapability `xml:"capability" json:"capability" yaml:"capability"`
 }
 
@@ -278,14 +278,14 @@ type NodeDeviceDRMCapability struct {
 }
 
 type NodeDeviceCCWCapability struct {
-	CSSID *uint `xml:"cssid" json:"cssid" yaml:"cssid"`
-	SSID  *uint `xml:"ssid" json:"ssid" yaml:"ssid"`
-	DevNo *uint `xml:"devno" json:"devno" yaml:"devno"`
+	CSSID *uint `xml:"cssid" json:"cssid,omitempty" yaml:"cssid,omitempty"`
+	SSID  *uint `xml:"ssid" json:"ssid,omitempty" yaml:"ssid,omitempty"`
+	DevNo *uint `xml:"devno" json:"devno,omitempty" yaml:"devno,omitempty"`
 }
 
 type NodeDeviceMDevCapability struct {
-	Type       *NodeDeviceMDevCapabilityType `xml:"type" json:"type" yaml:"type"`
-	IOMMUGroup *NodeDeviceIOMMUGroup         `xml:"iommuGroup" json:"iommuGroup" yaml:"iommuGroup"`
+	Type       *NodeDeviceMDevCapabilityType `xml:"type" json:"type,omitempty" yaml:"type,omitempty"`
+	IOMMUGroup *NodeDeviceIOMMUGroup         `xml:"iommuGroup" json:"iommuGroup,omitempty" yaml:"iommuGroup,omitempty"`
 }
 
 type NodeDeviceMDevCapabilityType struct {

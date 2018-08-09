@@ -37,30 +37,30 @@ type NetworkBridge struct {
 }
 
 type NetworkVirtualPort struct {
-	Params *NetworkVirtualPortParams `xml:"parameters" json:"parameters" yaml:"parameters"`
+	Params *NetworkVirtualPortParams `xml:"parameters" json:"parameters,omitempty" yaml:"parameters,omitempty"`
 }
 
 type NetworkVirtualPortParams struct {
-	Any          *NetworkVirtualPortParamsAny          `xml:"-" json:"-" yaml:"-"`
+	Any          *NetworkVirtualPortParamsAny          `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
 	VEPA8021QBG  *NetworkVirtualPortParamsVEPA8021QBG  `xml:"-" json:"-" yaml:"-"`
 	VNTag8011QBH *NetworkVirtualPortParamsVNTag8021QBH `xml:"-" json:"-" yaml:"-"`
-	OpenVSwitch  *NetworkVirtualPortParamsOpenVSwitch  `xml:"-" json:"-" yaml:"-"`
-	MidoNet      *NetworkVirtualPortParamsMidoNet      `xml:"-" json:"-" yaml:"-"`
+	OpenVSwitch  *NetworkVirtualPortParamsOpenVSwitch  `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
+	MidoNet      *NetworkVirtualPortParamsMidoNet      `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
 }
 
 type NetworkVirtualPortParamsAny struct {
-	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty" yaml:"managerid,omitempty"`
-	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty" yaml:"typeid,omitempty"`
-	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty" yaml:"typeidversion,omitempty"`
+	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty,omitempty" yaml:"managerid,omitempty,omitempty"`
+	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty,omitempty" yaml:"typeid,omitempty,omitempty"`
+	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty,omitempty" yaml:"typeidversion,omitempty,omitempty"`
 	InstanceID    string `xml:"instanceid,attr,omitempty" json:"instanceid,omitempty" yaml:"instanceid,omitempty"`
 	ProfileID     string `xml:"profileid,attr,omitempty" json:"profileid,omitempty" yaml:"profileid,omitempty"`
 	InterfaceID   string `xml:"interfaceid,attr,omitempty" json:"interfaceid,omitempty" yaml:"interfaceid,omitempty"`
 }
 
 type NetworkVirtualPortParamsVEPA8021QBG struct {
-	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty" yaml:"managerid,omitempty"`
-	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty" yaml:"typeid,omitempty"`
-	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty" yaml:"typeidversion,omitempty"`
+	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty,omitempty" yaml:"managerid,omitempty,omitempty"`
+	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty,omitempty" yaml:"typeid,omitempty,omitempty"`
+	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty,omitempty" yaml:"typeidversion,omitempty,omitempty"`
 	InstanceID    string `xml:"instanceid,attr,omitempty" json:"instanceid,omitempty" yaml:"instanceid,omitempty"`
 }
 
@@ -101,9 +101,9 @@ type NetworkForward struct {
 	Mode       string                    `xml:"mode,attr,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
 	Dev        string                    `xml:"dev,attr,omitempty" json:"dev,omitempty" yaml:"dev,omitempty"`
 	Managed    string                    `xml:"managed,attr,omitempty" json:"managed,omitempty" yaml:"managed,omitempty"`
-	Driver     *NetworkForwardDriver     `xml:"driver" json:"driver" yaml:"driver"`
+	Driver     *NetworkForwardDriver     `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
 	PFs        []NetworkForwardPF        `xml:"pf" json:"pf" yaml:"pf"`
-	NAT        *NetworkForwardNAT        `xml:"nat" json:"nat" yaml:"nat"`
+	NAT        *NetworkForwardNAT        `xml:"nat" json:"nat,omitempty" yaml:"nat,omitempty"`
 	Interfaces []NetworkForwardInterface `xml:"interface" json:"interface" yaml:"interface"`
 	Addresses  []NetworkForwardAddress   `xml:"address" json:"address" yaml:"address"`
 }
@@ -117,14 +117,14 @@ type NetworkForwardPF struct {
 }
 
 type NetworkForwardAddress struct {
-	PCI *NetworkForwardAddressPCI `xml:"-" json:"-" yaml:"-"`
+	PCI *NetworkForwardAddressPCI `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
 }
 
 type NetworkForwardAddressPCI struct {
-	Domain   *uint `xml:"domain,attr" json:"domain,omitempty" yaml:"domain,omitempty"`
-	Bus      *uint `xml:"bus,attr" json:"bus,omitempty" yaml:"bus,omitempty"`
-	Slot     *uint `xml:"slot,attr" json:"slot,omitempty" yaml:"slot,omitempty"`
-	Function *uint `xml:"function,attr" json:"function,omitempty" yaml:"function,omitempty"`
+	Domain   *uint `xml:"domain,attr" json:"domain,omitempty,omitempty" yaml:"domain,omitempty,omitempty"`
+	Bus      *uint `xml:"bus,attr" json:"bus,omitempty,omitempty" yaml:"bus,omitempty,omitempty"`
+	Slot     *uint `xml:"slot,attr" json:"slot,omitempty,omitempty" yaml:"slot,omitempty,omitempty"`
+	Function *uint `xml:"function,attr" json:"function,omitempty,omitempty" yaml:"function,omitempty,omitempty"`
 }
 
 type NetworkForwardInterface struct {
@@ -167,8 +167,8 @@ type NetworkIP struct {
 	Netmask  string       `xml:"netmask,attr,omitempty" json:"netmask,omitempty" yaml:"netmask,omitempty"`
 	Prefix   uint         `xml:"prefix,attr,omitempty" json:"prefix,omitempty" yaml:"prefix,omitempty"`
 	LocalPtr string       `xml:"localPtr,attr,omitempty" json:"localPtr,omitempty" yaml:"localPtr,omitempty"`
-	DHCP     *NetworkDHCP `xml:"dhcp" json:"dhcp" yaml:"dhcp"`
-	TFTP     *NetworkTFTP `xml:"tftp" json:"tftp" yaml:"tftp"`
+	DHCP     *NetworkDHCP `xml:"dhcp" json:"dhcp,omitempty" yaml:"dhcp,omitempty"`
+	TFTP     *NetworkTFTP `xml:"tftp" json:"tftp,omitempty" yaml:"tftp,omitempty"`
 }
 
 type NetworkTFTP struct {
@@ -239,18 +239,18 @@ type Network struct {
 	TrustGuestRxFilters string              `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty" yaml:"trustGuestRxFilters,omitempty"`
 	Name                string              `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	UUID                string              `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
-	Metadata            *NetworkMetadata    `xml:"metadata" json:"metadata" yaml:"metadata"`
-	Forward             *NetworkForward     `xml:"forward" json:"forward" yaml:"forward"`
-	Bridge              *NetworkBridge      `xml:"bridge" json:"bridge" yaml:"bridge"`
-	MTU                 *NetworkMTU         `xml:"mtu" json:"mtu" yaml:"mtu"`
-	MAC                 *NetworkMAC         `xml:"mac" json:"mac" yaml:"mac"`
-	Domain              *NetworkDomain      `xml:"domain" json:"domain" yaml:"domain"`
-	DNS                 *NetworkDNS         `xml:"dns" json:"dns" yaml:"dns"`
-	VLAN                *NetworkVLAN        `xml:"vlan" json:"vlan" yaml:"vlan"`
-	Bandwidth           *NetworkBandwidth   `xml:"bandwidth" json:"bandwidth" yaml:"bandwidth"`
+	Metadata            *NetworkMetadata    `xml:"metadata" json:"metadata,omitempty" yaml:"metadata,omitempty"`
+	Forward             *NetworkForward     `xml:"forward" json:"forward,omitempty" yaml:"forward,omitempty"`
+	Bridge              *NetworkBridge      `xml:"bridge" json:"bridge,omitempty" yaml:"bridge,omitempty"`
+	MTU                 *NetworkMTU         `xml:"mtu" json:"mtu,omitempty" yaml:"mtu,omitempty"`
+	MAC                 *NetworkMAC         `xml:"mac" json:"mac,omitempty" yaml:"mac,omitempty"`
+	Domain              *NetworkDomain      `xml:"domain" json:"domain,omitempty" yaml:"domain,omitempty"`
+	DNS                 *NetworkDNS         `xml:"dns" json:"dns,omitempty" yaml:"dns,omitempty"`
+	VLAN                *NetworkVLAN        `xml:"vlan" json:"vlan,omitempty" yaml:"vlan,omitempty"`
+	Bandwidth           *NetworkBandwidth   `xml:"bandwidth" json:"bandwidth,omitempty" yaml:"bandwidth,omitempty"`
 	IPs                 []NetworkIP         `xml:"ip" json:"ip" yaml:"ip"`
 	Routes              []NetworkRoute      `xml:"route" json:"route" yaml:"route"`
-	VirtualPort         *NetworkVirtualPort `xml:"virtualport" json:"virtualport" yaml:"virtualport"`
+	VirtualPort         *NetworkVirtualPort `xml:"virtualport" json:"virtualport,omitempty" yaml:"virtualport,omitempty"`
 	PortGroups          []NetworkPortGroup  `xml:"portgroup" json:"portgroup" yaml:"portgroup"`
 }
 
@@ -259,8 +259,8 @@ type NetworkPortGroup struct {
 	Name                string              `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Default             string              `xml:"default,attr,omitempty" json:"default,omitempty" yaml:"default,omitempty"`
 	TrustGuestRxFilters string              `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty" yaml:"trustGuestRxFilters,omitempty"`
-	VLAN                *NetworkVLAN        `xml:"vlan" json:"vlan" yaml:"vlan"`
-	VirtualPort         *NetworkVirtualPort `xml:"virtualport" json:"virtualport" yaml:"virtualport"`
+	VLAN                *NetworkVLAN        `xml:"vlan" json:"vlan,omitempty" yaml:"vlan,omitempty"`
+	VirtualPort         *NetworkVirtualPort `xml:"virtualport" json:"virtualport,omitempty" yaml:"virtualport,omitempty"`
 }
 
 type NetworkVLAN struct {
@@ -274,15 +274,15 @@ type NetworkVLANTag struct {
 }
 
 type NetworkBandwidthParams struct {
-	Average *uint `xml:"average,attr" json:"average,omitempty" yaml:"average,omitempty"`
-	Peak    *uint `xml:"peak,attr" json:"peak,omitempty" yaml:"peak,omitempty"`
-	Burst   *uint `xml:"burst,attr" json:"burst,omitempty" yaml:"burst,omitempty"`
-	Floor   *uint `xml:"floor,attr" json:"floor,omitempty" yaml:"floor,omitempty"`
+	Average *uint `xml:"average,attr" json:"average,omitempty,omitempty" yaml:"average,omitempty,omitempty"`
+	Peak    *uint `xml:"peak,attr" json:"peak,omitempty,omitempty" yaml:"peak,omitempty,omitempty"`
+	Burst   *uint `xml:"burst,attr" json:"burst,omitempty,omitempty" yaml:"burst,omitempty,omitempty"`
+	Floor   *uint `xml:"floor,attr" json:"floor,omitempty,omitempty" yaml:"floor,omitempty,omitempty"`
 }
 
 type NetworkBandwidth struct {
-	Inbound  *NetworkBandwidthParams `xml:"inbound" json:"inbound" yaml:"inbound"`
-	Outbound *NetworkBandwidthParams `xml:"outbound" json:"outbound" yaml:"outbound"`
+	Inbound  *NetworkBandwidthParams `xml:"inbound" json:"inbound,omitempty" yaml:"inbound,omitempty"`
+	Outbound *NetworkBandwidthParams `xml:"outbound" json:"outbound,omitempty" yaml:"outbound,omitempty"`
 }
 
 func (a *NetworkVirtualPortParams) MarshalXML(e *xml.Encoder, start xml.StartElement) error {

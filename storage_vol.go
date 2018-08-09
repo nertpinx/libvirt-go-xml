@@ -55,19 +55,19 @@ type StorageVolumeTargetTimestamps struct {
 
 type StorageVolumeTarget struct {
 	Path        string                          `xml:"path,omitempty" json:"path,omitempty" yaml:"path,omitempty"`
-	Format      *StorageVolumeTargetFormat      `xml:"format" json:"format" yaml:"format"`
-	Permissions *StorageVolumeTargetPermissions `xml:"permissions" json:"permissions" yaml:"permissions"`
-	Timestamps  *StorageVolumeTargetTimestamps  `xml:"timestamps" json:"timestamps" yaml:"timestamps"`
+	Format      *StorageVolumeTargetFormat      `xml:"format" json:"format,omitempty" yaml:"format,omitempty"`
+	Permissions *StorageVolumeTargetPermissions `xml:"permissions" json:"permissions,omitempty" yaml:"permissions,omitempty"`
+	Timestamps  *StorageVolumeTargetTimestamps  `xml:"timestamps" json:"timestamps,omitempty" yaml:"timestamps,omitempty"`
 	Compat      string                          `xml:"compat,omitempty" json:"compat,omitempty" yaml:"compat,omitempty"`
 	NoCOW       *struct{}                       `xml:"nocow" json:"nocow" yaml:"nocow"`
 	Features    []StorageVolumeTargetFeature    `xml:"features" json:"features" yaml:"features"`
-	Encryption  *StorageEncryption              `xml:"encryption" json:"encryption" yaml:"encryption"`
+	Encryption  *StorageEncryption              `xml:"encryption" json:"encryption,omitempty" yaml:"encryption,omitempty"`
 }
 
 type StorageVolumeBackingStore struct {
 	Path        string                          `xml:"path" json:"path" yaml:"path"`
-	Format      *StorageVolumeTargetFormat      `xml:"format" json:"format" yaml:"format"`
-	Permissions *StorageVolumeTargetPermissions `xml:"permissions" json:"permissions" yaml:"permissions"`
+	Format      *StorageVolumeTargetFormat      `xml:"format" json:"format,omitempty" yaml:"format,omitempty"`
+	Permissions *StorageVolumeTargetPermissions `xml:"permissions" json:"permissions,omitempty" yaml:"permissions,omitempty"`
 }
 
 type StorageVolume struct {
@@ -75,11 +75,11 @@ type StorageVolume struct {
 	Type         string                     `xml:"type,attr,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	Name         string                     `xml:"name" json:"name" yaml:"name"`
 	Key          string                     `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Allocation   *StorageVolumeSize         `xml:"allocation" json:"allocation" yaml:"allocation"`
-	Capacity     *StorageVolumeSize         `xml:"capacity" json:"capacity" yaml:"capacity"`
-	Physical     *StorageVolumeSize         `xml:"physical" json:"physical" yaml:"physical"`
-	Target       *StorageVolumeTarget       `xml:"target" json:"target" yaml:"target"`
-	BackingStore *StorageVolumeBackingStore `xml:"backingStore" json:"backingStore" yaml:"backingStore"`
+	Allocation   *StorageVolumeSize         `xml:"allocation" json:"allocation,omitempty" yaml:"allocation,omitempty"`
+	Capacity     *StorageVolumeSize         `xml:"capacity" json:"capacity,omitempty" yaml:"capacity,omitempty"`
+	Physical     *StorageVolumeSize         `xml:"physical" json:"physical,omitempty" yaml:"physical,omitempty"`
+	Target       *StorageVolumeTarget       `xml:"target" json:"target,omitempty" yaml:"target,omitempty"`
+	BackingStore *StorageVolumeBackingStore `xml:"backingStore" json:"backingStore,omitempty" yaml:"backingStore,omitempty"`
 }
 
 func (s *StorageVolume) Unmarshal(doc string) error {

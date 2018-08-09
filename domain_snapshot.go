@@ -34,8 +34,8 @@ type DomainSnapshotDiskDriver struct {
 type DomainSnapshotDisk struct {
 	Name     string                    `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 	Snapshot string                    `xml:"snapshot,attr,omitempty" json:"snapshot,omitempty" yaml:"snapshot,omitempty"`
-	Driver   *DomainSnapshotDiskDriver `xml:"driver" json:"driver" yaml:"driver"`
-	Source   *DomainDiskSource         `xml:"source" json:"source" yaml:"source"`
+	Driver   *DomainSnapshotDiskDriver `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
+	Source   *DomainDiskSource         `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 }
 
 type DomainSnapshotDisks struct {
@@ -57,11 +57,11 @@ type DomainSnapshot struct {
 	Description  string                `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
 	State        string                `xml:"state,omitempty" json:"state,omitempty" yaml:"state,omitempty"`
 	CreationTime string                `xml:"creationTime,omitempty" json:"creationTime,omitempty" yaml:"creationTime,omitempty"`
-	Parent       *DomainSnapshotParent `xml:"parent" json:"parent" yaml:"parent"`
-	Memory       *DomainSnapshotMemory `xml:"memory" json:"memory" yaml:"memory"`
-	Disks        *DomainSnapshotDisks  `xml:"disks" json:"disks" yaml:"disks"`
-	Domain       *Domain               `xml:"domain" json:"domain" yaml:"domain"`
-	Active       *uint                 `xml:"active" json:"active" yaml:"active"`
+	Parent       *DomainSnapshotParent `xml:"parent" json:"parent,omitempty" yaml:"parent,omitempty"`
+	Memory       *DomainSnapshotMemory `xml:"memory" json:"memory,omitempty" yaml:"memory,omitempty"`
+	Disks        *DomainSnapshotDisks  `xml:"disks" json:"disks,omitempty" yaml:"disks,omitempty"`
+	Domain       *Domain               `xml:"domain" json:"domain,omitempty" yaml:"domain,omitempty"`
+	Active       *uint                 `xml:"active" json:"active,omitempty" yaml:"active,omitempty"`
 }
 
 type domainSnapshotDisk DomainSnapshotDisk
