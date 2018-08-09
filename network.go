@@ -49,18 +49,18 @@ type NetworkVirtualPortParams struct {
 }
 
 type NetworkVirtualPortParamsAny struct {
-	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty,omitempty" yaml:"managerid,omitempty,omitempty"`
-	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty,omitempty" yaml:"typeid,omitempty,omitempty"`
-	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty,omitempty" yaml:"typeidversion,omitempty,omitempty"`
+	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty" yaml:"managerid,omitempty"`
+	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty" yaml:"typeid,omitempty"`
+	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty" yaml:"typeidversion,omitempty"`
 	InstanceID    string `xml:"instanceid,attr,omitempty" json:"instanceid,omitempty" yaml:"instanceid,omitempty"`
 	ProfileID     string `xml:"profileid,attr,omitempty" json:"profileid,omitempty" yaml:"profileid,omitempty"`
 	InterfaceID   string `xml:"interfaceid,attr,omitempty" json:"interfaceid,omitempty" yaml:"interfaceid,omitempty"`
 }
 
 type NetworkVirtualPortParamsVEPA8021QBG struct {
-	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty,omitempty" yaml:"managerid,omitempty,omitempty"`
-	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty,omitempty" yaml:"typeid,omitempty,omitempty"`
-	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty,omitempty" yaml:"typeidversion,omitempty,omitempty"`
+	ManagerID     *uint  `xml:"managerid,attr" json:"managerid,omitempty" yaml:"managerid,omitempty"`
+	TypeID        *uint  `xml:"typeid,attr" json:"typeid,omitempty" yaml:"typeid,omitempty"`
+	TypeIDVersion *uint  `xml:"typeidversion,attr" json:"typeidversion,omitempty" yaml:"typeidversion,omitempty"`
 	InstanceID    string `xml:"instanceid,attr,omitempty" json:"instanceid,omitempty" yaml:"instanceid,omitempty"`
 }
 
@@ -121,10 +121,10 @@ type NetworkForwardAddress struct {
 }
 
 type NetworkForwardAddressPCI struct {
-	Domain   *uint `xml:"domain,attr" json:"domain,omitempty,omitempty" yaml:"domain,omitempty,omitempty"`
-	Bus      *uint `xml:"bus,attr" json:"bus,omitempty,omitempty" yaml:"bus,omitempty,omitempty"`
-	Slot     *uint `xml:"slot,attr" json:"slot,omitempty,omitempty" yaml:"slot,omitempty,omitempty"`
-	Function *uint `xml:"function,attr" json:"function,omitempty,omitempty" yaml:"function,omitempty,omitempty"`
+	Domain   *uint `xml:"domain,attr" json:"domain,omitempty" yaml:"domain,omitempty"`
+	Bus      *uint `xml:"bus,attr" json:"bus,omitempty" yaml:"bus,omitempty"`
+	Slot     *uint `xml:"slot,attr" json:"slot,omitempty" yaml:"slot,omitempty"`
+	Function *uint `xml:"function,attr" json:"function,omitempty" yaml:"function,omitempty"`
 }
 
 type NetworkForwardInterface struct {
@@ -274,10 +274,10 @@ type NetworkVLANTag struct {
 }
 
 type NetworkBandwidthParams struct {
-	Average *uint `xml:"average,attr" json:"average,omitempty,omitempty" yaml:"average,omitempty,omitempty"`
-	Peak    *uint `xml:"peak,attr" json:"peak,omitempty,omitempty" yaml:"peak,omitempty,omitempty"`
-	Burst   *uint `xml:"burst,attr" json:"burst,omitempty,omitempty" yaml:"burst,omitempty,omitempty"`
-	Floor   *uint `xml:"floor,attr" json:"floor,omitempty,omitempty" yaml:"floor,omitempty,omitempty"`
+	Average *uint `xml:"average,attr" json:"average,omitempty" yaml:"average,omitempty"`
+	Peak    *uint `xml:"peak,attr" json:"peak,omitempty" yaml:"peak,omitempty"`
+	Burst   *uint `xml:"burst,attr" json:"burst,omitempty" yaml:"burst,omitempty"`
+	Floor   *uint `xml:"floor,attr" json:"floor,omitempty" yaml:"floor,omitempty"`
 }
 
 type NetworkBandwidth struct {

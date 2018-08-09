@@ -109,7 +109,7 @@ type InterfaceBridge struct {
 }
 
 type InterfaceVLAN struct {
-	Tag       *uint      `xml:"tag,attr" json:"tag,omitempty,omitempty" yaml:"tag,omitempty,omitempty"`
+	Tag       *uint      `xml:"tag,attr" json:"tag,omitempty" yaml:"tag,omitempty"`
 	Interface *Interface `xml:"interface" json:"interface,omitempty" yaml:"interface,omitempty"`
 }
 

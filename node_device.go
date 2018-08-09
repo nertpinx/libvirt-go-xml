@@ -79,8 +79,8 @@ type NodeDevicePCIExpress struct {
 type NodeDevicePCIExpressLink struct {
 	Validity string  `xml:"validity,attr,omitempty" json:"validity,omitempty" yaml:"validity,omitempty"`
 	Speed    float64 `xml:"speed,attr,omitempty" json:"speed,omitempty" yaml:"speed,omitempty"`
-	Port     *uint   `xml:"port,attr" json:"port,omitempty,omitempty" yaml:"port,omitempty,omitempty"`
-	Width    *uint   `xml:"width,attr" json:"width,omitempty,omitempty" yaml:"width,omitempty,omitempty"`
+	Port     *uint   `xml:"port,attr" json:"port,omitempty" yaml:"port,omitempty"`
+	Width    *uint   `xml:"width,attr" json:"width,omitempty" yaml:"width,omitempty"`
 }
 
 type NodeDeviceIOMMUGroup struct {
@@ -106,10 +106,10 @@ type NodeDevicePCICapability struct {
 }
 
 type NodeDevicePCIAddress struct {
-	Domain   *uint `xml:"domain,attr" json:"domain,omitempty,omitempty" yaml:"domain,omitempty,omitempty"`
-	Bus      *uint `xml:"bus,attr" json:"bus,omitempty,omitempty" yaml:"bus,omitempty,omitempty"`
-	Slot     *uint `xml:"slot,attr" json:"slot,omitempty,omitempty" yaml:"slot,omitempty,omitempty"`
-	Function *uint `xml:"function,attr" json:"function,omitempty,omitempty" yaml:"function,omitempty,omitempty"`
+	Domain   *uint `xml:"domain,attr" json:"domain,omitempty" yaml:"domain,omitempty"`
+	Bus      *uint `xml:"bus,attr" json:"bus,omitempty" yaml:"bus,omitempty"`
+	Slot     *uint `xml:"slot,attr" json:"slot,omitempty" yaml:"slot,omitempty"`
+	Function *uint `xml:"function,attr" json:"function,omitempty" yaml:"function,omitempty"`
 }
 
 type NodeDevicePCISubCapability struct {
@@ -120,7 +120,7 @@ type NodeDevicePCISubCapability struct {
 }
 
 type NodeDevicePCIVirtFunctionsCapability struct {
-	Address  []NodeDevicePCIAddress `xml:"address,omitempty" json:"address,omitempty,omitempty" yaml:"address,omitempty,omitempty"`
+	Address  []NodeDevicePCIAddress `xml:"address,omitempty" json:"address,omitempty" yaml:"address,omitempty"`
 	MaxCount int                    `xml:"maxCount,attr,omitempty" json:"maxCount,omitempty" yaml:"maxCount,omitempty"`
 }
 
@@ -200,7 +200,7 @@ type NodeDeviceNetCapability struct {
 	Interface  string                         `xml:"interface" json:"interface" yaml:"interface"`
 	Address    string                         `xml:"address" json:"address" yaml:"address"`
 	Link       *NodeDeviceNetLink             `xml:"link" json:"link,omitempty" yaml:"link,omitempty"`
-	Features   []NodeDeviceNetOffloadFeatures `xml:"feature,omitempty" json:"feature,omitempty,omitempty" yaml:"feature,omitempty,omitempty"`
+	Features   []NodeDeviceNetOffloadFeatures `xml:"feature,omitempty" json:"feature,omitempty" yaml:"feature,omitempty"`
 	Capability []NodeDeviceNetSubCapability   `xml:"capability" json:"capability,omitempty" yaml:"capability,omitempty"`
 }
 

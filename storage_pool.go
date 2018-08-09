@@ -91,10 +91,10 @@ type StoragePoolSourceProduct struct {
 }
 
 type StoragePoolPCIAddress struct {
-	Domain   *uint `xml:"domain,attr" json:"domain,omitempty,omitempty" yaml:"domain,omitempty,omitempty"`
-	Bus      *uint `xml:"bus,attr" json:"bus,omitempty,omitempty" yaml:"bus,omitempty,omitempty"`
-	Slot     *uint `xml:"slot,attr" json:"slot,omitempty,omitempty" yaml:"slot,omitempty,omitempty"`
-	Function *uint `xml:"function,attr" json:"function,omitempty,omitempty" yaml:"function,omitempty,omitempty"`
+	Domain   *uint `xml:"domain,attr" json:"domain,omitempty" yaml:"domain,omitempty"`
+	Bus      *uint `xml:"bus,attr" json:"bus,omitempty" yaml:"bus,omitempty"`
+	Slot     *uint `xml:"slot,attr" json:"slot,omitempty" yaml:"slot,omitempty"`
+	Function *uint `xml:"function,attr" json:"function,omitempty" yaml:"function,omitempty"`
 }
 
 type StoragePoolSourceAdapterParentAddr struct {

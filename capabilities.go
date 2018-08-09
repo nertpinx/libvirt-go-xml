@@ -83,8 +83,8 @@ type CapsHostNUMAPageInfo struct {
 
 type CapsHostNUMACPU struct {
 	ID       int    `xml:"id,attr" json:"id,omitempty" yaml:"id,omitempty"`
-	SocketID *int   `xml:"socket_id,attr" json:"socket_id,omitempty,omitempty" yaml:"socket_id,omitempty,omitempty"`
-	CoreID   *int   `xml:"core_id,attr" json:"core_id,omitempty,omitempty" yaml:"core_id,omitempty,omitempty"`
+	SocketID *int   `xml:"socket_id,attr" json:"socket_id,omitempty" yaml:"socket_id,omitempty"`
+	CoreID   *int   `xml:"core_id,attr" json:"core_id,omitempty" yaml:"core_id,omitempty"`
 	Siblings string `xml:"siblings,attr,omitempty" json:"siblings,omitempty" yaml:"siblings,omitempty"`
 }
 
