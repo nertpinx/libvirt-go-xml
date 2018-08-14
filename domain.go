@@ -36,7 +36,7 @@ import (
 )
 
 type DomainControllerPCIHole64 struct {
-	Size uint64 `xml:",attr" json:"" yaml:""`
+	Size uint64 `xml:",chardata" json:"" yaml:""`
 	Unit string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
@@ -358,12 +358,12 @@ type DomainFilesystemReadOnly struct {
 }
 
 type DomainFilesystemSpaceHardLimit struct {
-	Value uint   `xml:",attr" json:"" yaml:""`
+	Value uint   `xml:",chardata" json:"" yaml:""`
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
 type DomainFilesystemSpaceSoftLimit struct {
-	Value uint   `xml:",attr" json:"" yaml:""`
+	Value uint   `xml:",chardata" json:"" yaml:""`
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
@@ -1207,7 +1207,7 @@ type DomainRNGBackendEGD struct {
 }
 
 type DomainRNGBackendRandom struct {
-	Device string `xml:",attr" json:"" yaml:""`
+	Device string `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainRNG struct {
@@ -1358,16 +1358,16 @@ type DomainMemorydevSource struct {
 }
 
 type DomainMemorydevSourcePagesize struct {
-	Value uint64 `xml:",attr" json:"" yaml:""`
+	Value uint64 `xml:",chardata" json:"" yaml:""`
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
 type DomainMemorydevTargetNode struct {
-	Value uint `xml:",attr" json:"" yaml:""`
+	Value uint `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainMemorydevTargetSize struct {
-	Value uint   `xml:",attr" json:"" yaml:""`
+	Value uint   `xml:",chardata" json:"" yaml:""`
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
@@ -1449,7 +1449,7 @@ type DomainSmartcardHost struct {
 }
 
 type DomainSmartcardHostCert struct {
-	File string `xml:",attr" json:"" yaml:""`
+	File string `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainTPM struct {
@@ -1489,7 +1489,7 @@ type DomainShmem struct {
 }
 
 type DomainShmemSize struct {
-	Value uint   `xml:",attr" json:"" yaml:""`
+	Value uint   `xml:",chardata" json:"" yaml:""`
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
@@ -1540,18 +1540,18 @@ type DomainDeviceList struct {
 }
 
 type DomainMemory struct {
-	Value    uint   `xml:",attr" json:"" yaml:""`
+	Value    uint   `xml:",chardata" json:"" yaml:""`
 	Unit     string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 	DumpCore string `xml:"dumpCore,attr,omitempty" json:"dumpCore,omitempty" yaml:"dumpCore,omitempty"`
 }
 
 type DomainCurrentMemory struct {
-	Value uint   `xml:",attr" json:"" yaml:""`
+	Value uint   `xml:",chardata" json:"" yaml:""`
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
 type DomainMaxMemory struct {
-	Value uint   `xml:",attr" json:"" yaml:""`
+	Value uint   `xml:",chardata" json:"" yaml:""`
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 	Slots uint   `xml:"slots,attr,omitempty" json:"slots,omitempty" yaml:"slots,omitempty"`
 }
@@ -1600,7 +1600,7 @@ type DomainMemoryBacking struct {
 type DomainOSType struct {
 	Arch    string `xml:"arch,attr,omitempty" json:"arch,omitempty" yaml:"arch,omitempty"`
 	Machine string `xml:"machine,attr,omitempty" json:"machine,omitempty" yaml:"machine,omitempty"`
-	Type    string `xml:",attr" json:"" yaml:""`
+	Type    string `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainSMBios struct {
@@ -1608,7 +1608,7 @@ type DomainSMBios struct {
 }
 
 type DomainNVRam struct {
-	NVRam    string `xml:",attr" json:"" yaml:""`
+	NVRam    string `xml:",chardata" json:"" yaml:""`
 	Template string `xml:"template,attr,omitempty" json:"template,omitempty" yaml:"template,omitempty"`
 }
 
@@ -1662,7 +1662,7 @@ type DomainSysInfo struct {
 
 type DomainSysInfoEntry struct {
 	Name  string `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
-	Value string `xml:",attr" json:"" yaml:""`
+	Value string `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainBIOS struct {
@@ -1671,7 +1671,7 @@ type DomainBIOS struct {
 }
 
 type DomainLoader struct {
-	Path     string `xml:",attr" json:"" yaml:""`
+	Path     string `xml:",chardata" json:"" yaml:""`
 	Readonly string `xml:"readonly,attr,omitempty" json:"readonly,omitempty" yaml:"readonly,omitempty"`
 	Secure   string `xml:"secure,attr,omitempty" json:"secure,omitempty" yaml:"secure,omitempty"`
 	Type     string `xml:"type,attr,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
@@ -1683,12 +1683,12 @@ type DomainACPI struct {
 
 type DomainACPITable struct {
 	Type string `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
-	Path string `xml:",attr" json:"" yaml:""`
+	Path string `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainOSInitEnv struct {
 	Name  string `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
-	Value string `xml:",attr" json:"" yaml:""`
+	Value string `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainOS struct {
@@ -1720,7 +1720,7 @@ type DomainVCPU struct {
 	Placement string `xml:"placement,attr,omitempty" json:"placement,omitempty" yaml:"placement,omitempty"`
 	CPUSet    string `xml:"cpuset,attr,omitempty" json:"cpuset,omitempty" yaml:"cpuset,omitempty"`
 	Current   string `xml:"current,attr,omitempty" json:"current,omitempty" yaml:"current,omitempty"`
-	Value     int    `xml:",attr" json:"" yaml:""`
+	Value     int    `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainVCPUsVCPU struct {
@@ -1736,7 +1736,7 @@ type DomainVCPUs struct {
 
 type DomainCPUModel struct {
 	Fallback string `xml:"fallback,attr,omitempty" json:"fallback,omitempty" yaml:"fallback,omitempty"`
-	Value    string `xml:",attr" json:"" yaml:""`
+	Value    string `xml:",chardata" json:"" yaml:""`
 	VendorID string `xml:"vendor_id,attr,omitempty" json:"vendor_id,omitempty" yaml:"vendor_id,omitempty"`
 }
 
@@ -1869,7 +1869,7 @@ type DomainFeatureHPT struct {
 
 type DomainFeatureHPTPageSize struct {
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
-	Value string `xml:",attr" json:"" yaml:""`
+	Value string `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainFeatureSMM struct {
@@ -1879,7 +1879,7 @@ type DomainFeatureSMM struct {
 
 type DomainFeatureSMMTSeg struct {
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
-	Value uint   `xml:",attr" json:"" yaml:""`
+	Value uint   `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainFeatureCapability struct {
@@ -1961,15 +1961,15 @@ type DomainFeatureList struct {
 }
 
 type DomainCPUTuneShares struct {
-	Value uint `xml:",attr" json:"" yaml:""`
+	Value uint `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainCPUTunePeriod struct {
-	Value uint64 `xml:",attr" json:"" yaml:""`
+	Value uint64 `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainCPUTuneQuota struct {
-	Value int64 `xml:",attr" json:"" yaml:""`
+	Value int64 `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainCPUTuneVCPUPin struct {
@@ -2141,7 +2141,7 @@ type DomainIDMapRange struct {
 }
 
 type DomainMemoryTuneLimit struct {
-	Value uint64 `xml:",attr" json:"" yaml:""`
+	Value uint64 `xml:",chardata" json:"" yaml:""`
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
@@ -2158,7 +2158,7 @@ type DomainMetadata struct {
 
 type DomainVMWareDataCenterPath struct {
 	XMLName xml.Name `xml:"http://libvirt.org/schemas/domain/vmware/1.0 datacenterpath" json:"http://libvirt.org/schemas/domain/vmware/1.0 datacenterpath" yaml:"http://libvirt.org/schemas/domain/vmware/1.0 datacenterpath"`
-	Value   string   `xml:",attr" json:"" yaml:""`
+	Value   string   `xml:",chardata" json:"" yaml:""`
 }
 
 type DomainPerf struct {
@@ -2171,7 +2171,7 @@ type DomainPerfEvent struct {
 }
 
 type DomainGenID struct {
-	Value string `xml:",attr" json:"" yaml:""`
+	Value string `xml:",chardata" json:"" yaml:""`
 }
 
 // NB, try to keep the order of fields in this struct

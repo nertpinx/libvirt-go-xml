@@ -71,14 +71,14 @@ type CapsHostCPUFeatures struct {
 }
 
 type CapsHostNUMAMemory struct {
-	Size uint64 `xml:",attr" json:"" yaml:""`
+	Size uint64 `xml:",chardata" json:"" yaml:""`
 	Unit string `xml:"unit,attr" json:"unit,omitempty" yaml:"unit,omitempty"`
 }
 
 type CapsHostNUMAPageInfo struct {
 	Size  int    `xml:"size,attr" json:"size,omitempty" yaml:"size,omitempty"`
 	Unit  string `xml:"unit,attr" json:"unit,omitempty" yaml:"unit,omitempty"`
-	Count uint64 `xml:",attr" json:"" yaml:""`
+	Count uint64 `xml:",chardata" json:"" yaml:""`
 }
 
 type CapsHostNUMACPU struct {
@@ -121,7 +121,7 @@ type CapsHostNUMACells struct {
 
 type CapsHostSecModelLabel struct {
 	Type  string `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
-	Value string `xml:",attr" json:"" yaml:""`
+	Value string `xml:",chardata" json:"" yaml:""`
 }
 
 type CapsHostSecModel struct {
@@ -189,7 +189,7 @@ type CapsHostCacheControl struct {
 }
 
 type CapsGuestMachine struct {
-	Name      string `xml:",attr" json:"" yaml:""`
+	Name      string `xml:",chardata" json:"" yaml:""`
 	MaxCPUs   int    `xml:"maxCpus,attr,omitempty" json:"maxCpus,omitempty" yaml:"maxCpus,omitempty"`
 	Canonical string `xml:"canonical,attr,omitempty" json:"canonical,omitempty" yaml:"canonical,omitempty"`
 }
