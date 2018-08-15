@@ -75,7 +75,7 @@ type DomainCapsCPUMode struct {
 }
 
 type DomainCapsCPUModel struct {
-	Name     string `xml:",chardata" json:"" yaml:""`
+	Name     string `xml:",chardata" yaml:"_value" json:"_value"`
 	Usable   string `xml:"usable,attr,omitempty" json:"usable,omitempty" yaml:"usable,omitempty"`
 	Fallback string `xml:"fallback,attr,omitempty" json:"fallback,omitempty" yaml:"fallback,omitempty"`
 }

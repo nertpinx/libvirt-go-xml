@@ -29,7 +29,7 @@ import "encoding/xml"
 
 type StoragePoolSize struct {
 	Unit  string `xml:"unit,attr,omitempty" json:"unit,omitempty" yaml:"unit,omitempty"`
-	Value uint64 `xml:",chardata" json:"" yaml:""`
+	Value uint64 `xml:",chardata" yaml:"_value" json:"_value"`
 }
 
 type StoragePoolTargetPermissions struct {

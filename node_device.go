@@ -45,7 +45,7 @@ type NodeDevice struct {
 
 type NodeDeviceDevNode struct {
 	Type string `xml:"type,attr,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	Path string `xml:",chardata" json:"" yaml:""`
+	Path string `xml:",chardata" yaml:"_value" json:"_value"`
 }
 
 type NodeDeviceDriver struct {
@@ -69,7 +69,7 @@ type NodeDeviceCapability struct {
 
 type NodeDeviceIDName struct {
 	ID   string `xml:"id,attr" json:"id,omitempty" yaml:"id,omitempty"`
-	Name string `xml:",chardata" json:"" yaml:""`
+	Name string `xml:",chardata" yaml:"_value" json:"_value"`
 }
 
 type NodeDevicePCIExpress struct {
