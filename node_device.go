@@ -34,7 +34,7 @@ import (
 )
 
 type NodeDevice struct {
-	XMLName    xml.Name             `xml:"device" json:"device" yaml:"device"`
+	XMLName    xml.Name             `xml:"device" json:"-" yaml:"-"`
 	Name       string               `xml:"name" json:"name" yaml:"name"`
 	Path       string               `xml:"path,omitempty" json:"path,omitempty" yaml:"path,omitempty"`
 	DevNodes   []NodeDeviceDevNode  `xml:"devnode" json:"devnode,omitempty" yaml:"devnode,omitempty"`

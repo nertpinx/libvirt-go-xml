@@ -84,7 +84,7 @@ type DomainControllerDriver struct {
 }
 
 type DomainController struct {
-	XMLName      xml.Name                      `xml:"controller" json:"controller" yaml:"controller"`
+	XMLName      xml.Name                      `xml:"controller" json:"-" yaml:"-"`
 	Type         string                        `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Index        *uint                         `xml:"index,attr" json:"index,omitempty" yaml:"index,omitempty"`
 	Model        string                        `xml:"model,attr,omitempty" json:"model,omitempty" yaml:"model,omitempty"`
@@ -274,7 +274,7 @@ type DomainDiskMirror struct {
 }
 
 type DomainDisk struct {
-	XMLName      xml.Name                `xml:"disk" json:"disk" yaml:"disk"`
+	XMLName      xml.Name                `xml:"disk" json:"-" yaml:"-"`
 	Device       string                  `xml:"device,attr,omitempty" json:"device,omitempty" yaml:"device,omitempty"`
 	RawIO        string                  `xml:"rawio,attr,omitempty" json:"rawio,omitempty" yaml:"rawio,omitempty"`
 	SGIO         string                  `xml:"sgio,attr,omitempty" json:"sgio,omitempty" yaml:"sgio,omitempty"`
@@ -368,7 +368,7 @@ type DomainFilesystemSpaceSoftLimit struct {
 }
 
 type DomainFilesystem struct {
-	XMLName        xml.Name                        `xml:"filesystem" json:"filesystem" yaml:"filesystem"`
+	XMLName        xml.Name                        `xml:"filesystem" json:"-" yaml:"-"`
 	AccessMode     string                          `xml:"accessmode,attr,omitempty" json:"accessmode,omitempty" yaml:"accessmode,omitempty"`
 	Driver         *DomainFilesystemDriver         `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
 	Source         *DomainFilesystemSource         `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
@@ -638,7 +638,7 @@ type DomainInterfaceRoute struct {
 }
 
 type DomainInterface struct {
-	XMLName             xml.Name                    `xml:"interface" json:"interface" yaml:"interface"`
+	XMLName             xml.Name                    `xml:"interface" json:"-" yaml:"-"`
 	Managed             string                      `xml:"managed,attr,omitempty" json:"managed,omitempty" yaml:"managed,omitempty"`
 	TrustGuestRXFilters string                      `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty" yaml:"trustGuestRxFilters,omitempty"`
 	MAC                 *DomainInterfaceMAC         `xml:"mac" json:"mac,omitempty" yaml:"mac,omitempty"`
@@ -880,7 +880,7 @@ type DomainChardevLog struct {
 }
 
 type DomainConsole struct {
-	XMLName  xml.Name               `xml:"console" json:"console" yaml:"console"`
+	XMLName  xml.Name               `xml:"console" json:"-" yaml:"-"`
 	TTY      string                 `xml:"tty,attr,omitempty" json:"tty,omitempty" yaml:"tty,omitempty"`
 	Source   *DomainChardevSource   `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 	Protocol *DomainChardevProtocol `xml:"protocol" json:"protocol,omitempty" yaml:"protocol,omitempty"`
@@ -891,7 +891,7 @@ type DomainConsole struct {
 }
 
 type DomainSerial struct {
-	XMLName  xml.Name               `xml:"serial" json:"serial" yaml:"serial"`
+	XMLName  xml.Name               `xml:"serial" json:"-" yaml:"-"`
 	Source   *DomainChardevSource   `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 	Protocol *DomainChardevProtocol `xml:"protocol" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	Target   *DomainSerialTarget    `xml:"target" json:"target,omitempty" yaml:"target,omitempty"`
@@ -901,7 +901,7 @@ type DomainSerial struct {
 }
 
 type DomainParallel struct {
-	XMLName  xml.Name               `xml:"parallel" json:"parallel" yaml:"parallel"`
+	XMLName  xml.Name               `xml:"parallel" json:"-" yaml:"-"`
 	Source   *DomainChardevSource   `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 	Protocol *DomainChardevProtocol `xml:"protocol" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	Target   *DomainParallelTarget  `xml:"target" json:"target,omitempty" yaml:"target,omitempty"`
@@ -915,7 +915,7 @@ type DomainChardevProtocol struct {
 }
 
 type DomainChannel struct {
-	XMLName  xml.Name               `xml:"channel" json:"channel" yaml:"channel"`
+	XMLName  xml.Name               `xml:"channel" json:"-" yaml:"-"`
 	Source   *DomainChardevSource   `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 	Protocol *DomainChardevProtocol `xml:"protocol" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	Target   *DomainChannelTarget   `xml:"target" json:"target,omitempty" yaml:"target,omitempty"`
@@ -925,7 +925,7 @@ type DomainChannel struct {
 }
 
 type DomainRedirDev struct {
-	XMLName  xml.Name               `xml:"redirdev" json:"redirdev" yaml:"redirdev"`
+	XMLName  xml.Name               `xml:"redirdev" json:"-" yaml:"-"`
 	Bus      string                 `xml:"bus,attr,omitempty" json:"bus,omitempty" yaml:"bus,omitempty"`
 	Source   *DomainChardevSource   `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 	Protocol *DomainChardevProtocol `xml:"protocol" json:"protocol,omitempty" yaml:"protocol,omitempty"`
@@ -947,7 +947,7 @@ type DomainRedirFilterUSB struct {
 }
 
 type DomainInput struct {
-	XMLName xml.Name           `xml:"input" json:"input" yaml:"input"`
+	XMLName xml.Name           `xml:"input" json:"-" yaml:"-"`
 	Type    string             `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Bus     string             `xml:"bus,attr,omitempty" json:"bus,omitempty" yaml:"bus,omitempty"`
 	Driver  *DomainInputDriver `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
@@ -1101,7 +1101,7 @@ type DomainGraphicEGLHeadless struct {
 }
 
 type DomainGraphic struct {
-	XMLName     xml.Name                  `xml:"graphics" json:"graphics" yaml:"graphics"`
+	XMLName     xml.Name                  `xml:"graphics" json:"-" yaml:"-"`
 	SDL         *DomainGraphicSDL         `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
 	VNC         *DomainGraphicVNC         `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
 	RDP         *DomainGraphicRDP         `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
@@ -1127,7 +1127,7 @@ type DomainVideoModel struct {
 }
 
 type DomainVideo struct {
-	XMLName xml.Name           `xml:"video" json:"video" yaml:"video"`
+	XMLName xml.Name           `xml:"video" json:"-" yaml:"-"`
 	Model   DomainVideoModel   `xml:"model" json:"model" yaml:"model"`
 	Driver  *DomainVideoDriver `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
 	Alias   *DomainAlias       `xml:"alias" json:"alias,omitempty" yaml:"alias,omitempty"`
@@ -1145,7 +1145,7 @@ type DomainMemBalloonStats struct {
 }
 
 type DomainMemBalloon struct {
-	XMLName     xml.Name                `xml:"memballoon" json:"memballoon" yaml:"memballoon"`
+	XMLName     xml.Name                `xml:"memballoon" json:"-" yaml:"-"`
 	Model       string                  `xml:"model,attr" json:"model,omitempty" yaml:"model,omitempty"`
 	AutoDeflate string                  `xml:"autodeflate,attr,omitempty" json:"autodeflate,omitempty" yaml:"autodeflate,omitempty"`
 	Driver      *DomainMemBalloonDriver `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
@@ -1160,7 +1160,7 @@ type DomainVSockCID struct {
 }
 
 type DomainVSock struct {
-	XMLName xml.Name        `xml:"vsock" json:"vsock" yaml:"vsock"`
+	XMLName xml.Name        `xml:"vsock" json:"-" yaml:"-"`
 	Model   string          `xml:"model,attr,omitempty" json:"model,omitempty" yaml:"model,omitempty"`
 	CID     *DomainVSockCID `xml:"cid" json:"cid,omitempty" yaml:"cid,omitempty"`
 	Alias   *DomainAlias    `xml:"alias" json:"alias,omitempty" yaml:"alias,omitempty"`
@@ -1173,7 +1173,7 @@ type DomainMemBalloonDriver struct {
 }
 
 type DomainPanic struct {
-	XMLName xml.Name       `xml:"panic" json:"panic" yaml:"panic"`
+	XMLName xml.Name       `xml:"panic" json:"-" yaml:"-"`
 	Model   string         `xml:"model,attr,omitempty" json:"model,omitempty" yaml:"model,omitempty"`
 	Alias   *DomainAlias   `xml:"alias" json:"alias,omitempty" yaml:"alias,omitempty"`
 	Address *DomainAddress `xml:"address" json:"address,omitempty" yaml:"address,omitempty"`
@@ -1184,7 +1184,7 @@ type DomainSoundCodec struct {
 }
 
 type DomainSound struct {
-	XMLName xml.Name           `xml:"sound" json:"sound" yaml:"sound"`
+	XMLName xml.Name           `xml:"sound" json:"-" yaml:"-"`
 	Model   string             `xml:"model,attr" json:"model,omitempty" yaml:"model,omitempty"`
 	Codec   []DomainSoundCodec `xml:"codec" json:"codec,omitempty" yaml:"codec,omitempty"`
 	Alias   *DomainAlias       `xml:"alias" json:"alias,omitempty" yaml:"alias,omitempty"`
@@ -1211,7 +1211,7 @@ type DomainRNGBackendRandom struct {
 }
 
 type DomainRNG struct {
-	XMLName xml.Name          `xml:"rng" json:"rng" yaml:"rng"`
+	XMLName xml.Name          `xml:"rng" json:"-" yaml:"-"`
 	Model   string            `xml:"model,attr" json:"model,omitempty" yaml:"model,omitempty"`
 	Driver  *DomainRNGDriver  `xml:"driver" json:"driver,omitempty" yaml:"driver,omitempty"`
 	Rate    *DomainRNGRate    `xml:"rate" json:"rate,omitempty" yaml:"rate,omitempty"`
@@ -1382,7 +1382,7 @@ type DomainMemorydevTarget struct {
 }
 
 type DomainMemorydev struct {
-	XMLName xml.Name               `xml:"memory" json:"memory" yaml:"memory"`
+	XMLName xml.Name               `xml:"memory" json:"-" yaml:"-"`
 	Model   string                 `xml:"model,attr" json:"model,omitempty" yaml:"model,omitempty"`
 	Access  string                 `xml:"access,attr,omitempty" json:"access,omitempty" yaml:"access,omitempty"`
 	Discard string                 `xml:"discard,attr,omitempty" json:"discard,omitempty" yaml:"discard,omitempty"`
@@ -1393,7 +1393,7 @@ type DomainMemorydev struct {
 }
 
 type DomainWatchdog struct {
-	XMLName xml.Name       `xml:"watchdog" json:"watchdog" yaml:"watchdog"`
+	XMLName xml.Name       `xml:"watchdog" json:"-" yaml:"-"`
 	Model   string         `xml:"model,attr" json:"model,omitempty" yaml:"model,omitempty"`
 	Action  string         `xml:"action,attr,omitempty" json:"action,omitempty" yaml:"action,omitempty"`
 	Alias   *DomainAlias   `xml:"alias" json:"alias,omitempty" yaml:"alias,omitempty"`
@@ -1435,7 +1435,7 @@ type DomainLeaseTarget struct {
 }
 
 type DomainSmartcard struct {
-	XMLName     xml.Name                  `xml:"smartcard" json:"smartcard" yaml:"smartcard"`
+	XMLName     xml.Name                  `xml:"smartcard" json:"-" yaml:"-"`
 	Passthrough *DomainChardevSource      `xml:"source" json:"source,omitempty" yaml:"source,omitempty"`
 	Protocol    *DomainChardevProtocol    `xml:"protocol" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	Host        *DomainSmartcardHost      `xml:"-" json:"-,omitempty" yaml:"-,omitempty"`
@@ -1453,7 +1453,7 @@ type DomainSmartcardHostCert struct {
 }
 
 type DomainTPM struct {
-	XMLName xml.Name          `xml:"tpm" json:"tpm" yaml:"tpm"`
+	XMLName xml.Name          `xml:"tpm" json:"-" yaml:"-"`
 	Model   string            `xml:"model,attr,omitempty" json:"model,omitempty" yaml:"model,omitempty"`
 	Backend *DomainTPMBackend `xml:"backend" json:"backend,omitempty" yaml:"backend,omitempty"`
 	Alias   *DomainAlias      `xml:"alias" json:"alias,omitempty" yaml:"alias,omitempty"`
@@ -1478,7 +1478,7 @@ type DomainTPMBackendDevice struct {
 }
 
 type DomainShmem struct {
-	XMLName xml.Name           `xml:"shmem" json:"shmem" yaml:"shmem"`
+	XMLName xml.Name           `xml:"shmem" json:"-" yaml:"-"`
 	Name    string             `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 	Size    *DomainShmemSize   `xml:"size" json:"size,omitempty" yaml:"size,omitempty"`
 	Model   *DomainShmemModel  `xml:"model" json:"model,omitempty" yaml:"model,omitempty"`
@@ -1757,7 +1757,7 @@ type DomainCPUCache struct {
 }
 
 type DomainCPU struct {
-	XMLName  xml.Name           `xml:"cpu" json:"cpu" yaml:"cpu"`
+	XMLName  xml.Name           `xml:"cpu" json:"-" yaml:"-"`
 	Match    string             `xml:"match,attr,omitempty" json:"match,omitempty" yaml:"match,omitempty"`
 	Mode     string             `xml:"mode,attr,omitempty" json:"mode,omitempty" yaml:"mode,omitempty"`
 	Check    string             `xml:"check,attr,omitempty" json:"check,omitempty" yaml:"check,omitempty"`
@@ -2039,13 +2039,13 @@ type DomainQEMUCommandlineEnv struct {
 }
 
 type DomainQEMUCommandline struct {
-	XMLName xml.Name                   `xml:"http://libvirt.org/schemas/domain/qemu/1.0 commandline" json:"http://libvirt.org/schemas/domain/qemu/1.0 commandline" yaml:"http://libvirt.org/schemas/domain/qemu/1.0 commandline"`
+	XMLName xml.Name                   `xml:"http://libvirt.org/schemas/domain/qemu/1.0 commandline" json:"-" yaml:"-"`
 	Args    []DomainQEMUCommandlineArg `xml:"arg" json:"arg,omitempty" yaml:"arg,omitempty"`
 	Envs    []DomainQEMUCommandlineEnv `xml:"env" json:"env,omitempty" yaml:"env,omitempty"`
 }
 
 type DomainLXCNamespace struct {
-	XMLName  xml.Name               `xml:"http://libvirt.org/schemas/domain/lxc/1.0 namespace" json:"http://libvirt.org/schemas/domain/lxc/1.0 namespace" yaml:"http://libvirt.org/schemas/domain/lxc/1.0 namespace"`
+	XMLName  xml.Name               `xml:"http://libvirt.org/schemas/domain/lxc/1.0 namespace" json:"-" yaml:"-"`
 	ShareNet *DomainLXCNamespaceMap `xml:"sharenet" json:"sharenet,omitempty" yaml:"sharenet,omitempty"`
 	ShareIPC *DomainLXCNamespaceMap `xml:"shareipc" json:"shareipc,omitempty" yaml:"shareipc,omitempty"`
 	ShareUTS *DomainLXCNamespaceMap `xml:"shareuts" json:"shareuts,omitempty" yaml:"shareuts,omitempty"`
@@ -2157,7 +2157,7 @@ type DomainMetadata struct {
 }
 
 type DomainVMWareDataCenterPath struct {
-	XMLName xml.Name `xml:"http://libvirt.org/schemas/domain/vmware/1.0 datacenterpath" json:"http://libvirt.org/schemas/domain/vmware/1.0 datacenterpath" yaml:"http://libvirt.org/schemas/domain/vmware/1.0 datacenterpath"`
+	XMLName xml.Name `xml:"http://libvirt.org/schemas/domain/vmware/1.0 datacenterpath" json:"-" yaml:"-"`
 	Value   string   `xml:",chardata" json:"" yaml:""`
 }
 
@@ -2178,7 +2178,7 @@ type DomainGenID struct {
 // matching the order of XML elements that libvirt
 // will generate when dumping XML.
 type Domain struct {
-	XMLName              xml.Name             `xml:"domain" json:"domain" yaml:"domain"`
+	XMLName              xml.Name             `xml:"domain" json:"-" yaml:"-"`
 	Type                 string               `xml:"type,attr,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	ID                   *int                 `xml:"id,attr" json:"id,omitempty" yaml:"id,omitempty"`
 	Name                 string               `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`

@@ -128,7 +128,7 @@ type NetworkForwardAddressPCI struct {
 }
 
 type NetworkForwardInterface struct {
-	XMLName xml.Name `xml:"interface" json:"interface" yaml:"interface"`
+	XMLName xml.Name `xml:"interface" json:"-" yaml:"-"`
 	Dev     string   `xml:"dev,attr,omitempty" json:"dev,omitempty" yaml:"dev,omitempty"`
 }
 
@@ -137,13 +137,13 @@ type NetworkMAC struct {
 }
 
 type NetworkDHCPRange struct {
-	XMLName xml.Name `xml:"range" json:"range" yaml:"range"`
+	XMLName xml.Name `xml:"range" json:"-" yaml:"-"`
 	Start   string   `xml:"start,attr,omitempty" json:"start,omitempty" yaml:"start,omitempty"`
 	End     string   `xml:"end,attr,omitempty" json:"end,omitempty" yaml:"end,omitempty"`
 }
 
 type NetworkDHCPHost struct {
-	XMLName xml.Name `xml:"host" json:"host" yaml:"host"`
+	XMLName xml.Name `xml:"host" json:"-" yaml:"-"`
 	ID      string   `xml:"id,attr,omitempty" json:"id,omitempty" yaml:"id,omitempty"`
 	MAC     string   `xml:"mac,attr,omitempty" json:"mac,omitempty" yaml:"mac,omitempty"`
 	Name    string   `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
@@ -190,7 +190,7 @@ type NetworkDNSForwarder struct {
 }
 
 type NetworkDNSTXT struct {
-	XMLName xml.Name `xml:"txt" json:"txt" yaml:"txt"`
+	XMLName xml.Name `xml:"txt" json:"-" yaml:"-"`
 	Name    string   `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 	Value   string   `xml:"value,attr" json:"value,omitempty" yaml:"value,omitempty"`
 }
@@ -200,13 +200,13 @@ type NetworkDNSHostHostname struct {
 }
 
 type NetworkDNSHost struct {
-	XMLName   xml.Name                 `xml:"host" json:"host" yaml:"host"`
+	XMLName   xml.Name                 `xml:"host" json:"-" yaml:"-"`
 	IP        string                   `xml:"ip,attr" json:"ip,omitempty" yaml:"ip,omitempty"`
 	Hostnames []NetworkDNSHostHostname `xml:"hostname" json:"hostname,omitempty" yaml:"hostname,omitempty"`
 }
 
 type NetworkDNSSRV struct {
-	XMLName  xml.Name `xml:"srv" json:"srv" yaml:"srv"`
+	XMLName  xml.Name `xml:"srv" json:"-" yaml:"-"`
 	Service  string   `xml:"service,attr,omitempty" json:"service,omitempty" yaml:"service,omitempty"`
 	Protocol string   `xml:"protocol,attr,omitempty" json:"protocol,omitempty" yaml:"protocol,omitempty"`
 	Target   string   `xml:"target,attr,omitempty" json:"target,omitempty" yaml:"target,omitempty"`
@@ -234,7 +234,7 @@ type NetworkMTU struct {
 }
 
 type Network struct {
-	XMLName             xml.Name            `xml:"network" json:"network" yaml:"network"`
+	XMLName             xml.Name            `xml:"network" json:"-" yaml:"-"`
 	IPv6                string              `xml:"ipv6,attr,omitempty" json:"ipv6,omitempty" yaml:"ipv6,omitempty"`
 	TrustGuestRxFilters string              `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty" yaml:"trustGuestRxFilters,omitempty"`
 	Name                string              `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
@@ -255,7 +255,7 @@ type Network struct {
 }
 
 type NetworkPortGroup struct {
-	XMLName             xml.Name            `xml:"portgroup" json:"portgroup" yaml:"portgroup"`
+	XMLName             xml.Name            `xml:"portgroup" json:"-" yaml:"-"`
 	Name                string              `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Default             string              `xml:"default,attr,omitempty" json:"default,omitempty" yaml:"default,omitempty"`
 	TrustGuestRxFilters string              `xml:"trustGuestRxFilters,attr,omitempty" json:"trustGuestRxFilters,omitempty" yaml:"trustGuestRxFilters,omitempty"`

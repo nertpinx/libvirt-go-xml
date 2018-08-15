@@ -30,7 +30,7 @@ import (
 )
 
 type Interface struct {
-	XMLName  xml.Name            `xml:"interface" json:"interface" yaml:"interface"`
+	XMLName  xml.Name            `xml:"interface" json:"-" yaml:"-"`
 	Name     string              `xml:"name,attr,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Start    *InterfaceStart     `xml:"start" json:"start,omitempty" yaml:"start,omitempty"`
 	MTU      *InterfaceMTU       `xml:"mtu" json:"mtu,omitempty" yaml:"mtu,omitempty"`

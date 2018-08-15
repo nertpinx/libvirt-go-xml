@@ -34,7 +34,7 @@ import (
 )
 
 type NWFilter struct {
-	XMLName  xml.Name `xml:"filter" json:"filter" yaml:"filter"`
+	XMLName  xml.Name `xml:"filter" json:"-" yaml:"-"`
 	Name     string   `xml:"name,attr" json:"name,omitempty" yaml:"name,omitempty"`
 	UUID     string   `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`
 	Chain    string   `xml:"chain,attr,omitempty" json:"chain,omitempty" yaml:"chain,omitempty"`

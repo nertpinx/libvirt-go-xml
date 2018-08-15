@@ -49,7 +49,7 @@ type CapsHostCPUMicrocode struct {
 }
 
 type CapsHostCPU struct {
-	XMLName      xml.Name                 `xml:"cpu" json:"cpu" yaml:"cpu"`
+	XMLName      xml.Name                 `xml:"cpu" json:"-" yaml:"-"`
 	Arch         string                   `xml:"arch,omitempty" json:"arch,omitempty" yaml:"arch,omitempty"`
 	Model        string                   `xml:"model,omitempty" json:"model,omitempty" yaml:"model,omitempty"`
 	Vendor       string                   `xml:"vendor,omitempty" json:"vendor,omitempty" yaml:"vendor,omitempty"`
@@ -257,7 +257,7 @@ type CapsGuest struct {
 }
 
 type Caps struct {
-	XMLName xml.Name    `xml:"capabilities" json:"capabilities" yaml:"capabilities"`
+	XMLName xml.Name    `xml:"capabilities" json:"-" yaml:"-"`
 	Host    CapsHost    `xml:"host" json:"host" yaml:"host"`
 	Guests  []CapsGuest `xml:"guest" json:"guest,omitempty" yaml:"guest,omitempty"`
 }

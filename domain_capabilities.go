@@ -30,7 +30,7 @@ import (
 )
 
 type DomainCaps struct {
-	XMLName   xml.Name             `xml:"domainCapabilities" json:"domainCapabilities" yaml:"domainCapabilities"`
+	XMLName   xml.Name             `xml:"domainCapabilities" json:"-" yaml:"-"`
 	Path      string               `xml:"path" json:"path" yaml:"path"`
 	Domain    string               `xml:"domain" json:"domain" yaml:"domain"`
 	Machine   string               `xml:"machine,omitempty" json:"machine,omitempty" yaml:"machine,omitempty"`

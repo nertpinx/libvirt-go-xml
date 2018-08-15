@@ -37,7 +37,7 @@ type SecretUsage struct {
 }
 
 type Secret struct {
-	XMLName     xml.Name     `xml:"secret" json:"secret" yaml:"secret"`
+	XMLName     xml.Name     `xml:"secret" json:"-" yaml:"-"`
 	Ephemeral   string       `xml:"ephemeral,attr,omitempty" json:"ephemeral,omitempty" yaml:"ephemeral,omitempty"`
 	Private     string       `xml:"private,attr,omitempty" json:"private,omitempty" yaml:"private,omitempty"`
 	Description string       `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`

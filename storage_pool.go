@@ -138,7 +138,7 @@ type StoragePoolSource struct {
 }
 
 type StoragePool struct {
-	XMLName    xml.Name           `xml:"pool" json:"pool" yaml:"pool"`
+	XMLName    xml.Name           `xml:"pool" json:"-" yaml:"-"`
 	Type       string             `xml:"type,attr" json:"type,omitempty" yaml:"type,omitempty"`
 	Name       string             `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	UUID       string             `xml:"uuid,omitempty" json:"uuid,omitempty" yaml:"uuid,omitempty"`

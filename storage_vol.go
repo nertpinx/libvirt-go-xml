@@ -71,7 +71,7 @@ type StorageVolumeBackingStore struct {
 }
 
 type StorageVolume struct {
-	XMLName      xml.Name                   `xml:"volume" json:"volume" yaml:"volume"`
+	XMLName      xml.Name                   `xml:"volume" json:"-" yaml:"-"`
 	Type         string                     `xml:"type,attr,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	Name         string                     `xml:"name" json:"name" yaml:"name"`
 	Key          string                     `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`

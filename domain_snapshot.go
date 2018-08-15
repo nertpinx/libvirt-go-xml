@@ -52,7 +52,7 @@ type DomainSnapshotParent struct {
 }
 
 type DomainSnapshot struct {
-	XMLName      xml.Name              `xml:"domainsnapshot" json:"domainsnapshot" yaml:"domainsnapshot"`
+	XMLName      xml.Name              `xml:"domainsnapshot" json:"-" yaml:"-"`
 	Name         string                `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Description  string                `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
 	State        string                `xml:"state,omitempty" json:"state,omitempty" yaml:"state,omitempty"`
