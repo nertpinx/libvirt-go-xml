@@ -859,17 +859,17 @@ type DomainAddressVirtioS390 struct {
 }
 
 type DomainAddress struct {
-	PCI          *DomainAddressPCI
-	Drive        *DomainAddressDrive
-	VirtioSerial *DomainAddressVirtioSerial
-	CCID         *DomainAddressCCID
-	USB          *DomainAddressUSB
-	SpaprVIO     *DomainAddressSpaprVIO
-	VirtioS390   *DomainAddressVirtioS390
-	CCW          *DomainAddressCCW
-	VirtioMMIO   *DomainAddressVirtioMMIO
-	ISA          *DomainAddressISA
-	DIMM         *DomainAddressDIMM
+	PCI          *DomainAddressPCI `json:",omitempty" yaml:",omitempty"`
+	Drive        *DomainAddressDrive `json:",omitempty" yaml:",omitempty"`
+	VirtioSerial *DomainAddressVirtioSerial `json:",omitempty" yaml:",omitempty"`
+	CCID         *DomainAddressCCID `json:",omitempty" yaml:",omitempty"`
+	USB          *DomainAddressUSB `json:",omitempty" yaml:",omitempty"`
+	SpaprVIO     *DomainAddressSpaprVIO `json:",omitempty" yaml:",omitempty"`
+	VirtioS390   *DomainAddressVirtioS390 `json:",omitempty" yaml:",omitempty"`
+	CCW          *DomainAddressCCW `json:",omitempty" yaml:",omitempty"`
+	VirtioMMIO   *DomainAddressVirtioMMIO `json:",omitempty" yaml:",omitempty"`
+	ISA          *DomainAddressISA `json:",omitempty" yaml:",omitempty"`
+	DIMM         *DomainAddressDIMM `json:",omitempty" yaml:",omitempty"`
 }
 
 type DomainChardevLog struct {
@@ -2213,9 +2213,9 @@ type Domain struct {
 	Perf                 *DomainPerf          `xml:"perf" json:"perf,omitempty" yaml:"perf,omitempty"`
 	Devices              *DomainDeviceList    `xml:"devices" json:"devices,omitempty" yaml:"devices,omitempty"`
 	SecLabel             []DomainSecLabel     `xml:"seclabel" json:"seclabel,omitempty" yaml:"seclabel,omitempty"`
-	QEMUCommandline      *DomainQEMUCommandline
-	LXCNamespace         *DomainLXCNamespace
-	VMWareDataCenterPath *DomainVMWareDataCenterPath
+	QEMUCommandline      *DomainQEMUCommandline `json:",omitempty" yaml:",omitempty"`
+	LXCNamespace         *DomainLXCNamespace `json:",omitempty" yaml:",omitempty"`
+	VMWareDataCenterPath *DomainVMWareDataCenterPath `json:",omitempty" yaml:",omitempty"`
 	KeyWrap              *DomainKeyWrap        `xml:"keywrap" json:"keywrap,omitempty" yaml:"keywrap,omitempty"`
 	LaunchSecurity       *DomainLaunchSecurity `xml:"launchSecurity" json:"launchSecurity,omitempty" yaml:"launchSecurity,omitempty"`
 }

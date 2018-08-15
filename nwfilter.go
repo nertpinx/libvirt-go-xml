@@ -43,8 +43,8 @@ type NWFilter struct {
 }
 
 type NWFilterEntry struct {
-	Rule *NWFilterRule
-	Ref  *NWFilterRef
+	Rule *NWFilterRule `json:",omitempty" yaml:",omitempty"`
+	Ref  *NWFilterRef `json:",omitempty" yaml:",omitempty"`
 }
 
 type NWFilterRef struct {
